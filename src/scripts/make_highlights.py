@@ -111,7 +111,7 @@ def create_upload_yaml(trial_folder, trial_id, video_info, source_url, custom_ti
     channel = video_info.get('channel', video_info.get('uploader', 'Unknown'))
 
     # Use trial_id as title for easy categorization
-    title = custom_title or trial_id
+    title = custom_title or f"Cricket Bail Safety Trials - {trial_id}"
 
     yaml_content = f"""# YouTube Upload Metadata
 # Copy-paste these values when uploading highlights.mp4 to YouTube
@@ -127,6 +127,7 @@ description: |
   - Defensive publication (Zenodo): https://doi.org/10.5281/zenodo.18043789
   - Explainer video: https://youtu.be/PeISNg5_usY
   - Original match video: {source_url}
+  - Field trial records for independent review: https://github.com/anishanup/cricket-bail-safety-trial-tools
 
   This video is for research and observation purposes only.
 
