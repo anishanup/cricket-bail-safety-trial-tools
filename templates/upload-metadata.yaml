@@ -1,0 +1,29 @@
+# YouTube Upload Metadata
+# Copy-paste these values when uploading highlights.mp4 to YouTube
+
+title: "Cricket Bail Safety Trials - YYYYMMDD-trial-name"
+
+description: |
+  Highlights from: (video title)
+
+  This video documents a trial observation of the tethered cricket bail safety mechanism.
+
+  Related materials:
+  - Defensive publication (Zenodo): https://doi.org/10.5281/zenodo.18043789
+  - Explainer video: https://youtu.be/PeISNg5_usY
+  - Original match video: (source url)
+  - Field trial records for independent review: https://github.com/anishanup/cricket-bail-safety-trial-tools
+
+  This video is for research and observation purposes only.
+
+tags:
+  - cricket
+  - bail safety
+  - cricket bail
+  - tethered bail
+  - cricket safety
+  - highlights
+
+source_url: "{source url}"
+source_title: "{video title}"
+source_channel: "{channel}"
