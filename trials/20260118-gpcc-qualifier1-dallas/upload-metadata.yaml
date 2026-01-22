@@ -1,0 +1,28 @@
+# YouTube Upload Metadata
+# Copy-paste these values when uploading highlights.mp4 to YouTube
+
+title: "20260118-gpcc-qualifier1-dallas"
+
+description: |
+  Highlights from: GP 1: Dallas Titans vs ViratCC - Qualifier 1 -  GPCC Cup 2025
+
+  This video documents a trial observation of the tethered cricket bail safety mechanism.
+
+  Related materials:
+  - Defensive publication (Zenodo): https://doi.org/10.5281/zenodo.18043789
+  - Explainer video: https://youtu.be/PeISNg5_usY
+  - Original match video: https://youtu.be/xR-2cauqcuY
+
+  This video is for research and observation purposes only.
+
+tags:
+  - cricket
+  - bail safety
+  - cricket bail
+  - tethered bail
+  - cricket safety
+  - highlights
+
+source_url: "https://youtu.be/xR-2cauqcuY"
+source_title: "GP 1: Dallas Titans vs ViratCC - Qualifier 1 -  GPCC Cup 2025"
+source_channel: "GPCC Cricket"

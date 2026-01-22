@@ -1,0 +1,27 @@
+# Trial: GP 1 Dallas Titans vs ViratCC - GPCC Winter Cup 2025
+source_url: "https://youtu.be/xR-2cauqcuY"
+highlight_url: "https://youtu.be/fDTWn7ghYIQ"
+type: live_match
+date: "2026-01-18"
+
+summary: |
+  First live match trial of tethered bail safety mechanism.
+  5 bail dislodgement events observed. One significant collar fracture
+  from direct ball impact during a runout attempt.
+  Tethers functioned as expected in all events.
+
+notes: |
+  33:54 - Clean bowled by Joy Jadhav. Bails dislodged cleanly, tether retained bails.
+  35:22 - Same dismissal from square leg camera angle.
+  50:12 - Runout attempt on straight drive. Near miss, bails undisturbed.
+  55:15 - Direct ball impact to PVC collar during runout. Caused visible crack/fracture.
+  55:41 - Side angle confirms collar damage from direct impact.
+
+  Hardware condition:
+  - PVC schedule 40 coupling cracked from direct ball impact
+  - Tethers remained functional throughout
+
+  Recommendations:
+  - Test alternative collar materials with higher impact resistance (ABS, polycarbonate)
+  - Consider adding internal padding to collar
+  - Document ball speed/impact force in future trials if possible
