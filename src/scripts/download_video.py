@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 """
-Download a YouTube video and create a working folder structure.
+Download a YouTube video to a downloads folder.
 
-Creates a folder based on the video title and downloads the video as source.mp4.
-Also extracts and saves video metadata for later use.
+Downloads the video as source.mp4 and saves video metadata.
 
 Usage:
     python download_video.py <youtube_url> [--output-dir <dir>]
 
 Example:
     python download_video.py "https://youtu.be/PeISNg5_usY"
-    python download_video.py "https://youtu.be/PeISNg5_usY" --output-dir ./my_downloads
+    python download_video.py "https://youtu.be/PeISNg5_usY" --output-dir ./downloads
 """
 
 import argparse
@@ -47,50 +46,38 @@ def get_video_info(youtube_url):
     return info
 
 
-def find_existing_folder(video_id, output_dir="downloads"):
+def find_existing_download(output_dir="downloads"):
     """
-    Find an existing working folder for a video ID.
+    Check if a video has already been downloaded.
 
     Args:
-        video_id: YouTube video ID
-        output_dir: Parent directory to search
+        output_dir: Downloads directory to check
 
     Returns:
-        str or None: Path to existing folder, or None if not found
+        str or None: Path to output_dir if source.mp4 exists, None otherwise
     """
     if not os.path.exists(output_dir):
         return None
 
-    # Look for folders ending with the video ID
-    for folder_name in os.listdir(output_dir):
-        folder_path = os.path.join(output_dir, folder_name)
-        if os.path.isdir(folder_path) and folder_name.endswith(f"_{video_id}"):
-            return folder_path
+    source_path = os.path.join(output_dir, "source.mp4")
+    if os.path.exists(source_path):
+        return output_dir
 
     return None
 
 
-def create_working_folder(video_info, output_dir="downloads"):
+def ensure_downloads_folder(output_dir="downloads"):
     """
-    Create a working folder for the video based on its title and ID.
+    Ensure downloads folder exists.
 
     Args:
-        video_info: Video metadata dict from yt-dlp
-        output_dir: Parent directory for downloads
+        output_dir: Downloads directory path
 
     Returns:
-        str: Path to the created working folder
+        str: Path to the downloads folder
     """
-    title = video_info.get('title', 'untitled')
-    video_id = video_info.get('id', 'unknown')
-
-    # Create folder name: sanitized title + video ID for uniqueness
-    folder_name = f"{sanitize_filename(title)}_{video_id}"
-    folder_path = os.path.join(output_dir, folder_name)
-
-    os.makedirs(folder_path, exist_ok=True)
-
-    return folder_path
+    os.makedirs(output_dir, exist_ok=True)
+    return output_dir
 
 
 def download_video(youtube_url, working_folder):
@@ -193,38 +180,36 @@ def ensure_video_downloaded(youtube_url, output_dir="downloads"):
 
     Args:
         youtube_url: YouTube video URL (any format)
-        output_dir: Parent directory for downloads
+        output_dir: Downloads directory
 
     Returns:
-        tuple: (working_folder, video_path, video_info, was_cached)
+        tuple: (downloads_folder, video_path, video_info, was_cached)
     """
     # Normalize URL to clean format
     youtube_url = normalize_youtube_url(youtube_url)
     print(f"Video URL: {youtube_url}")
 
     video_info = get_video_info(youtube_url)
-    video_id = video_info.get('id')
 
     print(f"Video: {video_info.get('title')}")
     print(f"Duration: {video_info.get('duration')} seconds")
 
     # Check for existing download
-    existing_folder = find_existing_folder(video_id, output_dir)
-    if existing_folder:
-        video_path = os.path.join(existing_folder, "source.mp4")
-        if os.path.exists(video_path):
-            print(f"Found existing download: {existing_folder}")
-            print("Skipping download, using cached video.")
-            return existing_folder, video_path, video_info, True
+    existing = find_existing_download(output_dir)
+    if existing:
+        video_path = os.path.join(existing, "source.mp4")
+        print(f"Found existing download: {video_path}")
+        print("Skipping download, using cached video.")
+        return existing, video_path, video_info, True
 
-    # Create working folder and download
-    working_folder = create_working_folder(video_info, output_dir)
-    print(f"Working folder: {working_folder}")
+    # Create downloads folder and download
+    downloads_folder = ensure_downloads_folder(output_dir)
+    print(f"Downloads folder: {downloads_folder}")
 
-    video_path, full_info = download_video(youtube_url, working_folder)
-    save_source_metadata(full_info, working_folder)
+    video_path, full_info = download_video(youtube_url, downloads_folder)
+    save_source_metadata(full_info, downloads_folder)
 
-    return working_folder, video_path, full_info, False
+    return downloads_folder, video_path, full_info, False
 
 
 def main():
@@ -243,7 +228,7 @@ def main():
 
     args = parser.parse_args()
 
-    working_folder, video_path, video_info, was_cached = ensure_video_downloaded(
+    downloads_folder, video_path, video_info, was_cached = ensure_video_downloaded(
         args.youtube_url,
         args.output_dir
     )
@@ -254,11 +239,11 @@ def main():
         print("Using existing download.")
     else:
         print("Download complete!")
-    print(f"  Working folder: {working_folder}")
+    print(f"  Downloads folder: {downloads_folder}")
     print(f"  Video file: {video_path}")
     print("=" * 50)
 
-    return working_folder, video_path
+    return downloads_folder, video_path
 
 
 if __name__ == "__main__":

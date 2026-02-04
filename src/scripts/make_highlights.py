@@ -241,7 +241,7 @@ Output:
     print("=" * 50)
 
     downloads_dir = os.path.join(trial_folder, "downloads")
-    working_folder, video_path, video_info, was_cached = ensure_video_downloaded(
+    downloads_folder, video_path, video_info, was_cached = ensure_video_downloaded(
         args.youtube_url,
         downloads_dir
     )
@@ -251,8 +251,8 @@ Output:
     print("STEP 2: Extracting clips and creating highlights")
     print("=" * 50)
 
-    output_path = os.path.join(working_folder, "highlights.mp4")
-    clips_dir = os.path.join(working_folder, "clips") if args.save_clips else None
+    output_path = os.path.join(downloads_folder, "highlights.mp4")
+    clips_dir = os.path.join(downloads_folder, "clips") if args.save_clips else None
 
     extract_clips(
         video_path,

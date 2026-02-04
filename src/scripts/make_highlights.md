@@ -134,6 +134,7 @@ tags:
 
 Video files (git-ignored):
 - `source.mp4` — Downloaded from YouTube
+- `source_metadata.json` — Video metadata
 - `highlights.mp4` — Your output (upload this)
 
 ## Tips
