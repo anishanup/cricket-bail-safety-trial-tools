@@ -10,7 +10,10 @@
 1:41:34, # Bowled
 3:18:02, 3:18:08 # Runout by bowler
 4:03:27, 4:03:32 # Shy at the stumps from long off/on. not out
-4:04:07, 4:04:15 # Shy at stump from keeper not out
+
+# KEY EVENT: bail disconnects from tether
+,7, Next video is a great data point | Runout attempt by keeper | One bail detaches from device while other is fine | Probable causes: | 1. Knot tying thread to O-ring got loose (most likely) | 2. O-ring got cut (unlikely) | Investigate better knots and O-ring material and discuss incident with umpires/players involved
+4:04:07, 4:04:38 # Shy at stump from keeper not out
 
 , 8, Next video is a runout attempt at bowler's end | Watch how low fielder crouches to collect the ball thrown at him | Normal situation in cricket; but dangerous w.r.t flying bails
 4:09:11, 4:09:18 # Collection at bowler end runout attempt not out
