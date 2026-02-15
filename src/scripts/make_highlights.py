@@ -124,7 +124,7 @@ description: |
   This video documents a trial observation of the tethered cricket bail safety mechanism.
 
   Related materials:
-  - Defensive publication (Zenodo): https://doi.org/10.5281/zenodo.18043789
+  - Defensive publication (Zenodo): https://doi.org/10.5281/zenodo.17284396
   - Explainer video: https://youtu.be/PeISNg5_usY
   - Original match video: {source_url}
   - Field trial records for independent review: https://github.com/anishanup/cricket-bail-safety-trial-tools

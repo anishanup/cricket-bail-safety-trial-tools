@@ -6,8 +6,11 @@ The goal is transparent, reproducible documentation that supports independent te
 
 ## Related Materials
 
-- [Defensive publication (Zenodo)](https://doi.org/10.5281/zenodo.18043789) — Technical disclosure with prior art
+- [Defensive publication (Zenodo)](https://doi.org/10.5281/zenodo.17284396) — Technical disclosure with prior art
 - [Explainer video (YouTube)](https://youtu.be/PeISNg5_usY) — Visual overview of the mechanism
+- [Trial highlights playlist (YouTube)](https://www.youtube.com/playlist?list=PLcYYPWle7j_DAocfHTG9aT0MmcTBm5-Ny) — All field trial videos
+- [Presentation for leagues (Google Drive)](https://docs.google.com/presentation/d/136xSsMM0RMuuDFrCSybQAT8F4PuwABc4/edit?usp=drive_link&ouid=104491509742866483855&rtpof=true&sd=true) — Overview deck for cricket leagues
+- [Presentation PDF (Google Drive)](https://drive.google.com/file/d/1oVQVN1WY7dx6SvYWuCzHR1Z85Qlw31KU/view?usp=drive_link) — PDF version of the deck
 
 ## What's a Trial?
 
