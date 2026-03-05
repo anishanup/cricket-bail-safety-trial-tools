@@ -1,0 +1,31 @@
+# Trial: Bowling Machine Impact Test - Bail Guard with Silicone Collar and Dual O-Rings
+source_url: ""
+highlight_url: "https://youtu.be/v-XQGnFnwYA"
+type: controlled_test
+date: "2026-02-27"
+
+summary: |
+  Repeated impact tests using a Bola bowling machine at 80, 90, and 95 mph
+  from 21 yards (simulating bowler release point versus 22 yards stump to stump).
+  Effect on bail guard assessed after ball hits stumps.
+
+  Design used:
+  1. Silicone collar with 2 O-rings per bail (dual O-ring design)
+
+  Benefits of this design:
+  1. Device is transferable — good model when there are many teams playing
+     in a league and they bring their own stumps and bails, but there are
+     not enough bail guard devices. Umpires can have bail guard and
+     fix/remove from stumps and reuse across games with a small panel of umpires.
+  2. Dual O-rings for redundancy and visual failure indication —
+     if 1 O-ring on a bail fails, it is easy to see and replace the
+     tether + O-ring mechanism.
+
+notes: |
+  Test setup:
+  - Bola Professional bowling machine
+  - Speeds: 80 mph, 90 mph, 95 mph
+  - Distance: 21 yards (simulating bowler release point)
+  - Repeated impacts at each speed
+  - Bail guard condition assessed after each impact
+  - 12 direct heavy duty impacts. i.e., equivalent to 12 players out of 20 getting out bowled or via direct hit run outs!
