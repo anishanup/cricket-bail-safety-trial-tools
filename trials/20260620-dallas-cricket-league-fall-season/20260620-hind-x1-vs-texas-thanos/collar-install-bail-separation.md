@@ -6,7 +6,7 @@
 
 **Watch the clip:** https://youtube.com/shorts/jt-c6efO6-c
 
-**All trial videos (playlist):** https://www.youtube.com/playlist?list=PLcYYPWle7j_DAocfHTG9aT0MmcTBm5-Ny
+**All trial videos reference (playlist):** https://www.youtube.com/playlist?list=PLcYYPWle7j_DAocfHTG9aT0MmcTBm5-Ny
 
 ## What happened
 
