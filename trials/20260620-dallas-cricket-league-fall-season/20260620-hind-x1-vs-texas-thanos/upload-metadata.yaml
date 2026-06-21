@@ -1,0 +1,39 @@
+# YouTube Upload Metadata
+# Copy-paste these values when uploading the clip to YouTube
+
+title: "Cricket Bail Safety Trial - Bail Slips Off O-Ring After Incorrect Install (DCL Fall 2026)"
+
+description: |
+  A field trial of the tethered cricket bail safety device during a live
+  Dallas Cricket League match: Hind X1 vs Texas Thanos, DLCL Fall 30 Over
+  Tournament 2026.
+
+  In this clip, a bail came off its silicone o-ring on ball impact and landed
+  away from the stumps. The o-ring did not break. The cause was an installation
+  mistake, not a failure of the device: only one of the two orange stoppers was
+  fitted, so the collar was pinned and could not move a little to soften the
+  pull. The hard jerk then dragged the o-ring off the end of the bail.
+
+  Correct setup (how to install it): https://www.youtube.com/shorts/Ngg2C3kXrzU
+
+  Related materials:
+  - Defensive publication (Zenodo): https://doi.org/10.5281/zenodo.17284396
+  - Explainer video: https://youtu.be/PeISNg5_usY
+  - All trial highlights (playlist): https://www.youtube.com/playlist?list=PLcYYPWle7j_DAocfHTG9aT0MmcTBm5-Ny
+  - Match scorecard: https://www.dallascricket.org/tournament/36/view/5319
+  - Field trial records for independent review: https://github.com/anishanup/cricket-bail-safety-trial-tools
+
+  This video is for research and observation purposes only.
+
+tags:
+  - cricket
+  - bail safety
+  - cricket bail
+  - tethered bail
+  - cricket safety
+  - bail guard
+  - dallas cricket league
+
+source_url: "https://www.dallascricket.org/tournament/36/view/5319"
+source_title: "Hind X1 vs Texas Thanos - DLCL Fall 30 Over Tournament 2026"
+source_channel: "Clip recorded on site (no full match video)"

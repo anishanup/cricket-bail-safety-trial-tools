@@ -1,0 +1,46 @@
+# Trial: Hind X1 vs Texas Thanos - DLCL Fall 30 Over Tournament 2026
+source_url: "https://www.dallascricket.org/tournament/36/view/5319"
+highlight_url: "https://youtube.com/shorts/jt-c6efO6-c"
+playlist_url: "https://www.youtube.com/playlist?list=PLcYYPWle7j_DAocfHTG9aT0MmcTBm5-Ny"
+type: live_match
+date: "2026-06-20"
+
+summary: |
+  Field trial of the tethered bail safety device in a live DCL match
+  (Hind X1 vs Texas Thanos).
+
+  A bail came off its silicone o-ring on ball impact and landed away from
+  the stumps. The o-ring did not break.
+
+  The cause was an installation mistake, not a failure of the device. The
+  collar had been set up wrong: it was pinned tight against the orange
+  stopper, so it could not move at all. With nothing left to soften the
+  pull, the jolt when the bail hit the end of the tether was hard enough to
+  drag the o-ring off the end of the bail.
+
+  A plain-language explanation is in collar-install-bail-separation.md in
+  this folder.
+
+notes: |
+  What we saw:
+  - The bail was fully off the silicone o-ring and resting away from the
+    stumps.
+  - The o-ring was still in one piece (no snap, no stretch break).
+  - Only one of the two orange stoppers had been fitted; the second stopper
+    was still unused in the bail guard packet.
+  - The collar and the single stopper were sitting together on the stump,
+    with the collar pinned and no room to move.
+
+  Root cause:
+  - Installation error at setup. Only one stopper was used, so the collar
+    was pinned against it and could not move (the design uses two stoppers,
+    one above and one below the collar, with a gap for the collar to move).
+  - With no movement left in the system, the bail's stop at the end of the
+    tether was a hard shock instead of a soft pull, and that shock pulled
+    the o-ring off the end of the bail.
+
+  Evidence note:
+  - The clip in downloads/ (bail-separation-clip.mp4, about 7 seconds)
+    shows the after-state. It does not show the ball, the moment of impact,
+    or the bail in flight, so the cause above is reconstructed from the
+    physical evidence.
