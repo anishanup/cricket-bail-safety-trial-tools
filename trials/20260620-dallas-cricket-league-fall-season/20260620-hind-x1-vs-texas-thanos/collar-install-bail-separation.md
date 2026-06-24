@@ -1,12 +1,16 @@
-# Why a bail came off the o-ring (and how to stop it)
+# Bail Guard: Learnings from a DCL Game
+
+*Game played on June 20, 2026*
 
 **Match:** Hind X1 vs Texas Thanos, DLCL Fall 30 Over Tournament 2026 (Match ID 5319). [Scorecard](https://www.dallascricket.org/tournament/36/view/5319)
 
-**Short version:** The bail came off because the device was put on wrong, not because anything broke.
+**Short version:** The bail came off because the device was installed incorrectly.
 
 **Watch the clip:** https://youtube.com/shorts/jt-c6efO6-c
 
 **All trial videos reference (playlist):** https://www.youtube.com/playlist?list=PLcYYPWle7j_DAocfHTG9aT0MmcTBm5-Ny
+
+**Full records (GitHub):** https://github.com/anishanup/cricket-bail-safety-trial-tools/tree/main/trials/20260620-dallas-cricket-league-fall-season
 
 ## What happened
 

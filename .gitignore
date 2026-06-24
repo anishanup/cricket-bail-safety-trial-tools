@@ -1,6 +1,9 @@
 # Downloaded videos and generated highlights (inside each trial folder)
 trials/*/downloads/
 
+# Generated PDFs (pretty-printed from markdown, not versioned)
+*.pdf
+
 # Large media files (anywhere in repo)
 *.mp4
 *.mkv
@@ -30,3 +33,8 @@ ENV/
 # OS
 .DS_Store
 Thumbs.db
+
+# Node (used only by md_to_pdf helper)
+node_modules/
+package-lock.json
+package.json
