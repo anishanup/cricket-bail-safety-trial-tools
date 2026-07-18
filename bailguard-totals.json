@@ -54,8 +54,8 @@
     ]
   },
   "field_trials": {
-    "note": "Live-match and controlled trials of the tethered bail safety device.",
-    "count": 6,
+    "note": "Live-match trials of the tethered bail safety device. Controlled bench / bowling-machine simulations are documented in the repo but excluded from these totals.",
+    "count": 5,
     "trials": [
       {
         "date": "2026-01-18",
@@ -88,14 +88,6 @@
         "summary": "This game featured the same devices used for the previous game with one addition:",
         "highlight_url": "https://youtu.be/OWiMWqg63fg",
         "folder": "trials/20260207-gpcc-final-dallas"
-      },
-      {
-        "date": "2026-02-27",
-        "name": "Bowling Machine Impact Test - Bail Guard with Silicone Collar and Dual O-Rings",
-        "type": "controlled_test",
-        "summary": "Repeated impact tests using a Bola bowling machine at 80, 90, and 95 mph",
-        "highlight_url": "https://youtu.be/v-XQGnFnwYA",
-        "folder": "trials/20260227-bowling-machine-impact-test"
       },
       {
         "date": "2026-06-20",

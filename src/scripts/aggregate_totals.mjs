@@ -80,11 +80,14 @@ const trialFiles = files.filter((p) => /(^|[\\/])trial\.yaml$/i.test(p)).sort();
 const trials = [];
 for (const p of trialFiles) {
   const y = readFileSync(p, "utf8");
+  const type = yamlField(y, "type");
+  // Matches only: exclude controlled bench/bowling-machine simulations.
+  if (type === "controlled_test") continue;
   const titleComment = (y.match(/^#\s*Trial:\s*(.+)$/m) || [])[1] || "";
   trials.push({
     date: yamlField(y, "date"),
     name: titleComment.trim(),
-    type: yamlField(y, "type"),
+    type,
     summary: yamlBlockFirstLine(y, "summary"),
     highlight_url: yamlField(y, "highlight_url") || yamlField(y, "source_url"),
     folder: rel(dirname(p)),
@@ -114,7 +117,7 @@ const out = {
     weeks,
   },
   field_trials: {
-    note: "Live-match and controlled trials of the tethered bail safety device.",
+    note: "Live-match trials of the tethered bail safety device. Controlled bench / bowling-machine simulations are documented in the repo but excluded from these totals.",
     count: trials.length,
     trials,
   },
@@ -133,7 +136,7 @@ M.push("|---|---|:--:|:--:|:--:|:--:|:--:|:--:|:--:|");
 for (const w of weeks) M.push(`| ${w.label} | ${w.dates} | ${w.games} | ${w.bowled} | ${w.stumped} | ${w.run_out} | ${w.hit_wicket} | ${w.total} | ${w.avg_per_game} |`);
 M.push(`| **Cumulative** | | **${cum.games}** | **${cum.bowled}** | **${cum.stumped}** | **${cum.run_out}** | **${cum.hit_wicket}** | **${cum.total_dislodgements}** | **${cum.avg_per_game}** |`, "");
 M.push("## Live device trials", "");
-M.push(`**${trials.length} trials to date** (live matches and controlled tests).`, "");
+M.push(`**${trials.length} live-match trials to date.** (Controlled bench / bowling-machine simulations are documented in the repo but not counted here.)`, "");
 M.push("| Date | Trial | Type | First-line summary |");
 M.push("|---|---|---|---|");
 for (const t of trials) M.push(`| ${t.date} | ${t.name} | ${t.type} | ${t.summary} |`);

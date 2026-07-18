@@ -17,7 +17,7 @@ Dismissals that dislodge the bails — **Bowled + Stumped + Run out + Hit wicket
 
 ## Live device trials
 
-**6 trials to date** (live matches and controlled tests).
+**5 live-match trials to date.** (Controlled bench / bowling-machine simulations are documented in the repo but not counted here.)
 
 | Date | Trial | Type | First-line summary |
 |---|---|---|---|
@@ -25,7 +25,6 @@ Dismissals that dislodge the bails — **Bowled + Stumped + Run out + Hit wicket
 | 2026-01-18 | GP 2: Afghan Stars vs Dallas Cyclones - Eliminator - GPCC Cup 2025 | live_match | One incident where bail detaches from safety device. 2 probable causes: |
 | 2026-02-01 | GP 1: Virat CC  vs Dallas Cyclones - Qualifier 2 - GPCC Cup 2025 | live_match | Improved materials for the device. |
 | 2026-02-07 | Final - Dallas Titans vs Virat CC - GPCC Cup 2025 | live_match | This game featured the same devices used for the previous game with one addition: |
-| 2026-02-27 | Bowling Machine Impact Test - Bail Guard with Silicone Collar and Dual O-Rings | controlled_test | Repeated impact tests using a Bola bowling machine at 80, 90, and 95 mph |
 | 2026-06-20 | Hind X1 vs Texas Thanos - DLCL Fall 30 Over Tournament 2026 | live_match | Field trial of the tethered bail safety device in a live DCL match |
 
 ---
