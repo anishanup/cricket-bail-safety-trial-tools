@@ -1,102 +1,29 @@
 {
   "project": "Cricket Bail Safety Trial Tools",
-  "description": "Running totals of bail-dislodging dismissals captured from official league scorecards, plus a log of live trials of the tethered bail safety device.",
-  "generated": "2026-07-18",
-  "data_through": "2026-07-15",
-  "scorecard_analysis": {
-    "note": "Counts of dismissals that physically dislodge the bails (Bowled + Stumped + Run out + Hit wicket) from Dallas Cricket League scorecards. Each is a moment a bail guard would be engaged. This is a LOWER BOUND: it excludes non-dismissal dislodges (missed run-out/stumping attempts, no-ball bowleds, and other balls that hit the stumps).",
-    "cumulative": {
-      "games": 175,
-      "bowled": 711,
-      "stumped": 27,
-      "run_out": 244,
-      "hit_wicket": 2,
-      "total_dislodgements": 984,
-      "avg_per_game": 5.62
-    },
-    "weeks": [
-      {
-        "label": "DCL Wk1",
-        "dates": "June 20 to June 24, 2026",
-        "games": 24,
-        "bowled": 104,
-        "stumped": 2,
-        "run_out": 27,
-        "hit_wicket": 1,
-        "total": 134,
-        "avg_per_game": 5.58,
-        "source": "trials/20260620-dallas-cricket-league-fall-season/20260620-week/bailguard-impact-20260620-20260624.md"
-      },
-      {
-        "label": "DCL Wk2",
-        "dates": "June 27 to July 1, 2026",
-        "games": 74,
-        "bowled": 320,
-        "stumped": 14,
-        "run_out": 116,
-        "hit_wicket": 0,
-        "total": 450,
-        "avg_per_game": 6.08,
-        "source": "trials/20260620-dallas-cricket-league-fall-season/20260627-week/bailguard-impact-20260627-20260701.md"
-      },
-      {
-        "label": "DCL Wk3",
-        "dates": "July 11 to July 15, 2026",
-        "games": 77,
-        "bowled": 287,
-        "stumped": 11,
-        "run_out": 101,
-        "hit_wicket": 1,
-        "total": 400,
-        "avg_per_game": 5.19,
-        "source": "trials/20260620-dallas-cricket-league-fall-season/20260711-week/bailguard-impact-20260711-20260715.md"
-      }
-    ]
+  "description": "Running total of bail-dislodging dismissals (Bowled + Stumped + Run out + Hit wicket) captured from official league scorecards. Lower bound on how often a bail guard is engaged.",
+  "generated_on": "2026-07-18",
+  "data_from": "2026-06-20",
+  "data_to": "2026-07-15",
+  "totals": {
+    "games": 175,
+    "bowled": 711,
+    "stumped": 27,
+    "run_out": 244,
+    "hit_wicket": 2,
+    "dislodgements": 984
   },
-  "field_trials": {
-    "note": "Live-match trials of the tethered bail safety device. Controlled bench / bowling-machine simulations are documented in the repo but excluded from these totals.",
-    "count": 5,
-    "trials": [
-      {
-        "date": "2026-01-18",
-        "name": "GP 1 Dallas Titans vs ViratCC - GPCC Cup 2025",
-        "type": "live_match",
-        "summary": "First live match trial of tethered bail safety mechanism.",
-        "highlight_url": "https://youtu.be/fDTWn7ghYIQ",
-        "folder": "trials/20260118-gpcc-qualifier1-dallas"
-      },
-      {
-        "date": "2026-01-18",
-        "name": "GP 2: Afghan Stars vs Dallas Cyclones - Eliminator - GPCC Cup 2025",
-        "type": "live_match",
-        "summary": "One incident where bail detaches from safety device. 2 probable causes:",
-        "highlight_url": "https://youtu.be/hqyzgUKELKU",
-        "folder": "trials/20260118-gpcc-qualifier2-dallas"
-      },
-      {
-        "date": "2026-02-01",
-        "name": "GP 1: Virat CC  vs Dallas Cyclones - Qualifier 2 - GPCC Cup 2025",
-        "type": "live_match",
-        "summary": "Improved materials for the device.",
-        "highlight_url": "https://youtu.be/wcU3rw3yzTg",
-        "folder": "trials/20260201-gpcc-qualifier2-dallas"
-      },
-      {
-        "date": "2026-02-07",
-        "name": "Final - Dallas Titans vs Virat CC - GPCC Cup 2025",
-        "type": "live_match",
-        "summary": "This game featured the same devices used for the previous game with one addition:",
-        "highlight_url": "https://youtu.be/OWiMWqg63fg",
-        "folder": "trials/20260207-gpcc-final-dallas"
-      },
-      {
-        "date": "2026-06-20",
-        "name": "Hind X1 vs Texas Thanos - DLCL Fall 30 Over Tournament 2026",
-        "type": "live_match",
-        "summary": "Field trial of the tethered bail safety device in a live DCL match",
-        "highlight_url": "https://youtube.com/shorts/jt-c6efO6-c",
-        "folder": "trials/20260620-dallas-cricket-league-fall-season/20260620-hind-x1-vs-texas-thanos"
-      }
+  "folders_considered": {
+    "scorecard_analysis": [
+      "trials/20260620-dallas-cricket-league-fall-season/20260620-week/bailguard-impact-20260620-20260624.md",
+      "trials/20260620-dallas-cricket-league-fall-season/20260627-week/bailguard-impact-20260627-20260701.md",
+      "trials/20260620-dallas-cricket-league-fall-season/20260711-week/bailguard-impact-20260711-20260715.md"
+    ],
+    "live_match_trials_reference_only": [
+      "trials/20260118-gpcc-qualifier1-dallas",
+      "trials/20260118-gpcc-qualifier2-dallas",
+      "trials/20260201-gpcc-qualifier2-dallas",
+      "trials/20260207-gpcc-final-dallas",
+      "trials/20260620-dallas-cricket-league-fall-season/20260620-hind-x1-vs-texas-thanos"
     ]
   }
 }
