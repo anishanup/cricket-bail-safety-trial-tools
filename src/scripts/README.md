@@ -89,12 +89,51 @@ styled PDF directly:
 node src/scripts/md_to_pdf.mjs path/to/report.md
 ```
 
-This needs `marked` (from `npm install`). If you skipped that step, run it once
-without installing anything via `npx`:
+This needs the `marked` parser, which isn't committed to the repo. Fetch it on
+demand with the `npx -y -p marked` prefix (no install needed):
 
 ```
 npx -y -p marked node src/scripts/md_to_pdf.mjs path/to/report.md
 ```
+
+## 4. Running totals (all games combined)
+
+`aggregate_totals.mjs` rolls every captured game into one running total for the
+web page, writing `bailguard-totals.json` and `bailguard-totals.md` at the repo
+root:
+
+```
+node src/scripts/aggregate_totals.mjs
+```
+
+It reads two kinds of per-game summary:
+
+1. **League weeks** — the `bailguard-impact-*.md` reports (their "Week summary"
+   row): full dismissal counts from official scorecards.
+2. **Field trials** — a `bailguard-summary.yaml` in a trial folder: a per-game
+   tally counted from that trial's `highlights.csv` video. Used for games with
+   no official scorecard (e.g. the GPCC Cup matches); it is a **floor** (only
+   the dismissals filmed).
+
+Re-run it after each new week's report **or** after adding a new trial summary.
+
+To add a NEW field-trial game to the totals, drop a `bailguard-summary.yaml`
+into its trial folder — copy one from any `trials/2026*-gpcc-*` folder:
+
+```yaml
+game: "Team A vs Team B - Some Cup 2026"
+date: "2026-08-15"
+source: "highlights.csv (video, floor)"
+games: 1
+bowled: 1
+stumped: 0
+run_out: 2
+hit_wicket: 0
+```
+
+A live-match trial whose game is already inside a league scorecard (e.g. the
+DCL Hind X1 trial) should **not** get a summary — it is already counted, and the
+aggregator lists such folders separately so they are not double-counted.
 
 ## Scope
 

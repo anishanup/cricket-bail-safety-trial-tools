@@ -1,0 +1,15 @@
+# Bail-guard dismissal tally for this trial game, for the running totals.
+# Counted from highlights.csv (bail dismissals captured on video). This is a
+# FLOOR: these games have no official scorecard, so only the dismissals filmed
+# for the trial are counted -- not necessarily every dismissal in the game.
+# Rule: count only clear OUTS that dislodge the bails (Bowled + Stumped +
+# Run out + Hit wicket); exclude not-out attempts/chances and duplicate camera
+# angles. Read by src/scripts/aggregate_totals.mjs.
+game: "GP 1: Virat CC vs Dallas Cyclones - Qualifier 2 - GPCC Cup 2025"
+date: "2026-02-01"
+source: "highlights.csv (video, floor)"
+games: 1
+bowled: 2
+stumped: 0
+run_out: 2
+hit_wicket: 0

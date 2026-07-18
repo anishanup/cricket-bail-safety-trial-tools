@@ -1,29 +1,50 @@
 {
   "project": "Cricket Bail Safety Trial Tools",
-  "description": "Running total of bail-dislodging dismissals (Bowled + Stumped + Run out + Hit wicket) captured from official league scorecards. Lower bound on how often a bail guard is engaged.",
+  "description": "Running total of bail-dislodging dismissals (Bowled + Stumped + Run out + Hit wicket). Lower bound on how often a bail guard is engaged.",
   "generated_on": "2026-07-18",
-  "data_from": "2026-06-20",
+  "data_from": "2026-01-18",
   "data_to": "2026-07-15",
   "totals": {
-    "games": 175,
-    "bowled": 711,
-    "stumped": 27,
-    "run_out": 244,
+    "games": 179,
+    "bowled": 716,
+    "stumped": 28,
+    "run_out": 249,
     "hit_wicket": 2,
-    "dislodgements": 984
+    "dislodgements": 995
+  },
+  "totals_by_source": {
+    "league_scorecards": {
+      "games": 175,
+      "bowled": 711,
+      "stumped": 27,
+      "run_out": 244,
+      "hit_wicket": 2,
+      "dislodgements": 984
+    },
+    "device_trials_video": {
+      "games": 4,
+      "bowled": 5,
+      "stumped": 1,
+      "run_out": 5,
+      "hit_wicket": 0,
+      "dislodgements": 11
+    }
   },
   "folders_considered": {
-    "scorecard_analysis": [
+    "league_scorecards": [
       "trials/20260620-dallas-cricket-league-fall-season/20260620-week/bailguard-impact-20260620-20260624.md",
       "trials/20260620-dallas-cricket-league-fall-season/20260627-week/bailguard-impact-20260627-20260701.md",
       "trials/20260620-dallas-cricket-league-fall-season/20260711-week/bailguard-impact-20260711-20260715.md"
     ],
-    "live_match_trials_reference_only": [
+    "device_trials_video": [
       "trials/20260118-gpcc-qualifier1-dallas",
       "trials/20260118-gpcc-qualifier2-dallas",
       "trials/20260201-gpcc-qualifier2-dallas",
-      "trials/20260207-gpcc-final-dallas",
+      "trials/20260207-gpcc-final-dallas"
+    ],
+    "already_counted_in_scorecards": [
       "trials/20260620-dallas-cricket-league-fall-season/20260620-hind-x1-vs-texas-thanos"
     ]
-  }
+  },
+  "notes": "Device-trial counts are a floor: they come from each trial's highlights.csv video (those games have no official scorecard), counting only clear outs. Trials listed under already_counted_in_scorecards are live-match trials whose game is already inside the league scorecards, so they are not double-counted."
 }
