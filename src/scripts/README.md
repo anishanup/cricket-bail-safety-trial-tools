@@ -135,8 +135,31 @@ A live-match trial whose game is already inside a league scorecard (e.g. the
 DCL Hind X1 trial) should **not** get a summary — it is already counted, and the
 aggregator lists such folders separately so they are not double-counted.
 
+## 5. DYCL youth league (CricClubs)
+
+The Dallas Youth Cricket League runs on **CricClubs**, which sits behind a
+Cloudflare bot challenge that plain HTTP can't pass. `dycl_scrape.mjs` gets
+around this by driving your **real Google Chrome** over the DevTools protocol
+(Chrome clears the challenge like normal browsing) — no API key, no dependency
+on CricClubs:
+
+```
+node src/scripts/dycl_scrape.mjs --leagues 36 --out trials/dycl
+```
+
+- `--leagues <ids>`  CricClubs league ids (comma-separated). Find them in the
+  series dropdown at `.../listMatches.do`. E.g. 2026 Independence Cup = 36.
+- `--out <dir>`      output root (default `trials/dycl`).
+- `--limit <n>`      only the first n matches per league (for testing).
+
+It opens a Chrome window, walks each league's match list, parses every
+scorecard's dismissals (same bowled/stumped/run-out/hit-wicket rules), and writes
+a `dycl-summary.yaml` per tournament — which `aggregate_totals.mjs` folds into the
+totals as a **youth-league** source (kept distinct from the DCL adult league). If
+Cloudflare ever shows a checkbox, click it once; the script waits.
+
 ## Scope
 
-These scripts target the DCL adult leagues on **dallascricket.org** only. Other
-leagues (for example the Dallas Youth Cricket League, DYCL) run on different
-platforms — e.g. CricClubs — and are **not** reachable by these scripts.
+`bailguard_report.mjs` / `dcl_tournaments.mjs` target the **DCL adult leagues**
+on dallascricket.org. `dycl_scrape.mjs` covers the **DYCL youth league** on
+CricClubs. Both feed the same running totals via `aggregate_totals.mjs`.

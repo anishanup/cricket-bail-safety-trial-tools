@@ -1,25 +1,33 @@
 {
   "project": "Cricket Bail Safety Trial Tools",
   "description": "Running total of bail-dislodging dismissals (Bowled + Stumped + Run out + Hit wicket). Lower bound on how often a bail guard is engaged.",
-  "generated_on": "2026-07-18",
+  "generated_on": "2026-07-19",
   "data_from": "2026-01-18",
   "data_to": "2026-07-15",
   "totals": {
-    "games": 179,
-    "bowled": 716,
-    "stumped": 28,
-    "run_out": 249,
-    "hit_wicket": 2,
-    "dislodgements": 995
+    "games": 251,
+    "bowled": 902,
+    "stumped": 64,
+    "run_out": 413,
+    "hit_wicket": 4,
+    "dislodgements": 1383
   },
   "totals_by_source": {
-    "league_scorecards": {
+    "adult_league_scorecards": {
       "games": 175,
       "bowled": 711,
       "stumped": 27,
       "run_out": 244,
       "hit_wicket": 2,
       "dislodgements": 984
+    },
+    "youth_league_scorecards": {
+      "games": 72,
+      "bowled": 186,
+      "stumped": 36,
+      "run_out": 164,
+      "hit_wicket": 2,
+      "dislodgements": 388
     },
     "device_trials_video": {
       "games": 4,
@@ -31,10 +39,13 @@
     }
   },
   "folders_considered": {
-    "league_scorecards": [
+    "adult_league_scorecards": [
       "trials/20260620-dallas-cricket-league-fall-season/20260620-week/bailguard-impact-20260620-20260624.md",
       "trials/20260620-dallas-cricket-league-fall-season/20260627-week/bailguard-impact-20260627-20260701.md",
       "trials/20260620-dallas-cricket-league-fall-season/20260711-week/bailguard-impact-20260711-20260715.md"
+    ],
+    "youth_league_scorecards": [
+      "trials/dycl/2026-dycl-independence-cup"
     ],
     "device_trials_video": [
       "trials/20260118-gpcc-qualifier1-dallas",
@@ -46,5 +57,5 @@
       "trials/20260620-dallas-cricket-league-fall-season/20260620-hind-x1-vs-texas-thanos"
     ]
   },
-  "notes": "Device-trial counts are a floor: they come from each trial's highlights.csv video (those games have no official scorecard), counting only clear outs. Trials listed under already_counted_in_scorecards are live-match trials whose game is already inside the league scorecards, so they are not double-counted."
+  "notes": "adult_league_scorecards = Dallas Cricket League (dallascricket.org). youth_league_scorecards = Dallas Youth Cricket League on CricClubs. Both are full scorecard dismissal counts. device_trials_video is a floor from each trial's highlights.csv (those games have no scorecard), counting only clear outs. already_counted_in_scorecards are live-match trials whose game is already inside a league scorecard, so not double-counted."
 }

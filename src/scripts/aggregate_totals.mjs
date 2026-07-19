@@ -74,6 +74,15 @@ for (const p of files.filter((p) => /(^|[\\/])bailguard-summary\.yaml$/i.test(p)
   if (d) dates.push(d);
 }
 
+// ---- 3. DYCL youth-league scorecard summaries ----------------------------
+const youth = blank();
+const youthSources = [];
+for (const p of files.filter((p) => /(^|[\\/])dycl-summary\.yaml$/i.test(p)).sort()) {
+  const y = readFileSync(p, "utf8");
+  addTo(youth, yamlNum(y, "games"), yamlNum(y, "bowled"), yamlNum(y, "stumped"), yamlNum(y, "run_out"), yamlNum(y, "hit_wicket"));
+  youthSources.push(rel(dirname(p)));
+}
+
 // ---- live-match trials that are on record but NOT separately counted ------
 // (no bailguard-summary.yaml -- e.g. already inside the league scorecards).
 const alreadyCounted = [];
@@ -85,7 +94,7 @@ for (const p of files.filter((p) => /(^|[\\/])trial\.yaml$/i.test(p))) {
 
 // ---- combined totals -----------------------------------------------------
 const totals = blank();
-for (const src of [scorecard, trials]) addTo(totals, src.games, src.bowled, src.stumped, src.run_out, src.hit_wicket);
+for (const src of [scorecard, trials, youth]) addTo(totals, src.games, src.bowled, src.stumped, src.run_out, src.hit_wicket);
 const ymd = (s) => (s ? `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}` : "");
 const sorted = dates.slice().sort();
 const dataFrom = sorted.length ? ymd(sorted[0]) : "";
@@ -102,15 +111,17 @@ const json = {
   data_to: dataTo,
   totals: strip(totals),
   totals_by_source: {
-    league_scorecards: strip(scorecard),
+    adult_league_scorecards: strip(scorecard),
+    youth_league_scorecards: strip(youth),
     device_trials_video: strip(trials),
   },
   folders_considered: {
-    league_scorecards: scorecardSources,
+    adult_league_scorecards: scorecardSources,
+    youth_league_scorecards: youthSources,
     device_trials_video: trialSources,
     already_counted_in_scorecards: alreadyCounted,
   },
-  notes: "Device-trial counts are a floor: they come from each trial's highlights.csv video (those games have no official scorecard), counting only clear outs. Trials listed under already_counted_in_scorecards are live-match trials whose game is already inside the league scorecards, so they are not double-counted.",
+  notes: "adult_league_scorecards = Dallas Cricket League (dallascricket.org). youth_league_scorecards = Dallas Youth Cricket League on CricClubs. Both are full scorecard dismissal counts. device_trials_video is a floor from each trial's highlights.csv (those games have no scorecard), counting only clear outs. already_counted_in_scorecards are live-match trials whose game is already inside a league scorecard, so not double-counted.",
 };
 writeFileSync(join(ROOT, "bailguard-totals.json"), JSON.stringify(json, null, 2) + "\n", "utf8");
 
@@ -127,10 +138,18 @@ M.push(`| Stumped | ${totals.stumped} |`);
 M.push(`| Run out | ${totals.run_out} |`);
 M.push(`| Hit wicket | ${totals.hit_wicket} |`);
 M.push(`| **Bail-dislodging dismissals** | **${totals.dislodgements}** |`, "");
-M.push(`Counts of dismissals that dislodge the bails: **${scorecard.dislodgements}** from official league scorecards (${scorecard.games} games) + **${trials.dislodgements}** from device field-trial video (${trials.games} games, a floor). Lower bound.`, "");
+M.push("Dismissals that dislodge the bails, counted from official scorecards, plus a floor from device-trial video. Lower bound. Breakdown:", "");
+M.push(`- **${scorecard.dislodgements}** — adult league scorecards, Dallas Cricket League (${scorecard.games} games)`);
+if (youth.games) M.push(`- **${youth.dislodgements}** — youth league scorecards, Dallas Youth Cricket League (${youth.games} games)`);
+M.push(`- **${trials.dislodgements}** — device field-trial video, a floor (${trials.games} games)`, "");
 M.push("## Folders considered", "");
-M.push("League scorecards (full dismissal counts):");
+M.push("Adult league scorecards — Dallas Cricket League (full dismissal counts):");
 for (const s of scorecardSources) M.push(`- ${dirname(s)}`);
+if (youthSources.length) {
+  M.push("");
+  M.push("Youth league scorecards — Dallas Youth Cricket League / CricClubs (full dismissal counts):");
+  for (const s of youthSources) M.push(`- ${s}`);
+}
 M.push("");
 M.push("Device field trials (counted from highlights.csv video; a floor):");
 for (const s of trialSources) M.push(`- ${s}`);
