@@ -171,16 +171,55 @@ stumped: ${tot.St}
 run_out: ${tot.RO}
 hit_wicket: ${tot.HW}
 `, "utf8");
-  // human-readable detail
+  // human-readable detail, in the DCL weekly style, split by age division
+  const avg = played ? (total / played).toFixed(1) : "0";
+  const ageOf = (name) => {
+    const us = [...name.matchAll(/U(\d{1,2})/g)].map((x) => +x[1]);
+    return us.length ? "U" + Math.min(...us) : "Other";
+  };
+  const sub = (arr) => arr.reduce((x, r) => ({ B: x.B + r.B, St: x.St + r.St, RO: x.RO + r.RO, HW: x.HW + r.HW }), { B: 0, St: 0, RO: 0, HW: 0 });
+  const groups = {};
+  for (const r of rows) (groups[ageOf(r.name)] ||= []).push(r);
+  const order = Object.keys(groups).sort((x, y) => (x === "Other" ? 1 : y === "Other" ? -1 : parseInt(x.slice(1)) - parseInt(y.slice(1))));
+  const split = !(order.length === 1 && order[0] === "Other"); // youth tournaments have age divisions
+  const matchRow = (r) => `| ${r.name} | ${r.B} | ${r.St} | ${r.RO} | ${r.HW} | ${r.B + r.St + r.RO + r.HW} | [link](${BASE}/viewScorecard.do?matchId=${r.id}&clubId=${CLUB}) |`;
   const md = [
-    `# Bail Guard Impact — ${tour}`, "",
-    `**Source:** Dallas Youth Cricket League scorecards on CricClubs (clubId ${CLUB}, league ${lid})`,
-    `**Games (played & scored):** ${played}`, "",
-    "| Match | Bowled | Stumped | Run out | Hit wicket | Total | Scorecard |",
-    "|---|:--:|:--:|:--:|:--:|:--:|:--:|",
-    ...rows.map((r) => `| ${r.name} | ${r.B} | ${r.St} | ${r.RO} | ${r.HW} | ${r.B + r.St + r.RO + r.HW} | [link](${BASE}/viewScorecard.do?matchId=${r.id}&clubId=${CLUB}) |`),
-    `| **Total (${played} games)** | **${tot.B}** | **${tot.St}** | **${tot.RO}** | **${tot.HW}** | **${total}** | |`, "",
-    "Caught, caught-behind, LBW, retired-out and not-out are excluded (they do not dislodge the bails).", "",
+    "# Bail Guard Impact from DYCL Scorecards", "",
+    `**Tournament:** ${tour}  `,
+    "**Source:** Dallas Youth Cricket League official scorecards (CricClubs)", "",
+    "This counts the dismissals that physically dislodge the bails, which are the moments a bail guard device would be engaged. **Total** = Bowled + Stumped + Run out + Hit wicket.", "",
+    "## Tournament summary", "",
+    ...(split
+      ? ["| Age group | Games | Bowled | Stumped | Run out | Hit wicket | Total |",
+         "|---|:--:|:--:|:--:|:--:|:--:|:--:|",
+         ...order.map((g) => { const s = sub(groups[g]); return `| ${g} | ${groups[g].length} | ${s.B} | ${s.St} | ${s.RO} | ${s.HW} | ${s.B + s.St + s.RO + s.HW} |`; }),
+         `| **All age groups** | **${played}** | **${tot.B}** | **${tot.St}** | **${tot.RO}** | **${tot.HW}** | **${total}** |`]
+      : ["| | Bowled | Stumped | Run out | Hit wicket | Total |",
+         "|---|:--:|:--:|:--:|:--:|:--:|",
+         `| **All ${played} scored games** | **${tot.B}** | **${tot.St}** | **${tot.RO}** | **${tot.HW}** | **${total}** |`]),
+    "",
+    `On average about **${avg} bail-dislodging dismissals per game.**`, "",
+    "> **Important: this is a lower bound.** These counts come only from completed *dismissals* on the scorecard. They do **not** capture the many other times the bails are dislodged during a game, for example:",
+    "> - Run-out and stumping *attempts* where the batter was not out (the keeper or fielder still breaks the stumps)",
+    "> - A bowled or hit-wicket off a no-ball (the bails come off but it is not a dismissal)",
+    "> - Any other ball that hits the stumps without a wicket being given",
+    ">",
+    "> The real number of bail-guard impacts per game is therefore higher than shown here. Those non-dismissal dislodges are not in the scorecard data and have to be captured separately, through notes from game participants (umpires, scorers, players).", "",
+    ...order.flatMap((g) => {
+      const arr = groups[g], s = sub(arr), st = s.B + s.St + s.RO + s.HW;
+      return [
+        `## ${split ? g : "Matches"}`, "",
+        "| Match | Bowled | Stumped | Run out | Hit wicket | Total | Scorecard |",
+        "|---|:--:|:--:|:--:|:--:|:--:|:--:|",
+        ...arr.map(matchRow),
+        `| **${split ? "Subtotal" : "All"} (${arr.length} games)** | **${s.B}** | **${s.St}** | **${s.RO}** | **${s.HW}** | **${st}** | |`, "",
+      ];
+    }),
+    "## Notes", "",
+    `- The table lists every ${tour} game played to a result with ball-by-ball scoring entered${split ? ", grouped by age division" : ""}. Fixtures with no batting detail are excluded.`,
+    `- Scraped from the Dallas Youth Cricket League scorecards on CricClubs (clubId ${CLUB}, league ${lid}) with \`src/scripts/dycl_scrape.mjs\`.`,
+    "- **Run out** is the combined count. Scorecards do not record whether a run out was a direct hit or a relayed (indirect) run out, so that split is not available.",
+    "- Caught, caught-behind, LBW and retired-out dismissals are excluded because they do not disturb the stumps.", "",
   ].join("\n");
   writeFileSync(join(dir, `bailguard-dycl-${slug}.md`), md, "utf8");
   console.error(`  -> ${slug}: ${played} games, ${total} dislodgements (B${tot.B} St${tot.St} RO${tot.RO} HW${tot.HW})`);
