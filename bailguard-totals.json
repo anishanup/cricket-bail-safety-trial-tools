@@ -1,24 +1,24 @@
 {
   "project": "Cricket Bail Safety Trial Tools",
   "description": "Running total of bail-dislodging dismissals (Bowled + Stumped + Run out + Hit wicket). Lower bound on how often a bail guard is engaged.",
-  "generated_on": "2026-07-27",
+  "generated_on": "2026-07-30",
   "data_from": "2026-01-18",
   "data_to": "2026-07-29",
   "totals": {
     "games": 400,
     "bowled": 1427,
-    "stumped": 97,
+    "stumped": 96,
     "run_out": 617,
-    "hit_wicket": 8,
+    "hit_wicket": 9,
     "dislodgements": 2149
   },
   "totals_by_source": {
     "adult_league_scorecards": {
       "games": 324,
       "bowled": 1236,
-      "stumped": 60,
+      "stumped": 59,
       "run_out": 448,
-      "hit_wicket": 6,
+      "hit_wicket": 7,
       "dislodgements": 1750
     },
     "youth_league_scorecards": {

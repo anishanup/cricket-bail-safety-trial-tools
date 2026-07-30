@@ -1,15 +1,15 @@
 # Bail Safety — Running Totals
 
-Generated on: 2026-07-27  
+Generated on: 2026-07-30  
 From: 2026-01-18  To: 2026-07-29
 
 | Metric | Total |
 |---|--:|
 | Games | 400 |
 | Bowled | 1427 |
-| Stumped | 97 |
+| Stumped | 96 |
 | Run out | 617 |
-| Hit wicket | 8 |
+| Hit wicket | 9 |
 | **Bail-dislodging dismissals** | **2149** |
 
 Dismissals that dislodge the bails, counted from official scorecards, plus a floor from device-trial video. Lower bound. Breakdown:
