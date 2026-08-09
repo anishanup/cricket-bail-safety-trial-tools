@@ -1,16 +1,16 @@
 {
   "project": "Cricket Bail Safety Trial Tools",
   "description": "Running total of bail-dislodging dismissals (Bowled + Stumped + Run out + Hit wicket). Lower bound on how often a bail guard is engaged.",
-  "generated_on": "2026-08-05",
+  "generated_on": "2026-08-09",
   "data_from": "2026-01-18",
-  "data_to": "2026-08-05",
+  "data_to": "2026-08-09",
   "totals": {
-    "games": 476,
-    "bowled": 1690,
-    "stumped": 116,
-    "run_out": 715,
+    "games": 491,
+    "bowled": 1722,
+    "stumped": 122,
+    "run_out": 728,
     "hit_wicket": 10,
-    "dislodgements": 2531
+    "dislodgements": 2582
   },
   "totals_by_source": {
     "adult_league_scorecards": {
@@ -28,6 +28,14 @@
       "run_out": 164,
       "hit_wicket": 2,
       "dislodgements": 388
+    },
+    "guarded_ground_scorecards": {
+      "games": 15,
+      "bowled": 32,
+      "stumped": 6,
+      "run_out": 13,
+      "hit_wicket": 0,
+      "dislodgements": 51
     },
     "device_trials_video": {
       "games": 4,
@@ -50,6 +58,9 @@
     "youth_league_scorecards": [
       "trials/dycl/2026-dycl-independence-cup"
     ],
+    "guarded_ground_scorecards": [
+      "trials/20260627-ntca-legacy-t20-gpcc-grand-prairie"
+    ],
     "device_trials_video": [
       "trials/20260118-gpcc-qualifier1-dallas",
       "trials/20260118-gpcc-qualifier2-dallas",
@@ -60,5 +71,5 @@
       "trials/20260620-dallas-cricket-league-fall-season/20260620-hind-x1-vs-texas-thanos"
     ]
   },
-  "notes": "adult_league_scorecards = Dallas Cricket League (dallascricket.org). youth_league_scorecards = Dallas Youth Cricket League on CricClubs. Both are full scorecard dismissal counts. device_trials_video is a floor from each trial's highlights.csv (those games have no scorecard), counting only clear outs. already_counted_in_scorecards are live-match trials whose game is already inside a league scorecard, so not double-counted."
+  "notes": "adult_league_scorecards = Dallas Cricket League (dallascricket.org). youth_league_scorecards = Dallas Youth Cricket League on CricClubs. guarded_ground_scorecards = North Texas Cricket Association on CricClubs, restricted to matches played on grounds that have bail guards fitted. All three are full scorecard dismissal counts. device_trials_video is a floor from each trial's highlights.csv (those games have no scorecard), counting only clear outs. already_counted_in_scorecards are live-match trials whose game is already inside a league scorecard, so not double-counted."
 }

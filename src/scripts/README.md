@@ -106,7 +106,7 @@ root:
 node src/scripts/aggregate_totals.mjs
 ```
 
-It reads two kinds of per-game summary:
+It reads these kinds of per-game summary:
 
 1. **League weeks** — the `bailguard-impact-*.md` reports (their "Week summary"
    row): full dismissal counts from official scorecards.
@@ -114,6 +114,10 @@ It reads two kinds of per-game summary:
    tally counted from that trial's `highlights.csv` video. Used for games with
    no official scorecard (e.g. the GPCC Cup matches); it is a **floor** (only
    the dismissals filmed).
+3. **Youth league** — a `dycl-summary.yaml` written by `dycl_scrape.mjs`
+   (section 5).
+4. **Guarded grounds** — an `ntca-summary.yaml` written by `ntca_scrape.mjs`
+   (section 6): games played on a ground that has bail guards fitted.
 
 Re-run it after each new week's report **or** after adding a new trial summary.
 
@@ -158,8 +162,56 @@ a `dycl-summary.yaml` per tournament — which `aggregate_totals.mjs` folds into
 totals as a **youth-league** source (kept distinct from the DCL adult league). If
 Cloudflare ever shows a checkbox, click it once; the script waits.
 
+## 6. NTCA, on grounds that have bail guards fitted
+
+The North Texas Cricket Association also runs on CricClubs. `ntca_scrape.mjs` is
+narrower than the other scrapers on purpose: it reports only the matches played
+on a ground that **actually has bail guards installed** — currently Grand Prairie
+Cricket Ground 1 and 2 — so these counts are real device-engagement events rather
+than a hypothetical.
+
+```
+node src/scripts/ntca_scrape.mjs --out trials/20260627-ntca-legacy-t20-gpcc-grand-prairie
+```
+
+The defaults cover the current case (the 2026 Legacy T20 Championship, GPCC
+teams, the two Grand Prairie grounds), so re-running it each week after the
+games are scored is normally the whole job.
+
+- `--league <id>`    CricClubs league id (default `231` = 2026 Legacy T20
+  Championship). That league is a **parent** spanning the Champions T20 and
+  Super T20 divisions, so scraping it covers both; the report splits them out.
+  Use `--list` to see the ids.
+- `--teams <subs>`   comma-separated substrings matched against team names
+  (default `GPCC`). Pass `--teams ""` to include every team that played on the
+  ground.
+- `--grounds <subs>` comma-separated substrings matched against the venue
+  (default `Grand Prairie Cricket Ground`).
+- `--out <dir>`      output folder.
+- `--list`           print the league ids and exit.
+- `--refetch`        ignore the cache and re-scrape everything.
+
+**Why the venue needs a second request.** The scorecard page does not contain the
+ground. On CricClubs the venue exists only on the match **Info** tab, whose link
+runs `loadView('info')` — a plain navigation to `info.do?matchId=…`. So the
+script reads the ground from `info.do` and the dismissals from
+`viewScorecard.do`.
+
+Like `dycl_scrape.mjs` it drives your real Chrome past the Cloudflare challenge,
+but once one page is through it issues same-origin `fetch()` calls from inside
+that page, which is much faster than navigating per match. Cloudflare still rate
+limits: any page returned as the "Just a moment…" interstitial is retried on a
+later round automatically. Results are cached in `.ntca-cache.json` in the output
+folder (gitignored), so a weekly re-run only fetches the new fixtures — a re-run
+with nothing new takes under a second. Use `--refetch` to rebuild from scratch.
+
+It writes an `ntca-summary.yaml`, which `aggregate_totals.mjs` folds into the
+totals as a **guarded-ground** source, kept distinct from the DCL adult league
+and the DYCL youth league.
+
 ## Scope
 
 `bailguard_report.mjs` / `dcl_tournaments.mjs` target the **DCL adult leagues**
-on dallascricket.org. `dycl_scrape.mjs` covers the **DYCL youth league** on
-CricClubs. Both feed the same running totals via `aggregate_totals.mjs`.
+on dallascricket.org. `dycl_scrape.mjs` covers the **DYCL youth league** and
+`ntca_scrape.mjs` the **NTCA games on bail-guarded grounds**, both on CricClubs.
+All three feed the same running totals via `aggregate_totals.mjs`.

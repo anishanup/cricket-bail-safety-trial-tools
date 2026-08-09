@@ -83,6 +83,21 @@ for (const p of files.filter((p) => /(^|[\\/])dycl-summary\.yaml$/i.test(p)).sor
   youthSources.push(rel(dirname(p)));
 }
 
+// ---- 4. NTCA scorecard summaries, on grounds fitted with bail guards ------
+// These are the only games in the corpus played on a ground that actually has
+// the device installed, so they are tracked as their own source.
+const guarded = blank();
+const guardedSources = [];
+for (const p of files.filter((p) => /(^|[\\/])ntca-summary\.yaml$/i.test(p)).sort()) {
+  const y = readFileSync(p, "utf8");
+  addTo(guarded, yamlNum(y, "games"), yamlNum(y, "bowled"), yamlNum(y, "stumped"), yamlNum(y, "run_out"), yamlNum(y, "hit_wicket"));
+  guardedSources.push(rel(dirname(p)));
+  for (const k of ["date_from", "date_to"]) {
+    const d = yamlStr(y, k).replace(/-/g, "");
+    if (d) dates.push(d);
+  }
+}
+
 // ---- live-match trials that are on record but NOT separately counted ------
 // (no bailguard-summary.yaml -- e.g. already inside the league scorecards).
 const alreadyCounted = [];
@@ -94,7 +109,7 @@ for (const p of files.filter((p) => /(^|[\\/])trial\.yaml$/i.test(p))) {
 
 // ---- combined totals -----------------------------------------------------
 const totals = blank();
-for (const src of [scorecard, trials, youth]) addTo(totals, src.games, src.bowled, src.stumped, src.run_out, src.hit_wicket);
+for (const src of [scorecard, trials, youth, guarded]) addTo(totals, src.games, src.bowled, src.stumped, src.run_out, src.hit_wicket);
 const ymd = (s) => (s ? `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}` : "");
 const sorted = dates.slice().sort();
 const dataFrom = sorted.length ? ymd(sorted[0]) : "";
@@ -113,15 +128,17 @@ const json = {
   totals_by_source: {
     adult_league_scorecards: strip(scorecard),
     youth_league_scorecards: strip(youth),
+    guarded_ground_scorecards: strip(guarded),
     device_trials_video: strip(trials),
   },
   folders_considered: {
     adult_league_scorecards: scorecardSources,
     youth_league_scorecards: youthSources,
+    guarded_ground_scorecards: guardedSources,
     device_trials_video: trialSources,
     already_counted_in_scorecards: alreadyCounted,
   },
-  notes: "adult_league_scorecards = Dallas Cricket League (dallascricket.org). youth_league_scorecards = Dallas Youth Cricket League on CricClubs. Both are full scorecard dismissal counts. device_trials_video is a floor from each trial's highlights.csv (those games have no scorecard), counting only clear outs. already_counted_in_scorecards are live-match trials whose game is already inside a league scorecard, so not double-counted.",
+  notes: "adult_league_scorecards = Dallas Cricket League (dallascricket.org). youth_league_scorecards = Dallas Youth Cricket League on CricClubs. guarded_ground_scorecards = North Texas Cricket Association on CricClubs, restricted to matches played on grounds that have bail guards fitted. All three are full scorecard dismissal counts. device_trials_video is a floor from each trial's highlights.csv (those games have no scorecard), counting only clear outs. already_counted_in_scorecards are live-match trials whose game is already inside a league scorecard, so not double-counted.",
 };
 writeFileSync(join(ROOT, "bailguard-totals.json"), JSON.stringify(json, null, 2) + "\n", "utf8");
 
@@ -141,6 +158,7 @@ M.push(`| **Bail-dislodging dismissals** | **${totals.dislodgements}** |`, "");
 M.push("Dismissals that dislodge the bails, counted from official scorecards, plus a floor from device-trial video. Lower bound. Breakdown:", "");
 M.push(`- **${scorecard.dislodgements}** — adult league scorecards, Dallas Cricket League (${scorecard.games} games)`);
 if (youth.games) M.push(`- **${youth.dislodgements}** — youth league scorecards, Dallas Youth Cricket League (${youth.games} games)`);
+if (guarded.games) M.push(`- **${guarded.dislodgements}** — league scorecards on grounds fitted with bail guards, North Texas Cricket Association (${guarded.games} games)`);
 M.push(`- **${trials.dislodgements}** — device field-trial video, a floor (${trials.games} games)`, "");
 M.push("## Folders considered", "");
 M.push("Adult league scorecards — Dallas Cricket League (full dismissal counts):");
@@ -149,6 +167,11 @@ if (youthSources.length) {
   M.push("");
   M.push("Youth league scorecards — Dallas Youth Cricket League / CricClubs (full dismissal counts):");
   for (const s of youthSources) M.push(`- ${s}`);
+}
+if (guardedSources.length) {
+  M.push("");
+  M.push("League scorecards on grounds fitted with bail guards — North Texas Cricket Association / CricClubs (full dismissal counts):");
+  for (const s of guardedSources) M.push(`- ${s}`);
 }
 M.push("");
 M.push("Device field trials (counted from highlights.csv video; a floor):");
