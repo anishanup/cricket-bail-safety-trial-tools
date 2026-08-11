@@ -1,20 +1,20 @@
 # Bail Safety — Running Totals
 
-Generated on: 2026-08-09  
+Generated on: 2026-08-11  
 From: 2026-01-18  To: 2026-08-09
 
 | Metric | Total |
 |---|--:|
-| Games | 491 |
-| Bowled | 1722 |
-| Stumped | 122 |
-| Run out | 728 |
-| Hit wicket | 10 |
-| **Bail-dislodging dismissals** | **2582** |
+| Games | 569 |
+| Bowled | 1985 |
+| Stumped | 144 |
+| Run out | 842 |
+| Hit wicket | 11 |
+| **Bail-dislodging dismissals** | **2982** |
 
 Dismissals that dislodge the bails, counted from official scorecards, plus a floor from device-trial video. Lower bound. Breakdown:
 
-- **2132** — adult league scorecards, Dallas Cricket League (400 games)
+- **2532** — adult league scorecards, Dallas Cricket League (478 games)
 - **388** — youth league scorecards, Dallas Youth Cricket League (72 games)
 - **51** — league scorecards on grounds fitted with bail guards, North Texas Cricket Association (15 games)
 - **11** — device field-trial video, a floor (4 games)
@@ -28,6 +28,7 @@ Adult league scorecards — Dallas Cricket League (full dismissal counts):
 - trials/20260620-dallas-cricket-league-fall-season/20260718-week
 - trials/20260620-dallas-cricket-league-fall-season/20260725-week
 - trials/20260620-dallas-cricket-league-fall-season/20260801-week
+- trials/20260620-dallas-cricket-league-fall-season/20260808-week
 
 Youth league scorecards — Dallas Youth Cricket League / CricClubs (full dismissal counts):
 - trials/dycl/2026-dycl-independence-cup
