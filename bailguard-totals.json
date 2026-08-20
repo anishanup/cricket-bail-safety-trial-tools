@@ -1,25 +1,25 @@
 {
   "project": "Cricket Bail Safety Trial Tools",
   "description": "Running total of bail-dislodging dismissals (Bowled + Stumped + Run out + Hit wicket). Lower bound on how often a bail guard is engaged.",
-  "generated_on": "2026-08-11",
+  "generated_on": "2026-08-20",
   "data_from": "2026-01-18",
-  "data_to": "2026-08-09",
+  "data_to": "2026-08-16",
   "totals": {
-    "games": 569,
-    "bowled": 1985,
-    "stumped": 144,
-    "run_out": 842,
-    "hit_wicket": 11,
-    "dislodgements": 2982
+    "games": 618,
+    "bowled": 2132,
+    "stumped": 148,
+    "run_out": 902,
+    "hit_wicket": 13,
+    "dislodgements": 3195
   },
   "totals_by_source": {
     "adult_league_scorecards": {
-      "games": 478,
-      "bowled": 1762,
-      "stumped": 101,
-      "run_out": 660,
-      "hit_wicket": 9,
-      "dislodgements": 2532
+      "games": 527,
+      "bowled": 1909,
+      "stumped": 105,
+      "run_out": 720,
+      "hit_wicket": 11,
+      "dislodgements": 2745
     },
     "youth_league_scorecards": {
       "games": 72,
@@ -54,7 +54,8 @@
       "trials/20260620-dallas-cricket-league-fall-season/20260718-week/bailguard-impact-20260718-20260722.md",
       "trials/20260620-dallas-cricket-league-fall-season/20260725-week/bailguard-impact-20260725-20260729.md",
       "trials/20260620-dallas-cricket-league-fall-season/20260801-week/bailguard-impact-20260801-20260805.md",
-      "trials/20260620-dallas-cricket-league-fall-season/20260808-week/bailguard-impact-20260808-20260809.md"
+      "trials/20260620-dallas-cricket-league-fall-season/20260808-week/bailguard-impact-20260808-20260809.md",
+      "trials/20260620-dallas-cricket-league-fall-season/20260815-week/bailguard-impact-20260815-20260816.md"
     ],
     "youth_league_scorecards": [
       "trials/dycl/2026-dycl-independence-cup"
