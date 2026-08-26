@@ -9,11 +9,11 @@ source: "cricclubs.com/NTCA (NTCA official scorecards)"
 venues: ["Grand Prairie Cricket Ground 1", "Grand Prairie Cricket Ground 2"]
 teams: ["GPCC Gladiators", "GPCC Qalandars", "GPCC Shaheens", "GPCC Tigers"]
 date_from: "2026-06-27"
-date_to: "2026-08-09"
-games: 15
-bowled: 32
+date_to: "2026-08-22"
+games: 18
+bowled: 38
 stumped: 6
-run_out: 13
+run_out: 15
 hit_wicket: 0
 matches:
   - { id: 12761, date: "2026-06-27", ground: "Grand Prairie Cricket Ground 1", division: "2026 Champions T20", match: "MCC Lazy Cricketers vs GPCC Shaheens", bowled: 3, stumped: 0, run_out: 0, hit_wicket: 0, total: 3 }
@@ -31,3 +31,6 @@ matches:
   - { id: 12934, date: "2026-08-08", ground: "Grand Prairie Cricket Ground 1", division: "2026 Champions T20", match: "DCCC 1 vs GPCC Gladiators", bowled: 3, stumped: 1, run_out: 1, hit_wicket: 0, total: 5 }
   - { id: 12946, date: "2026-08-09", ground: "Grand Prairie Cricket Ground 1", division: "2026 Super T20", match: "GPCC Tigers vs Lanka Colts Cowboys", bowled: 2, stumped: 1, run_out: 0, hit_wicket: 0, total: 3 }
   - { id: 12950, date: "2026-08-09", ground: "Grand Prairie Cricket Ground 2", division: "2026 Super T20", match: "GPCC Qalandars vs RPCC Chargers", bowled: 4, stumped: 1, run_out: 1, hit_wicket: 0, total: 6 }
+  - { id: 12978, date: "2026-08-16", ground: "Grand Prairie Cricket Ground 1", division: "2026 Super T20", match: "PICC Stars vs GPCC Qalandars", bowled: 3, stumped: 0, run_out: 0, hit_wicket: 0, total: 3 }
+  - { id: 12980, date: "2026-08-16", ground: "Grand Prairie Cricket Ground 2", division: "2026 Champions T20", match: "Soaring Eagles vs GPCC Shaheens", bowled: 2, stumped: 0, run_out: 2, hit_wicket: 0, total: 4 }
+  - { id: 12991, date: "2026-08-22", ground: "Grand Prairie Cricket Ground 1", division: "2026 Super T20", match: "GPCC Tigers vs GPCC Qalandars", bowled: 1, stumped: 0, run_out: 0, hit_wicket: 0, total: 1 }
