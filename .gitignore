@@ -4,8 +4,9 @@ trials/*/downloads/
 # Generated PDFs (pretty-printed from markdown, not versioned)
 *.pdf
 
-# Scrape cache written by ntca_scrape.mjs (re-fetchable, not versioned)
+# Scrape caches (re-fetchable, not versioned)
 .ntca-cache.json
+.dallashub-cache.json
 
 # Large media files (anywhere in repo)
 *.mp4

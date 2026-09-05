@@ -116,6 +116,8 @@ It reads these kinds of per-game summary:
    the dismissals filmed).
 3. **Youth league** — a `dycl-summary.yaml` written by `dycl_scrape.mjs`
    (section 5).
+3b. **USA Cricket hub** — a `dallashub-summary.yaml` written by
+   `dallashub_scrape.mjs` (section 7).
 4. **Guarded grounds** — an `ntca-summary.yaml` written by `ntca_scrape.mjs`
    (section 6): games played on a ground that has bail guards fitted.
 
@@ -209,9 +211,48 @@ It writes an `ntca-summary.yaml`, which `aggregate_totals.mjs` folds into the
 totals as a **guarded-ground** source, kept distinct from the DCL adult league
 and the DYCL youth league.
 
+## 7. USA Cricket Dallas hub (junior pathway)
+
+The Dallas hub of USA Cricket's junior pathway runs at
+`cricclubs.com/Dallashub`, on CricClubs' **newer platform** — which is a
+different problem from the other two CricClubs scrapers:
+
+- the pages are React, so no match table exists in the HTML;
+- the data comes from a JSON API on a separate host;
+- every API call carries an `x-content-token` signed by the client, so the API
+  answers `SEC001` to anything the app did not send itself.
+
+`dallashub_scrape.mjs` therefore drives your real Chrome, navigates where a
+person would, and reads back the responses the page already received over the
+DevTools protocol. Nothing is forged.
+
+```
+node src/scripts/dallashub_scrape.mjs --out trials/dallas-hub/2026-fall-league
+```
+
+- `--out <dir>`     output root. One folder per playing week is written beneath
+  it (`20260822-week/`), each containing a `dallashub-summary.yaml` for
+  `aggregate_totals.mjs` and a readable `bailguard-dallashub-<from>-<to>.md`.
+- `--league <slug>` CricClubs league slug (default `Dallashub`).
+- `--refetch`       ignore the cache and re-read every scorecard.
+- `--vocab`         print the dismissal-code vocabulary in the cache and exit.
+
+It discovers the season's series (U11, U11 Emerging, U13, U15, U17) from the
+league's own info call rather than hard-coded ids, and handles the divisioned
+series, whose matches answer on a `/division/all/matches` path.
+
+**Watch the dismissal codes.** This platform writes hit wicket as `ht`, not
+`hw`. Run `--vocab` after a season starts to check no new code has appeared;
+anything not recognised is silently not counted, which is the one way these
+numbers could quietly go wrong.
+
+Scorecards are cached in `.dallashub-cache.json` in the output folder
+(gitignored), so a weekly re-run only fetches the new fixtures.
+
 ## Scope
 
 `bailguard_report.mjs` / `dcl_tournaments.mjs` target the **DCL adult leagues**
-on dallascricket.org. `dycl_scrape.mjs` covers the **DYCL youth league** and
-`ntca_scrape.mjs` the **NTCA games on bail-guarded grounds**, both on CricClubs.
-All three feed the same running totals via `aggregate_totals.mjs`.
+on dallascricket.org. `dycl_scrape.mjs` covers the **DYCL youth league**,
+`ntca_scrape.mjs` the **NTCA games on bail-guarded grounds**, and
+`dallashub_scrape.mjs` the **USA Cricket Dallas hub**, all three on CricClubs.
+Every one of them feeds the same running totals via `aggregate_totals.mjs`.

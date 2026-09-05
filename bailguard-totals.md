@@ -1,22 +1,23 @@
 # Bail Safety — Running Totals
 
-Generated on: 2026-09-03  
+Generated on: 2026-09-05  
 From: 2026-01-18  To: 2026-08-30
 
 | Metric | Total |
 |---|--:|
-| Games | 722 |
-| Bowled | 2440 |
-| Stumped | 174 |
-| Run out | 1011 |
-| Hit wicket | 15 |
-| **Bail-dislodging dismissals** | **3640** |
+| Games | 763 |
+| Bowled | 2600 |
+| Stumped | 199 |
+| Run out | 1093 |
+| Hit wicket | 18 |
+| **Bail-dislodging dismissals** | **3910** |
 
 Dismissals that dislodge the bails, counted from official scorecards, plus a floor from device-trial video. Lower bound. Breakdown:
 
 - **3182** — adult league scorecards, Dallas Cricket League (628 games)
 - **388** — youth league scorecards, Dallas Youth Cricket League (72 games)
 - **59** — league scorecards on grounds fitted with bail guards, North Texas Cricket Association (18 games)
+- **270** — USA Cricket Dallas hub, junior pathway scorecards (41 games)
 - **11** — device field-trial video, a floor (4 games)
 
 ## Folders considered
@@ -38,6 +39,10 @@ Youth league scorecards — Dallas Youth Cricket League / CricClubs (full dismis
 
 League scorecards on grounds fitted with bail guards — North Texas Cricket Association / CricClubs (full dismissal counts):
 - trials/20260627-ntca-legacy-t20-gpcc-grand-prairie
+
+USA Cricket Dallas hub, junior pathway — CricClubs (full dismissal counts):
+- trials/dallas-hub/2026-fall-league/20260822-week
+- trials/dallas-hub/2026-fall-league/20260828-week
 
 Device field trials (counted from highlights.csv video; a floor):
 - trials/20260118-gpcc-qualifier1-dallas
