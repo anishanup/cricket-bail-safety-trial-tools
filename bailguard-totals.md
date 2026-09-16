@@ -1,23 +1,23 @@
 # Bail Safety — Running Totals
 
-Generated on: 2026-09-05  
-From: 2026-01-18  To: 2026-08-30
+Generated on: 2026-09-16  
+From: 2026-01-18  To: 2026-09-13
 
 | Metric | Total |
 |---|--:|
-| Games | 763 |
-| Bowled | 2600 |
-| Stumped | 199 |
-| Run out | 1093 |
-| Hit wicket | 18 |
-| **Bail-dislodging dismissals** | **3910** |
+| Games | 829 |
+| Bowled | 2859 |
+| Stumped | 232 |
+| Run out | 1211 |
+| Hit wicket | 20 |
+| **Bail-dislodging dismissals** | **4322** |
 
 Dismissals that dislodge the bails, counted from official scorecards, plus a floor from device-trial video. Lower bound. Breakdown:
 
-- **3182** — adult league scorecards, Dallas Cricket League (628 games)
+- **3329** — adult league scorecards, Dallas Cricket League (657 games)
 - **388** — youth league scorecards, Dallas Youth Cricket League (72 games)
 - **59** — league scorecards on grounds fitted with bail guards, North Texas Cricket Association (18 games)
-- **270** — USA Cricket Dallas hub, junior pathway scorecards (41 games)
+- **535** — USA Cricket Dallas hub, junior pathway scorecards (78 games)
 - **11** — device field-trial video, a floor (4 games)
 
 ## Folders considered
@@ -33,6 +33,7 @@ Adult league scorecards — Dallas Cricket League (full dismissal counts):
 - trials/20260620-dallas-cricket-league-fall-season/20260815-week
 - trials/20260620-dallas-cricket-league-fall-season/20260822-week
 - trials/20260620-dallas-cricket-league-fall-season/20260829-week
+- trials/20260620-dallas-cricket-league-fall-season/20260912-week
 
 Youth league scorecards — Dallas Youth Cricket League / CricClubs (full dismissal counts):
 - trials/dycl/2026-dycl-independence-cup
@@ -43,6 +44,7 @@ League scorecards on grounds fitted with bail guards — North Texas Cricket Ass
 USA Cricket Dallas hub, junior pathway — CricClubs (full dismissal counts):
 - trials/dallas-hub/2026-fall-league/20260822-week
 - trials/dallas-hub/2026-fall-league/20260828-week
+- trials/dallas-hub/2026-fall-league/20260911-week
 
 Device field trials (counted from highlights.csv video; a floor):
 - trials/20260118-gpcc-qualifier1-dallas

@@ -80,6 +80,18 @@ result-only) are excluded and listed in the report's Notes.
 Regenerating an **old** week far below the latest match id? Increase the scan
 window with `--max-scan 1500`, or start from a known id with `--ceiling <id>`.
 
+**When the league reuses a week label.** After the Labor Day break DCL kept the
+`Wk10` label for the 12–13 September weekend, so `--week Wk10` alone would
+re-count the 29–30 August games already in the Week 10 report. Add a date
+window and only games played inside it are counted (the report's Notes say how
+many were left out):
+
+```
+node src/scripts/bailguard_report.mjs --week Wk10 --tournaments 34,35,36   --from 2026-09-05 --to 2026-09-16   --out trials/20260620-dallas-cricket-league-fall-season/20260912-week   --title "September 8 to September 13, 2026" --label "DCL Wk10, second weekend" --pdf
+```
+
+- `--from <YYYY-MM-DD>` / `--to <YYYY-MM-DD>`  inclusive date window. Optional.
+
 ## 3. PDF from any Markdown (standalone)
 
 `--pdf` above calls this for you, but you can also turn any Markdown file into a

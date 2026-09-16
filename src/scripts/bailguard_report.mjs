@@ -26,6 +26,11 @@
 //                           auto-detected from the tournaments' recent fixtures.
 //   --max-scan <n>          Max match ids to scan downward (default 400). Increase
 //                           when regenerating an old week far below the latest id.
+//   --from <YYYY-MM-DD>     Only count matches played on or after this date.
+//   --to   <YYYY-MM-DD>     Only count matches played on or before this date.
+//                           Use these when the league reuses a week label across
+//                           two weekends (e.g. Wk10 after the Labor Day break), so
+//                           games already in an earlier report are not counted twice.
 //   --verbose               Print progress.
 //
 // Requirements: Node 18+ (uses global fetch). Chrome/Edge only for --pdf.
@@ -54,6 +59,8 @@ function parseArgs(argv) {
     else if (k === "--name") a.name = next();
     else if (k === "--ceiling") a.ceiling = parseInt(next(), 10);
     else if (k === "--max-scan") a.maxScan = parseInt(next(), 10);
+    else if (k === "--from") a.from = next();
+    else if (k === "--to") a.to = next();
     else if (k === "--pdf") a.pdf = true;
     else if (k === "--verbose") a.verbose = true;
     else { console.error("Unknown argument: " + k); process.exit(1); }
@@ -173,7 +180,7 @@ log(`Scanning downward from match id ${ceiling} (max ${args.maxScan})`);
 const want = new Set(args.tournaments);
 const collected = new Map(); // mid -> rec
 const STOP_STREAK = 60; // consecutive requested-tournament matches older than target
-let olderStreak = 0, scanned = 0, foundAny = false;
+let olderStreak = 0, scanned = 0, foundAny = false, skippedByDate = 0;
 const BATCH = 20;
 outer:
 for (let top = ceiling; top >= 1 && scanned < args.maxScan; top -= BATCH) {
@@ -193,6 +200,7 @@ for (let top = ceiling; top >= 1 && scanned < args.maxScan; top -= BATCH) {
     if (!want.has(md.mst_tournament_id)) continue;
     const wn = weekNum(md.week);
     if (String(md.week || "").toLowerCase() === args.weekNorm) {
+      if ((args.from && md.date < args.from) || (args.to && md.date > args.to)) { skippedByDate++; continue; }
       const cnt = countMatch(md);
       collected.set(id, {
         id, tid: md.mst_tournament_id, date: md.date,
@@ -213,6 +221,7 @@ const scored = [...collected.values()].filter((r) => r.hasBatting);
 const excluded = [...collected.values()].filter((r) => !r.hasBatting);
 scored.sort((a, b) => b.id - a.id);
 log(`${args.week}: ${collected.size} matches (${scored.length} scored, ${excluded.length} without batting detail)`);
+if (skippedByDate) log(`  ${skippedByDate} ${args.week} match(es) outside ${args.from || "…"} to ${args.to || "…"} left out`);
 
 // main dates = the two most common match dates among scored games
 const dateFreq = {};
@@ -266,6 +275,10 @@ for (const tid of args.tournaments) {
 
 L.push("## Notes", "");
 L.push(`- The table lists every ${args.week} game that was played to a result **and** has ball-by-ball scoring entered, grouped by the league's official week number (**${args.week}**), across ${args.tournaments.length} tournament${args.tournaments.length > 1 ? "s" : ""}.`);
+if (args.from || args.to) {
+  const win = args.from && args.to ? `between ${args.from} and ${args.to}` : args.from ? `on or after ${args.from}` : `on or before ${args.to}`;
+  L.push(`- Only ${args.week} games played ${win} are included. The league has used the ${args.week} label for more than one weekend; ${skippedByDate} ${args.week} game${skippedByDate === 1 ? "" : "s"} outside this window ${skippedByDate === 1 ? "is" : "are"} left out here because ${skippedByDate === 1 ? "it is" : "they are"} covered by an earlier report.`);
+}
 if (excluded.length) {
   const lst = excluded.map((r) => `${r.name} (${(tinfo.get(r.tid).name || "").replace(/ 2026$/, "")}, ${r.date})`).join("; ");
   L.push(`- ${excluded.length} ${args.week} fixture${excluded.length > 1 ? "s" : ""} had a scorecard with no batting detail entered (abandoned, conceded, or result-only) and ${excluded.length > 1 ? "are" : "is"} excluded: ${lst}.`);
