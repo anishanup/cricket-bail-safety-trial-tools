@@ -333,7 +333,7 @@ ticks over, e.g. 112/4 → 112/5. In the MLC broadcast that tick comes after the
 replay and the LIVE bumper, about 40 s after the ball, so the delivery is put at
 tick − 40 s (`--lead`) and the replay, where the bug is hidden, is reported too.
 Results go in `<out>/milc-video-marks.json` (committed), which `milc_scrape.mjs`
-reads: a marked dismissal gets an exact link plus a replay link. About two
+reads: a marked dismissal gets an exact link (the replay time is kept in the marks file too). About two
 minutes per dismissal, mostly download; already-marked ones are skipped, so run
 it after each new batch of games, then re-run `milc_scrape.mjs`.
 Needs `pip install yt-dlp opencv-python rapidocr-onnxruntime` and ffmpeg.

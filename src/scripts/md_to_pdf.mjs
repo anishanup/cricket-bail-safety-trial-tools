@@ -20,7 +20,7 @@ import { dirname, basename, join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
 const CSS = `
-  @page { size: A4; margin: 22mm 20mm; }
+  @page { size: A4 __ORIENT__; margin: 22mm 20mm; }
   html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   body {
     font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -54,17 +54,25 @@ const BROWSERS = [
 ];
 
 // Render a Markdown file to a styled PDF. Returns the output path.
-export async function mdFileToPdf(input, output) {
+// Landscape when asked (opts.landscape, or the CLI's --landscape) or when the
+// Markdown carries an "<!-- pdf: landscape -->" comment, for wide tables.
+export async function mdFileToPdf(input, output, opts = {}) {
   const { marked } = await import("marked");
   const inPath = resolve(input);
   const outPath = resolve(output || inPath.replace(/\.md$/i, ".pdf"));
   const tmpHtml = join(dirname(outPath), basename(outPath).replace(/\.pdf$/i, "") + ".tmp.html");
 
-  const bodyHtml = marked.parse(readFileSync(inPath, "utf8"));
+  const md = readFileSync(inPath, "utf8");
+  const landscape = !!opts.landscape || /<!--\s*pdf:\s*landscape\s*-->/i.test(md);
+  const bodyHtml = marked.parse(md);
   const html = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <title>${basename(inPath)}</title>
-<style>${CSS}</style>
+<style>${CSS.replace("__ORIENT__", landscape ? "landscape" : "portrait")}${landscape ? `
+  table { font-size: 9.5pt; width: auto; min-width: 60%; }
+  th, td { white-space: nowrap; padding: 3pt 7pt; }
+  h3, p > strong:first-child { page-break-after: avoid; }
+  table { page-break-inside: auto; } tr { page-break-inside: avoid; }` : ""}</style>
 </head><body>
 ${bodyHtml}
 </body></html>`;
@@ -85,13 +93,15 @@ ${bodyHtml}
 
 // CLI entry point
 if (import.meta.url === pathToFileURL(process.argv[1] || "").href) {
-  const input = process.argv[2];
+  const args = process.argv.slice(2).filter((x) => x !== "--landscape");
+  const landscape = process.argv.includes("--landscape");
+  const input = args[0];
   if (!input) {
-    console.error("Usage: node src/scripts/md_to_pdf.mjs <input.md> [output.pdf]");
+    console.error("Usage: node src/scripts/md_to_pdf.mjs <input.md> [output.pdf] [--landscape]");
     process.exit(1);
   }
   try {
-    const out = await mdFileToPdf(input, process.argv[3]);
+    const out = await mdFileToPdf(input, args[1], { landscape });
     console.log("PDF written to: " + out);
   } catch (e) {
     console.error(e.message);

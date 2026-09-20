@@ -5,20 +5,21 @@ league: "MiLC"
 source: "cricclubs.com/MiLC (Minor League Cricket ball-by-ball scoring)"
 date_from: "2026-09-17"
 date_to: "2026-09-20"
-games: 24
-bowled: 22
+games: 26
+bowled: 25
 stumped: 3
-run_out: 17
+run_out: 22
 hit_wicket: 0
 grounds:
   - { ground: "ACAC Park #1", games: 5, dislodgements: 5 }
-  - { ground: "Church Street Park", games: 7, dislodgements: 19 }
-  - { ground: "Davis", games: 2, dislodgements: 2 }
-  - { ground: "Grand Prairie Cricket Stadium", games: 5, dislodgements: 7 }
+  - { ground: "Church Street Park", games: 8, dislodgements: 19 }
+  - { ground: "Davis", games: 2, dislodgements: 8 }
+  - { ground: "Grand Prairie Cricket Stadium", games: 6, dislodgements: 9 }
   - { ground: "NY Ovals #1", games: 2, dislodgements: 5 }
   - { ground: "NY Ovals #3", games: 2, dislodgements: 3 }
   - { ground: "Strikers Cricket Ground", games: 1, dislodgements: 1 }
 matches:
+  - { date: "2026-09-17", match: "Baltimore Royals v Morrisville Raptors", ground: "Church Street Park", bowled: 0, stumped: 0, run_out: 0, hit_wicket: 0, total: 0 }
   - { date: "2026-09-17", match: "Orlando Galaxy v Ft. Lauderdale Lions", ground: "Church Street Park", bowled: 0, stumped: 0, run_out: 0, hit_wicket: 0, total: 0 }
   - { date: "2026-09-18", match: "Atlanta Lightning v Morrisville Raptors", ground: "Church Street Park", bowled: 1, stumped: 0, run_out: 3, hit_wicket: 0, total: 4 }
   - { date: "2026-09-18", match: "East Bay Blazers v Silicon Valley Strikers", ground: "Strikers Cricket Ground", bowled: 0, stumped: 0, run_out: 1, hit_wicket: 0, total: 1 }
@@ -41,5 +42,6 @@ matches:
   - { date: "2026-09-19", match: "Dallas Xforia Giants v MetroPlex Tracers", ground: "Grand Prairie Cricket Stadium", bowled: 2, stumped: 1, run_out: 1, hit_wicket: 0, total: 4 }
   - { date: "2026-09-20", match: "Chicago Tigers v St. Louis Americans", ground: "ACAC Park #1", bowled: 1, stumped: 0, run_out: 0, hit_wicket: 0, total: 1 }
   - { date: "2026-09-20", match: "Michigan Cricket Stars v Chicago Kingsmen", ground: "ACAC Park #1", bowled: 0, stumped: 0, run_out: 0, hit_wicket: 0, total: 0 }
-  - { date: "2026-09-20", match: "San Ramon Grizzlies v East Bay Blazers", ground: "Davis", bowled: 1, stumped: 0, run_out: 0, hit_wicket: 0, total: 1 }
-  - { date: "2026-09-20", match: "Dallas Xforia Giants v Lone Star Athletics", ground: "Grand Prairie Cricket Stadium", bowled: 0, stumped: 0, run_out: 0, hit_wicket: 0, total: 0 }
+  - { date: "2026-09-20", match: "San Ramon Grizzlies v East Bay Blazers", ground: "Davis", bowled: 3, stumped: 0, run_out: 4, hit_wicket: 0, total: 7 }
+  - { date: "2026-09-20", match: "Dallas Xforia Giants v Lone Star Athletics", ground: "Grand Prairie Cricket Stadium", bowled: 1, stumped: 0, run_out: 1, hit_wicket: 0, total: 2 }
+  - { date: "2026-09-20", match: "All Stars v MetroPlex Tracers", ground: "Grand Prairie Cricket Stadium", bowled: 0, stumped: 0, run_out: 0, hit_wicket: 0, total: 0 }

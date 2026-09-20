@@ -442,7 +442,11 @@ if (a.vocab) {
 }
 
 // 4. join with the sheet and write the report
-const rows = Object.values(cache).filter((r) => matches.has(r.token)).sort((x, y) => (x.date + x.start).localeCompare(y.date + y.start));
+// every cached game of the season, not just those on the results page's first
+// page (30 per page; older games drop off it but stay in the cache)
+const seriesNames = new Set(seriesList.map((x) => x.name));
+const rows = Object.values(cache).filter((r) => r && typeof r === "object" && r.token && seriesNames.has(r.series))
+  .sort((x, y) => (x.date + x.start).localeCompare(y.date + y.start));
 for (const r of rows) {
   const s = sheetFor(r.date, r.teamOne, r.teamTwo);
   r.sheet = s ? { used: (s["Bailguard used?"] || "").trim(), note: s["Notes"] || "", youtube: s["Youtube link"] || "" } : null;
@@ -480,7 +484,7 @@ for (const r of withGuards) {
     const mk = marks[`${r.token}|${e.innings}|${e.over}.${e.ball}`];
     const at = (sec) => `https://www.youtube.com/watch?v=${vid}&t=${sec}s`;
     if (mk && mk.delivery != null) {
-      e.link = `${mk.approx ? "~ " : ""}[${hms(mk.delivery)}](${at(mk.delivery)})` + (mk.replay != null ? ` ([replay](${at(mk.replay)}))` : "");
+      e.link = `${mk.approx ? "~ " : ""}[${hms(mk.delivery)}](${at(mk.delivery)})`;
       e.exact = true;
     } else {
       const off = e.at && !isNaN(start) ? Math.floor((Date.parse(e.at) - start) / 1000) - a.lead : NaN;
@@ -505,6 +509,7 @@ const resultLine = (r) => /won|tie|draw|no result|abandon/i.test(r.result || "")
 const ytLink = (u) => u ? `[Video](${u.trim()})` : "";
 
 const L = [];
+L.push(`<!-- pdf: landscape -->`, "");
 L.push(`# Bail Guard in Minor League Cricket 2026`, "");
 L.push(`Every dismissal that dislodged the bails in the MiLC 2026 games played with bail guards on the stumps, with the over and ball it happened on. Counted from MiLC's official ball-by-ball scoring on CricClubs, ${longDate(dates[0])} to ${longDate(dates[dates.length - 1])}.`, "");
 L.push(`**Snapshot as of ${longDate(today)}**`, "");
@@ -536,7 +541,7 @@ withGuards.forEach((r, i) => {
 
 L.push(`## Notes`, "");
 L.push(`- Over and ball are in standard notation (4.6 is the sixth ball of the fifth over). Time is the scheduled start. Ground local time is when the scorer entered the ball, within a minute of it being bowled.`);
-L.push(`- "In the video" opens the stream a few seconds before the ball is bowled, with a second link to the broadcast replay; those times were read from the score graphic in the video. A time marked ~ is the last ball of an innings, placed from when the score graphic left the screen, within about 20 seconds. A time marked ≈ is estimated from the scorer's entry and is approximate, within about 90 seconds.`);
+L.push(`- "In the video" opens the stream a few seconds before the ball is bowled; those times were read from the score graphic in the video. A time marked ~ is the last ball of an innings, placed from when the score graphic left the screen, within about 20 seconds. A time marked ≈ is estimated from the scorer's entry and is approximate, within about 90 seconds.`);
 L.push(`- Direct and indirect run outs are as credited by the scorer: one fielder for a throw that hit the stumps, two for a relayed throw broken by a fielder or keeper. Caught, caught behind and LBW are not included because they do not disturb the stumps.`);
 if (abandoned.length) L.push(`- Abandoned without a ball bowled, not counted: ` + abandoned.map((r) => `${label(r)} (${shortDate(r.date)}, ${r.ground})`).join("; ") + ".");
 if (without.length) L.push(`- Played without bail guards, not counted above: ` + without.map((r) => `${label(r)} (${shortDate(r.date)}, ${r.ground}${r.why ? `: ${r.why}` : ""})`).join("; ") + ".");
