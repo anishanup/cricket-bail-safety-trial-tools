@@ -7,6 +7,7 @@ trials/*/downloads/
 # Scrape caches (re-fetchable, not versioned)
 .ntca-cache.json
 .dallashub-cache.json
+.milc-cache.json
 
 # Large media files (anywhere in repo)
 *.mp4

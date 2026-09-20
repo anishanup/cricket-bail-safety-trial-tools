@@ -1,16 +1,16 @@
 {
   "project": "Cricket Bail Safety Trial Tools",
   "description": "Running total of bail-dislodging dismissals (Bowled + Stumped + Run out + Hit wicket). Lower bound on how often a bail guard is engaged.",
-  "generated_on": "2026-09-16",
+  "generated_on": "2026-09-20",
   "data_from": "2026-01-18",
-  "data_to": "2026-09-13",
+  "data_to": "2026-09-20",
   "totals": {
-    "games": 829,
-    "bowled": 2859,
-    "stumped": 232,
-    "run_out": 1211,
+    "games": 853,
+    "bowled": 2881,
+    "stumped": 235,
+    "run_out": 1228,
     "hit_wicket": 20,
-    "dislodgements": 4322
+    "dislodgements": 4364
   },
   "totals_by_source": {
     "adult_league_scorecards": {
@@ -45,6 +45,14 @@
       "hit_wicket": 4,
       "dislodgements": 535
     },
+    "semi_pro_league_scorecards": {
+      "games": 24,
+      "bowled": 22,
+      "stumped": 3,
+      "run_out": 17,
+      "hit_wicket": 0,
+      "dislodgements": 42
+    },
     "device_trials_video": {
       "games": 4,
       "bowled": 5,
@@ -54,6 +62,105 @@
       "dislodgements": 11
     }
   },
+  "places": [
+    {
+      "name": "Dallas-Fort Worth, TX",
+      "state": "TX",
+      "lat": 32.85,
+      "lon": -97,
+      "games": 834,
+      "dislodgements": 4329,
+      "sources": [
+        "Dallas Cricket League",
+        "Dallas Youth Cricket League",
+        "North Texas Cricket Association",
+        "USA Cricket Dallas Hub",
+        "Grand Prairie Cricket Club",
+        "Minor League Cricket"
+      ],
+      "grounds": [
+        "Grand Prairie Cricket Stadium"
+      ]
+    },
+    {
+      "name": "Raleigh, NC",
+      "state": "NC",
+      "lat": 35.82,
+      "lon": -78.83,
+      "games": 7,
+      "dislodgements": 19,
+      "sources": [
+        "Minor League Cricket"
+      ],
+      "grounds": [
+        "Church Street Park"
+      ]
+    },
+    {
+      "name": "St. Louis, MO",
+      "state": "MO",
+      "lat": 38.81,
+      "lon": -90.7,
+      "games": 5,
+      "dislodgements": 5,
+      "sources": [
+        "Minor League Cricket"
+      ],
+      "grounds": [
+        "ACAC Park #1"
+      ]
+    },
+    {
+      "name": "Albany, NY",
+      "state": "NY",
+      "lat": 42.83,
+      "lon": -73.94,
+      "games": 4,
+      "dislodgements": 8,
+      "sources": [
+        "Minor League Cricket"
+      ],
+      "grounds": [
+        "NY Ovals #1",
+        "NY Ovals #3"
+      ]
+    },
+    {
+      "name": "Sacramento, CA",
+      "state": "CA",
+      "lat": 38.55,
+      "lon": -121.74,
+      "games": 2,
+      "dislodgements": 2,
+      "sources": [
+        "Minor League Cricket"
+      ],
+      "grounds": [
+        "Davis"
+      ]
+    },
+    {
+      "name": "San Jose, CA",
+      "state": "CA",
+      "lat": 37.43,
+      "lon": -121.9,
+      "games": 1,
+      "dislodgements": 1,
+      "sources": [
+        "Minor League Cricket"
+      ],
+      "grounds": [
+        "Strikers Cricket Ground"
+      ]
+    }
+  ],
+  "states": [
+    "TX",
+    "NC",
+    "MO",
+    "NY",
+    "CA"
+  ],
   "folders_considered": {
     "adult_league_scorecards": [
       "trials/20260620-dallas-cricket-league-fall-season/20260620-week/bailguard-impact-20260620-20260624.md",
@@ -79,6 +186,9 @@
       "trials/dallas-hub/2026-fall-league/20260828-week",
       "trials/dallas-hub/2026-fall-league/20260911-week"
     ],
+    "semi_pro_league_scorecards": [
+      "trials/milc/2026-milc"
+    ],
     "device_trials_video": [
       "trials/20260118-gpcc-qualifier1-dallas",
       "trials/20260118-gpcc-qualifier2-dallas",
@@ -89,5 +199,5 @@
       "trials/20260620-dallas-cricket-league-fall-season/20260620-hind-x1-vs-texas-thanos"
     ]
   },
-  "notes": "adult_league_scorecards = Dallas Cricket League (dallascricket.org). youth_league_scorecards = Dallas Youth Cricket League on CricClubs. guarded_ground_scorecards = North Texas Cricket Association on CricClubs, restricted to matches played on grounds that have bail guards fitted. usa_cricket_hub_scorecards = the USA Cricket Dallas hub junior pathway on CricClubs. All four are full scorecard dismissal counts. device_trials_video is a floor from each trial's highlights.csv (those games have no scorecard), counting only clear outs. already_counted_in_scorecards are live-match trials whose game is already inside a league scorecard, so not double-counted."
+  "notes": "adult_league_scorecards = Dallas Cricket League (dallascricket.org). youth_league_scorecards = Dallas Youth Cricket League on CricClubs. guarded_ground_scorecards = North Texas Cricket Association on CricClubs, restricted to matches played on grounds that have bail guards fitted. usa_cricket_hub_scorecards = the USA Cricket Dallas hub junior pathway on CricClubs. semi_pro_league_scorecards = Minor League Cricket on CricClubs, only the games played with bail guards on the stumps. All five are full scorecard dismissal counts. places = where the guards have been on the stumps, one entry per metro area, with the games and dislodgements counted there and the leagues involved; states lists the US states among them. device_trials_video is a floor from each trial's highlights.csv (those games have no scorecard), counting only clear outs. already_counted_in_scorecards are live-match trials whose game is already inside a league scorecard, so not double-counted."
 }

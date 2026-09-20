@@ -114,6 +114,54 @@ for (const p of files.filter((p) => /(^|[\\/])dallashub-summary\.yaml$/i.test(p)
   }
 }
 
+// ---- 6. Minor League Cricket (semi-professional) ball-by-ball summaries ----
+// Written by milc_scrape.mjs. Only games played with bail guards on the stumps
+// are in the summary, so every game here is a device-engagement count. The
+// grounds list is what puts the dots on the map.
+const semipro = blank();
+const semiproSources = [];
+const groundGames = {}; // ground name -> { games, dislodgements, sources }
+for (const p of files.filter((p) => /(^|[\\/])milc-summary\.yaml$/i.test(p)).sort()) {
+  const y = readFileSync(p, "utf8");
+  addTo(semipro, yamlNum(y, "games"), yamlNum(y, "bowled"), yamlNum(y, "stumped"), yamlNum(y, "run_out"), yamlNum(y, "hit_wicket"));
+  semiproSources.push(rel(dirname(p)));
+  for (const k of ["date_from", "date_to"]) {
+    const d = yamlStr(y, k).replace(/-/g, "");
+    if (d) dates.push(d);
+  }
+  for (const m of y.matchAll(/^\s*-\s*\{\s*ground:\s*"([^"]*)",\s*games:\s*(\d+),\s*dislodgements:\s*(\d+)/gm)) {
+    const g = groundGames[m[1]] = groundGames[m[1]] || { games: 0, dislodgements: 0, sources: new Set() };
+    g.games += +m[2]; g.dislodgements += +m[3]; g.sources.add("Minor League Cricket");
+  }
+}
+
+// ---- places: where the guards have been on the stumps ----------------------
+// Every Dallas-area source is one place; grounds elsewhere come from the MiLC
+// summaries and are placed by src/scripts/grounds.json.
+const gaz = JSON.parse(readFileSync(join(ROOT, "src/scripts/grounds.json"), "utf8"));
+const placeOf = (ground) => {
+  const g = String(ground || "").toLowerCase();
+  const hit = gaz.grounds.find((x) => g.includes(x.match));
+  if (!hit) console.error(`grounds.json: no place for ground "${ground}" (add it); left off the map.`);
+  return hit ? hit.place : null;
+};
+const placeAcc = {};
+const addPlace = (name, games, dislodgements, source, ground) => {
+  if (!name || !gaz.places[name]) return;
+  const p = placeAcc[name] = placeAcc[name] || { name, ...gaz.places[name], games: 0, dislodgements: 0, sources: new Set(), grounds: new Set() };
+  p.games += games; p.dislodgements += dislodgements; if (source) p.sources.add(source); if (ground) p.grounds.add(ground);
+};
+const DFW = "Dallas-Fort Worth, TX";
+addPlace(DFW, scorecard.games, scorecard.dislodgements, "Dallas Cricket League");
+addPlace(DFW, youth.games, youth.dislodgements, "Dallas Youth Cricket League");
+addPlace(DFW, guarded.games, guarded.dislodgements, "North Texas Cricket Association");
+addPlace(DFW, hub.games, hub.dislodgements, "USA Cricket Dallas Hub");
+addPlace(DFW, trials.games, trials.dislodgements, "Grand Prairie Cricket Club");
+for (const [ground, g] of Object.entries(groundGames)) for (const src of g.sources) addPlace(placeOf(ground), g.games, g.dislodgements, src, ground);
+const places = Object.values(placeAcc).filter((p) => p.games > 0).sort((x, y) => y.games - x.games)
+  .map((p) => ({ ...p, sources: [...p.sources], grounds: [...p.grounds].sort() }));
+const states = [...new Set(places.map((p) => p.state))]; // in order of games played, so the origin comes first
+
 // ---- live-match trials that are on record but NOT separately counted ------
 // (no bailguard-summary.yaml -- e.g. already inside the league scorecards).
 const alreadyCounted = [];
@@ -125,7 +173,7 @@ for (const p of files.filter((p) => /(^|[\\/])trial\.yaml$/i.test(p))) {
 
 // ---- combined totals -----------------------------------------------------
 const totals = blank();
-for (const src of [scorecard, trials, youth, guarded, hub]) addTo(totals, src.games, src.bowled, src.stumped, src.run_out, src.hit_wicket);
+for (const src of [scorecard, trials, youth, guarded, hub, semipro]) addTo(totals, src.games, src.bowled, src.stumped, src.run_out, src.hit_wicket);
 const ymd = (s) => (s ? `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}` : "");
 const sorted = dates.slice().sort();
 const dataFrom = sorted.length ? ymd(sorted[0]) : "";
@@ -146,17 +194,21 @@ const json = {
     youth_league_scorecards: strip(youth),
     guarded_ground_scorecards: strip(guarded),
     usa_cricket_hub_scorecards: strip(hub),
+    semi_pro_league_scorecards: strip(semipro),
     device_trials_video: strip(trials),
   },
+  places,
+  states,
   folders_considered: {
     adult_league_scorecards: scorecardSources,
     youth_league_scorecards: youthSources,
     guarded_ground_scorecards: guardedSources,
     usa_cricket_hub_scorecards: hubSources,
+    semi_pro_league_scorecards: semiproSources,
     device_trials_video: trialSources,
     already_counted_in_scorecards: alreadyCounted,
   },
-  notes: "adult_league_scorecards = Dallas Cricket League (dallascricket.org). youth_league_scorecards = Dallas Youth Cricket League on CricClubs. guarded_ground_scorecards = North Texas Cricket Association on CricClubs, restricted to matches played on grounds that have bail guards fitted. usa_cricket_hub_scorecards = the USA Cricket Dallas hub junior pathway on CricClubs. All four are full scorecard dismissal counts. device_trials_video is a floor from each trial's highlights.csv (those games have no scorecard), counting only clear outs. already_counted_in_scorecards are live-match trials whose game is already inside a league scorecard, so not double-counted.",
+  notes: "adult_league_scorecards = Dallas Cricket League (dallascricket.org). youth_league_scorecards = Dallas Youth Cricket League on CricClubs. guarded_ground_scorecards = North Texas Cricket Association on CricClubs, restricted to matches played on grounds that have bail guards fitted. usa_cricket_hub_scorecards = the USA Cricket Dallas hub junior pathway on CricClubs. semi_pro_league_scorecards = Minor League Cricket on CricClubs, only the games played with bail guards on the stumps. All five are full scorecard dismissal counts. places = where the guards have been on the stumps, one entry per metro area, with the games and dislodgements counted there and the leagues involved; states lists the US states among them. device_trials_video is a floor from each trial's highlights.csv (those games have no scorecard), counting only clear outs. already_counted_in_scorecards are live-match trials whose game is already inside a league scorecard, so not double-counted.",
 };
 writeFileSync(join(ROOT, "bailguard-totals.json"), JSON.stringify(json, null, 2) + "\n", "utf8");
 
@@ -178,6 +230,7 @@ M.push(`- **${scorecard.dislodgements}** — adult league scorecards, Dallas Cri
 if (youth.games) M.push(`- **${youth.dislodgements}** — youth league scorecards, Dallas Youth Cricket League (${youth.games} games)`);
 if (guarded.games) M.push(`- **${guarded.dislodgements}** — league scorecards on grounds fitted with bail guards, North Texas Cricket Association (${guarded.games} games)`);
 if (hub.games) M.push(`- **${hub.dislodgements}** — USA Cricket Dallas hub, junior pathway scorecards (${hub.games} games)`);
+if (semipro.games) M.push(`- **${semipro.dislodgements}** — Minor League Cricket, semi-professional, games played with bail guards (${semipro.games} games)`);
 M.push(`- **${trials.dislodgements}** — device field-trial video, a floor (${trials.games} games)`, "");
 M.push("## Folders considered", "");
 M.push("Adult league scorecards — Dallas Cricket League (full dismissal counts):");
@@ -196,6 +249,18 @@ if (hubSources.length) {
   M.push("");
   M.push("USA Cricket Dallas hub, junior pathway — CricClubs (full dismissal counts):");
   for (const s of hubSources) M.push(`- ${s}`);
+}
+if (semiproSources.length) {
+  M.push("");
+  M.push("Minor League Cricket, semi-professional — CricClubs ball-by-ball (games with bail guards only):");
+  for (const s of semiproSources) M.push(`- ${s}`);
+}
+if (places.length) {
+  M.push("");
+  M.push(`## Where the guards have been on the stumps (${states.length} states)`, "");
+  M.push("| Place | Games | Dislodgements | Leagues |");
+  M.push("|---|--:|--:|---|");
+  for (const p of places) M.push(`| ${p.name} | ${p.games} | ${p.dislodgements} | ${p.sources.join(", ")} |`);
 }
 M.push("");
 M.push("Device field trials (counted from highlights.csv video; a floor):");

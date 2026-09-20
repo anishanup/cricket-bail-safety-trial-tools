@@ -1,0 +1,28 @@
+{
+  "_comment": "Where the grounds are, for the map on the website. `match` is a case-insensitive substring of the ground name as the scorers write it. Places are metro areas (the dot sits at the ground, the label names the metro); grounds in the same `place` are drawn as one dot; games from the Dallas-area leagues (DCL, DYCL, NTCA, USA Cricket Dallas Hub, GPCC) all fall under Dallas-Fort Worth. Coordinates are approximate town centres.",
+  "places": {
+    "Dallas-Fort Worth, TX":  { "state": "TX", "lat": 32.85, "lon": -97.00 },
+    "Raleigh, NC":        { "state": "NC", "lat": 35.82, "lon": -78.83 },
+    "Albany, NY":        { "state": "NY", "lat": 42.83, "lon": -73.94 },
+    "St. Louis, MO":           { "state": "MO", "lat": 38.81, "lon": -90.70 },
+    "San Jose, CA":           { "state": "CA", "lat": 37.43, "lon": -121.90 },
+    "Sacramento, CA":              { "state": "CA", "lat": 38.55, "lon": -121.74 },
+    "Los Angeles, CA":        { "state": "CA", "lat": 34.17, "lon": -118.48 },
+    "San Diego, CA":          { "state": "CA", "lat": 32.92, "lon": -117.11 },
+    "Houston, TX":           { "state": "TX", "lat": 29.56, "lon": -95.29 },
+    "Atlanta, GA":              { "state": "GA", "lat": 34.35, "lon": -84.73 }
+  },
+  "grounds": [
+    { "match": "grand prairie",            "place": "Dallas-Fort Worth, TX" },
+    { "match": "church street park",       "place": "Raleigh, NC" },
+    { "match": "ny ovals",                 "place": "Albany, NY" },
+    { "match": "acac park",                "place": "St. Louis, MO" },
+    { "match": "strikers cricket ground",  "place": "San Jose, CA" },
+    { "match": "davis",                    "place": "Sacramento, CA" },
+    { "match": "woodley park",             "place": "Los Angeles, CA" },
+    { "match": "los angeles cricket",      "place": "Los Angeles, CA" },
+    { "match": "canyonside",               "place": "San Diego, CA" },
+    { "match": "kingsmen stadium",         "place": "Houston, TX" },
+    { "match": "param veers",              "place": "Atlanta, GA" }
+  ]
+}

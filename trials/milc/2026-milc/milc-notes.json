@@ -1,0 +1,20 @@
+[
+ {
+  "date": "2026-09-20",
+  "teams": "Manhattan Yorkers v New England Eagles",
+  "note": "Bail guards were fitted from the second innings; first-innings dismissals are not counted.",
+  "from_innings": 2
+ },
+ {
+  "date": "2026-09-19",
+  "teams": "Orlando Galaxy v Baltimore Royals",
+  "fix": [
+   {
+    "innings": 1,
+    "over": "15.1",
+    "direct": false,
+    "note": "relayed to the keeper, seen on video"
+   }
+  ]
+ }
+]

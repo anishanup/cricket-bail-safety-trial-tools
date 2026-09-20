@@ -1,16 +1,16 @@
 # Bail Safety — Running Totals
 
-Generated on: 2026-09-16  
-From: 2026-01-18  To: 2026-09-13
+Generated on: 2026-09-20  
+From: 2026-01-18  To: 2026-09-20
 
 | Metric | Total |
 |---|--:|
-| Games | 829 |
-| Bowled | 2859 |
-| Stumped | 232 |
-| Run out | 1211 |
+| Games | 853 |
+| Bowled | 2881 |
+| Stumped | 235 |
+| Run out | 1228 |
 | Hit wicket | 20 |
-| **Bail-dislodging dismissals** | **4322** |
+| **Bail-dislodging dismissals** | **4364** |
 
 Dismissals that dislodge the bails, counted from official scorecards, plus a floor from device-trial video. Lower bound. Breakdown:
 
@@ -18,6 +18,7 @@ Dismissals that dislodge the bails, counted from official scorecards, plus a flo
 - **388** — youth league scorecards, Dallas Youth Cricket League (72 games)
 - **59** — league scorecards on grounds fitted with bail guards, North Texas Cricket Association (18 games)
 - **535** — USA Cricket Dallas hub, junior pathway scorecards (78 games)
+- **42** — Minor League Cricket, semi-professional, games played with bail guards (24 games)
 - **11** — device field-trial video, a floor (4 games)
 
 ## Folders considered
@@ -45,6 +46,20 @@ USA Cricket Dallas hub, junior pathway — CricClubs (full dismissal counts):
 - trials/dallas-hub/2026-fall-league/20260822-week
 - trials/dallas-hub/2026-fall-league/20260828-week
 - trials/dallas-hub/2026-fall-league/20260911-week
+
+Minor League Cricket, semi-professional — CricClubs ball-by-ball (games with bail guards only):
+- trials/milc/2026-milc
+
+## Where the guards have been on the stumps (5 states)
+
+| Place | Games | Dislodgements | Leagues |
+|---|--:|--:|---|
+| Dallas-Fort Worth, TX | 834 | 4329 | Dallas Cricket League, Dallas Youth Cricket League, North Texas Cricket Association, USA Cricket Dallas Hub, Grand Prairie Cricket Club, Minor League Cricket |
+| Raleigh, NC | 7 | 19 | Minor League Cricket |
+| St. Louis, MO | 5 | 5 | Minor League Cricket |
+| Albany, NY | 4 | 8 | Minor League Cricket |
+| Sacramento, CA | 2 | 2 | Minor League Cricket |
+| San Jose, CA | 1 | 1 | Minor League Cricket |
 
 Device field trials (counted from highlights.csv video; a floor):
 - trials/20260118-gpcc-qualifier1-dallas

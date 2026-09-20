@@ -132,6 +132,16 @@ It reads these kinds of per-game summary:
    `dallashub_scrape.mjs` (section 7).
 4. **Guarded grounds** — an `ntca-summary.yaml` written by `ntca_scrape.mjs`
    (section 6): games played on a ground that has bail guards fitted.
+5. **Minor League Cricket** — a `milc-summary.yaml` written by `milc_scrape.mjs`
+   (section 8): only the games played with bail guards on the stumps.
+
+It also writes `places` and `states` into the JSON: where the guards have been
+on the stumps, one entry per metro area with games, dislodgements and the
+leagues involved. The website draws its map from this. Every Dallas-area source
+counts under Dallas-Fort Worth; grounds elsewhere come from the MiLC summaries
+and are located by `src/scripts/grounds.json` (a ground-name substring → place,
+and each place's state and coordinates). A ground the file does not know is
+reported on stderr and left off the map until it is added.
 
 Re-run it after each new week's report **or** after adding a new trial summary.
 
@@ -261,10 +271,82 @@ numbers could quietly go wrong.
 Scorecards are cached in `.dallashub-cache.json` in the output folder
 (gitignored), so a weekly re-run only fetches the new fixtures.
 
+## 8. Minor League Cricket, ball by ball
+
+MiLC also scores on the newer CricClubs platform (`cricclubs.com/MiLC`), so
+`milc_scrape.mjs` drives Chrome the same way as the Dallas hub scraper. It goes
+one step further than the other scripts: the match page loads a **ball-by-ball
+commentary feed**, so the report lists every bail-dislodging dismissal with the
+exact over and ball and the clock time the scorer recorded it, which is what you
+need to find the moment in the match video.
+
+```
+node src/scripts/milc_scrape.mjs --out trials/milc/2026-milc
+```
+
+- `--sheet <src>`    CSV of the MiLC tracking sheet's Matches tab (URL or local
+  path; the default is the Google Sheet's CSV export). Every scored game is
+  counted as played with bail guards **unless** the sheet marks it "No"; those
+  are listed at the end of the report, with the sheet's reason, and not counted.
+- `--streams <url>`  YouTube channel Streams tab to take video links from
+  (default MLC Network). Stream titles carry "Match #N", which is the sheet's
+  SNO, so each game pairs with its stream reliably; the sheet's own link is the
+  fallback. `--no-streams` to skip.
+- `--series <text>`  only series whose name contains this (default: the current
+  year, so past MiLC seasons are skipped).
+- `--refetch`, `--vocab`, `--port` as for the other scrapers.
+
+It writes `bailguard-milc-2026.md`: a snapshot table, a games table with the
+per-type counts, then a sub-table per game listing each dislodgement with
+innings, over.ball, fall of wicket, batter, how (run outs split into direct and
+indirect), ground local time, and a **deep link into the stream** at that
+moment. The link works because the scorer's timestamp on each ball is absolute
+and a YouTube live stream records when it went live; the link opens `--lead`
+seconds (default 60) before the scorer's entry. Games played without bail guards
+go in the notes. It is written to be shared as-is, so it is short. A game is
+re-read on every run until its scorecard is final; finished games and stream
+start times come from `.milc-cache.json` (gitignored).
+
+Facts the scorecard cannot know go in `<out>/milc-notes.json`, one object per
+game: `"used": false` (with a `"note"`) lists a game as played without bail
+guards; `"from_innings": 2` counts only dismissals from that innings on, for a
+game where the guards went on late; a `"fix"` list corrects single dismissals
+after the video has been watched (`{"innings": 1, "over": "15.1", "direct":
+false}` turns a run out the scorer credited to one fielder into an indirect
+one). Ground time zones are in `GROUND_TZ` in the script; an unknown ground is
+assumed Eastern and reported on stderr.
+
+### Exact video positions
+
+The scorer's timestamps are truncated to the minute, so the links above are
+good to about 90 s and are marked ≈. `milc_video_align.py` makes them exact by
+reading the broadcast score bug:
+
+```
+python src/scripts/milc_video_align.py --out trials/milc/2026-milc
+```
+
+For each dismissal it downloads a short 720p section of the stream around the
+estimate (yt-dlp, with Node as the JavaScript runtime), OCRs the score bug once
+a second (rapidocr, no system install) and finds the second the wicket count
+ticks over, e.g. 112/4 → 112/5. In the MLC broadcast that tick comes after the
+replay and the LIVE bumper, about 40 s after the ball, so the delivery is put at
+tick − 40 s (`--lead`) and the replay, where the bug is hidden, is reported too.
+Results go in `<out>/milc-video-marks.json` (committed), which `milc_scrape.mjs`
+reads: a marked dismissal gets an exact link plus a replay link. About two
+minutes per dismissal, mostly download; already-marked ones are skipped, so run
+it after each new batch of games, then re-run `milc_scrape.mjs`.
+Needs `pip install yt-dlp opencv-python rapidocr-onnxruntime` and ffmpeg.
+
+Two checks run against the final scorecard: a feed entry the scorer later
+reversed (the batter is not out on the card) is dropped, and the card's own
+dismissal codes must add up to the feed's count or the game is flagged. The card
+codes that dislodge the bails are `b`, `st`, `ro`, `mk` (Mankad) and `ht`/`hw`.
+
 ## Scope
 
 `bailguard_report.mjs` / `dcl_tournaments.mjs` target the **DCL adult leagues**
 on dallascricket.org. `dycl_scrape.mjs` covers the **DYCL youth league**,
-`ntca_scrape.mjs` the **NTCA games on bail-guarded grounds**, and
-`dallashub_scrape.mjs` the **USA Cricket Dallas hub**, all three on CricClubs.
+`ntca_scrape.mjs` the **NTCA games on bail-guarded grounds**, `dallashub_scrape.mjs` the **USA Cricket Dallas hub**, and `milc_scrape.mjs`
+**Minor League Cricket**, all four on CricClubs.
 Every one of them feeds the same running totals via `aggregate_totals.mjs`.
