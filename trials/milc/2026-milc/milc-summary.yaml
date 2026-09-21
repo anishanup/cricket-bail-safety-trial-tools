@@ -6,15 +6,15 @@ source: "cricclubs.com/MiLC (Minor League Cricket ball-by-ball scoring)"
 date_from: "2026-09-17"
 date_to: "2026-09-20"
 games: 26
-bowled: 25
-stumped: 3
+bowled: 27
+stumped: 4
 run_out: 22
 hit_wicket: 0
 grounds:
   - { ground: "ACAC Park #1", games: 5, dislodgements: 5 }
   - { ground: "Church Street Park", games: 8, dislodgements: 19 }
   - { ground: "Davis", games: 2, dislodgements: 8 }
-  - { ground: "Grand Prairie Cricket Stadium", games: 6, dislodgements: 9 }
+  - { ground: "Grand Prairie Cricket Stadium", games: 6, dislodgements: 12 }
   - { ground: "NY Ovals #1", games: 2, dislodgements: 5 }
   - { ground: "NY Ovals #3", games: 2, dislodgements: 3 }
   - { ground: "Strikers Cricket Ground", games: 1, dislodgements: 1 }
@@ -44,4 +44,4 @@ matches:
   - { date: "2026-09-20", match: "Michigan Cricket Stars v Chicago Kingsmen", ground: "ACAC Park #1", bowled: 0, stumped: 0, run_out: 0, hit_wicket: 0, total: 0 }
   - { date: "2026-09-20", match: "San Ramon Grizzlies v East Bay Blazers", ground: "Davis", bowled: 3, stumped: 0, run_out: 4, hit_wicket: 0, total: 7 }
   - { date: "2026-09-20", match: "Dallas Xforia Giants v Lone Star Athletics", ground: "Grand Prairie Cricket Stadium", bowled: 1, stumped: 0, run_out: 1, hit_wicket: 0, total: 2 }
-  - { date: "2026-09-20", match: "All Stars v MetroPlex Tracers", ground: "Grand Prairie Cricket Stadium", bowled: 0, stumped: 0, run_out: 0, hit_wicket: 0, total: 0 }
+  - { date: "2026-09-20", match: "MetroPlex Tracers v All Stars", ground: "Grand Prairie Cricket Stadium", bowled: 2, stumped: 1, run_out: 0, hit_wicket: 0, total: 3 }

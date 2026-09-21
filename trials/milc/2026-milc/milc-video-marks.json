@@ -3,61 +3,71 @@
   "video": "q6-kgtIrpUY",
   "tick": 5053,
   "delivery": 5013,
-  "replay": 5036
+  "replay": 5036,
+  "manual": 5011
  },
  "XpPQIx-LNHkE_szcTtuAMQ|1|19.3": {
   "video": "q6-kgtIrpUY",
   "tick": 6284,
   "delivery": 6244,
-  "replay": 6274
+  "replay": 6274,
+  "manual": 6255
  },
  "XpPQIx-LNHkE_szcTtuAMQ|1|19.6": {
   "video": "q6-kgtIrpUY",
   "tick": 6421,
   "delivery": 6381,
-  "replay": 6414
+  "replay": 6414,
+  "manual": 6401
  },
  "yNfGcolHUgoL9dWjiAd_aA|1|2.6": {
   "video": "x_vaVEqHicc",
   "tick": 1591,
   "delivery": 1551,
-  "replay": 1577
+  "replay": 1577,
+  "manual": 1429
  },
  "yNfGcolHUgoL9dWjiAd_aA|2|0.2": {
   "video": "x_vaVEqHicc",
   "tick": 7589,
   "delivery": 7549,
-  "replay": 7570
+  "replay": 7570,
+  "manual": 7501
  },
  "yNfGcolHUgoL9dWjiAd_aA|2|5.4": {
   "video": "x_vaVEqHicc",
   "tick": 9220,
   "delivery": 9180,
-  "replay": 9203
+  "replay": 9203,
+  "manual": 9178
  },
  "yNfGcolHUgoL9dWjiAd_aA|2|14.3": {
   "video": "x_vaVEqHicc",
   "tick": 11551,
   "delivery": 11511,
-  "replay": 11541
+  "replay": 11541,
+  "manual": 11522
  },
  "gOQYkLHj6_dmdIXBPnWbjQ|1|12.4": {
   "video": "hda3er0ow0g",
   "tick": 4069,
   "delivery": 4029,
-  "replay": null
+  "replay": null,
+  "manual": 4058
  },
  "gOQYkLHj6_dmdIXBPnWbjQ|1|14.1": {
   "video": "hda3er0ow0g",
   "tick": 4493,
   "delivery": 4453,
-  "replay": 4470
+  "replay": 4470,
+  "manual": 4440
  },
  "gOQYkLHj6_dmdIXBPnWbjQ|2|15.6": {
   "video": "hda3er0ow0g",
   "tick": 11215,
   "delivery": 11175,
-  "replay": 11189
+  "replay": 11189,
+  "manual": 11156
  },
  "DPLILvTc8l1L7ViWcutIGQ|1|19.6": {
   "video": "VOSq7YSNugo",
@@ -65,103 +75,120 @@
   "delivery": 6420,
   "replay": null,
   "approx": true,
-  "note": "last ball of the innings; placed from when the score graphic left the screen"
+  "note": "last ball of the innings; placed from when the score graphic left the screen",
+  "manual": 6407
  },
  "h14HgJFeAD-01Lt4GhSSpA|1|11.1": {
   "video": "vx59nq-5vFI",
   "tick": 4097,
   "delivery": 4057,
-  "replay": 4085
+  "replay": 4085,
+  "manual": 4059
  },
  "h14HgJFeAD-01Lt4GhSSpA|1|18.1": {
   "video": "vx59nq-5vFI",
   "tick": 5984,
   "delivery": 5944,
-  "replay": null
+  "replay": null,
+  "manual": 5970
  },
  "h14HgJFeAD-01Lt4GhSSpA|1|19.2": {
   "video": "vx59nq-5vFI",
   "tick": 6504,
   "delivery": 6464,
-  "replay": null
+  "replay": null,
+  "manual": 6496
  },
  "wzeDrfisblZfLq6tXkZCjw|2|1.6": {
   "video": "0kfdYcV-vQI",
   "tick": 7818,
   "delivery": 7778,
-  "replay": null
+  "replay": null,
+  "manual": 7749
  },
  "wzeDrfisblZfLq6tXkZCjw|2|10.6": {
   "video": "0kfdYcV-vQI",
   "tick": 11293,
   "delivery": 11253,
-  "replay": null
+  "replay": null,
+  "manual": 10022
  },
  "zOW4g6-6QqY-VRHK5Arehg|1|4.1": {
   "video": "fATHW2l8cvg",
   "tick": 1509,
   "delivery": 1469,
-  "replay": 1497
+  "replay": 1497,
+  "manual": 1492
  },
  "zOW4g6-6QqY-VRHK5Arehg|1|19.4": {
   "video": "fATHW2l8cvg",
   "tick": 5498,
   "delivery": 5458,
-  "replay": null
+  "replay": null,
+  "manual": 5483
  },
  "zOW4g6-6QqY-VRHK5Arehg|2|5.2": {
   "video": "fATHW2l8cvg",
   "tick": 7958,
   "delivery": 7918,
-  "replay": 7932
+  "replay": 7932,
+  "manual": 7841
  },
  "zOW4g6-6QqY-VRHK5Arehg|2|10.6": {
   "video": "fATHW2l8cvg",
   "tick": 9545,
   "delivery": 9505,
-  "replay": 9536
+  "replay": 9536,
+  "manual": 9506
  },
  "zOW4g6-6QqY-VRHK5Arehg|2|14.1": {
   "video": "fATHW2l8cvg",
   "tick": 10548,
   "delivery": 10508,
-  "replay": null
+  "replay": null,
+  "manual": 10520
  },
  "zOW4g6-6QqY-VRHK5Arehg|2|16.4": {
   "video": "fATHW2l8cvg",
   "tick": 11424,
   "delivery": 11384,
-  "replay": null
+  "replay": null,
+  "manual": 11409
  },
  "E670lq_lq3hR-ws7WmDNvg|1|6.6": {
   "video": "wglshm5btqE",
   "tick": 2671,
   "delivery": 2631,
-  "replay": 2664
+  "replay": 2664,
+  "manual": 2659
  },
  "E670lq_lq3hR-ws7WmDNvg|2|14.4": {
   "video": "wglshm5btqE",
   "tick": 11392,
   "delivery": 11352,
-  "replay": 11380
+  "replay": 11380,
+  "manual": 11380
  },
  "GvPcLwxO9pAFv86SMykwXQ|1|3.6": {
   "video": "3RpX234aFrQ",
   "tick": 2090,
   "delivery": 2050,
-  "replay": null
+  "replay": null,
+  "manual": 2078
  },
  "RC3rv0xqfRay4w7K8pFlNw|1|14.6": {
   "video": "gAM3q7BD54Y",
   "tick": 4511,
   "delivery": 4471,
-  "replay": null
+  "replay": null,
+  "manual": 4499
  },
  "RC3rv0xqfRay4w7K8pFlNw|1|16.6": {
   "video": "gAM3q7BD54Y",
   "tick": 7001,
   "delivery": 6961,
-  "replay": 6961
+  "replay": 6961,
+  "manual": 6950
  },
  "1clok3LDPATzaa_DjeeCxg|1|13.1": {
   "video": "LIr7wCYotTc",
@@ -173,37 +200,43 @@
   "video": "LIr7wCYotTc",
   "tick": 5617,
   "delivery": 5577,
-  "replay": null
+  "replay": null,
+  "manual": 5607
  },
  "6KFn3Gsif8LcEu34ki5Sow|1|4.5": {
   "video": "lwqhundhBFY",
   "tick": 2285,
   "delivery": 2245,
-  "replay": null
+  "replay": null,
+  "manual": 2207
  },
  "6KFn3Gsif8LcEu34ki5Sow|1|11.6": {
   "video": "lwqhundhBFY",
   "tick": 4283,
   "delivery": 4243,
-  "replay": null
+  "replay": null,
+  "manual": 4271
  },
  "VI1SU5WeLEZxEZWTdPXmSQ|1|19.2": {
   "video": "Cu_DmpOUoqA",
   "tick": 6406,
   "delivery": 6366,
-  "replay": 6381
+  "replay": 6381,
+  "manual": 6356
  },
  "Y37fv4q3MSrG5Y17bjPB1Q|1|9.5": {
   "video": "qzj-5n7osbE",
   "tick": 3085,
   "delivery": 3045,
-  "replay": null
+  "replay": null,
+  "manual": 3070
  },
  "Y37fv4q3MSrG5Y17bjPB1Q|1|18.2": {
   "video": "qzj-5n7osbE",
   "tick": 5881,
   "delivery": 5841,
-  "replay": 5847
+  "replay": 5847,
+  "manual": 5813
  },
  "Y37fv4q3MSrG5Y17bjPB1Q|1|19.6": {
   "video": "qzj-5n7osbE",
@@ -211,41 +244,132 @@
   "delivery": 6345,
   "replay": null,
   "approx": true,
-  "note": "last ball of the innings; placed from when the score graphic left the screen"
+  "note": "last ball of the innings; placed from when the score graphic left the screen",
+  "manual": 6310
  },
  "wzeDrfisblZfLq6tXkZCjw|1|19.6": {
   "video": "0kfdYcV-vQI",
   "tick": 6632,
   "delivery": 6592,
-  "replay": null
+  "replay": null,
+  "manual": 6261
  },
  "RC3rv0xqfRay4w7K8pFlNw|1|15.2": {
   "video": "gAM3q7BD54Y",
   "tick": 4637,
   "delivery": 4597,
-  "replay": null
+  "replay": null,
+  "manual": 4624
  },
  "6KFn3Gsif8LcEu34ki5Sow|2|8.4": {
   "video": "lwqhundhBFY",
   "tick": 10247,
   "delivery": 10207,
-  "replay": null
+  "replay": null,
+  "manual": 10236
  },
  "Y37fv4q3MSrG5Y17bjPB1Q|1|15.4": {
   "video": "qzj-5n7osbE",
   "tick": 5065,
   "delivery": 5025,
-  "replay": 5035
+  "replay": 5035,
+  "manual": 4980
  },
  "DBm_1Xm0fPpXIXL1fVzTrg|1|11.2": {
   "video": "i8OaMoCjHO0",
   "tick": 3937,
   "delivery": 3897,
-  "replay": null
+  "replay": null,
+  "manual": 3917
  },
  "PIMYE4zZxnIC0TIOR6JtnA|2|10.6": {
   "video": "vu3XVzYTftE",
+  "tick": 10971,
+  "delivery": 10931,
+  "replay": null,
+  "manual": 10953
+ },
+ "sZJYnbQVzKpSGfflyCvMbQ|1|17.1": {
+  "video": "-dDkbJLjlNE",
+  "tick": 5912,
+  "delivery": 5872,
+  "replay": 5894,
+  "manual": 5865
+ },
+ "sZJYnbQVzKpSGfflyCvMbQ|1|19.5": {
+  "video": "-dDkbJLjlNE",
+  "tick": 7020,
+  "delivery": 6980,
+  "replay": 6980,
+  "manual": 7009
+ },
+ "WGwqst5cGjcFGALmLofiGQ|1|4.6": {
+  "video": "YOln5vvrzxU",
+  "tick": 2259,
+  "delivery": 2219,
+  "replay": null,
+  "manual": 2282
+ },
+ "WGwqst5cGjcFGALmLofiGQ|1|13.5": {
+  "video": "YOln5vvrzxU",
+  "tick": 4813,
+  "delivery": 4773,
+  "replay": null,
+  "manual": 4795
+ },
+ "WGwqst5cGjcFGALmLofiGQ|1|18.2": {
+  "video": "YOln5vvrzxU",
+  "tick": 5867,
+  "delivery": 5827,
+  "replay": null,
+  "manual": 5840
+ },
+ "WGwqst5cGjcFGALmLofiGQ|1|19.6": {
+  "video": "YOln5vvrzxU",
   "tick": null,
-  "note": "score bug not read; link stays approximate"
+  "note": "score bug not read; link stays approximate",
+  "manual": 6377
+ },
+ "WGwqst5cGjcFGALmLofiGQ|2|2.1": {
+  "video": "YOln5vvrzxU",
+  "tick": 8066,
+  "delivery": 8026,
+  "replay": null,
+  "manual": 8071
+ },
+ "WGwqst5cGjcFGALmLofiGQ|2|9.4": {
+  "video": "YOln5vvrzxU",
+  "tick": 10295,
+  "delivery": 10255,
+  "replay": null,
+  "manual": 10282
+ },
+ "WGwqst5cGjcFGALmLofiGQ|2|19.4": {
+  "video": "YOln5vvrzxU",
+  "tick": 13486,
+  "delivery": 13446,
+  "replay": null,
+  "manual": 13452
+ },
+ "ciD7Ph23J78vOFd3iiAw5w|1|10.6": {
+  "video": "y7L8tkw4aQI",
+  "tick": 4022,
+  "delivery": 3982,
+  "replay": 4006,
+  "manual": 3989
+ },
+ "ciD7Ph23J78vOFd3iiAw5w|1|12.4": {
+  "video": "y7L8tkw4aQI",
+  "tick": 4558,
+  "delivery": 4518,
+  "replay": 4546,
+  "manual": 4525
+ },
+ "ciD7Ph23J78vOFd3iiAw5w|2|2.3": {
+  "video": "y7L8tkw4aQI",
+  "tick": 6062,
+  "delivery": 6022,
+  "replay": null,
+  "manual": 6048
  }
 }

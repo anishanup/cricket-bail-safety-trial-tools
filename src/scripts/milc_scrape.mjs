@@ -36,8 +36,12 @@
  * video is their difference, less a lead (--lead, default 60 s); that estimate
  * is good to about 90 s. milc_video_align.py refines it to the second by
  * reading the broadcast score bug and writes <out>/milc-video-marks.json; when
- * a dismissal has a mark, the link is exact (a few seconds before the ball is
- * bowled) and a second link opens the broadcast replay. Ground local time uses
+ * a dismissal has a mark, the link opens --video-lead seconds (default 30)
+ * before the score graphic ticked over, which is a few seconds before the ball
+ * is bowled; the graphic updates after the replay. A time edited by hand in
+ * the report's link URL is kept: before writing, the existing report is read
+ * and any link whose URL time differs from the computed one is stored in the
+ * marks file as "manual" and used from then on. Ground local time uses
  * the ground's time zone from GROUND_TZ; unknown grounds are assumed Eastern
  * and reported on stderr.
  *
@@ -56,6 +60,18 @@
  *   --port <n>        Chrome remote-debugging port (default 9225)
  *   --refetch         ignore the cache and re-read every match
  *   --vocab           print the outMethod vocabulary seen and exit
+ *   --video-lead <s>  seconds before the score-graphic tick to open the video (default 30)
+ *   --no-import       do not read hand-edited link times from the existing report
+ *   --to <YYYY-MM-DD> only games played on or before this date (games later
+ *                     than that are still read and cached, just left out)
+ *
+ * A highlights shortlist, written to bailguard-milc-2026-highlights.md as one
+ * table with the same columns and the same (hand-tuned) video times, from
+ * <out>/milc-shortlist.json:
+ *   { "kinds": ["bowled", "stumped", "run_out_direct"],   every dismissal of these kinds
+ *     "exclude": [ { "date", "teams", "innings", "over" } ],   minus these
+ *     "picks":   [ { "date", "teams", "innings", "over", "note" } ] }   plus these
+ * (an array of picks alone also works).
  *
  * A game is re-read on every run until its scorecard is final (dismissal
  * codes appear on the card only once the game is complete); finished games
@@ -74,7 +90,7 @@ import { tmpdir } from "node:os";
 const a = {
   league: "MiLC", port: 9225, refetch: false, vocab: false, series: String(new Date().getFullYear()),
   sheet: "https://docs.google.com/spreadsheets/d/162AHaRpYAu_YB81yreTBGvo0X4D00_jC/export?format=csv&gid=1147801513",
-  streams: "https://www.youtube.com/@MLC_Network/streams", lead: 60,
+  streams: "https://www.youtube.com/@MLC_Network/streams", lead: 60, videoLead: 30,
 };
 for (let i = 2; i < process.argv.length; i++) {
   const k = process.argv[i];
@@ -83,6 +99,9 @@ for (let i = 2; i < process.argv.length; i++) {
   else if (k === "--streams") a.streams = process.argv[++i];
   else if (k === "--no-streams") a.streams = "";
   else if (k === "--lead") a.lead = parseInt(process.argv[++i], 10);
+  else if (k === "--video-lead") a.videoLead = parseInt(process.argv[++i], 10);
+  else if (k === "--no-import") a.noImport = true;
+  else if (k === "--to") a.to = process.argv[++i];
   else if (k === "--league") a.league = process.argv[++i];
   else if (k === "--series") a.series = process.argv[++i];
   else if (k === "--port") a.port = parseInt(process.argv[++i], 10);
@@ -445,7 +464,7 @@ if (a.vocab) {
 // every cached game of the season, not just those on the results page's first
 // page (30 per page; older games drop off it but stay in the cache)
 const seriesNames = new Set(seriesList.map((x) => x.name));
-const rows = Object.values(cache).filter((r) => r && typeof r === "object" && r.token && seriesNames.has(r.series))
+const rows = Object.values(cache).filter((r) => r && typeof r === "object" && r.token && seriesNames.has(r.series) && (!a.to || r.date <= a.to))
   .sort((x, y) => (x.date + x.start).localeCompare(y.date + y.start));
 for (const r of rows) {
   const s = sheetFor(r.date, r.teamOne, r.teamTwo);
@@ -459,13 +478,44 @@ for (const r of rows) {
     const e = r.events.find((x) => String(x.innings) === String(f.innings) && `${x.over}.${x.ball}` === String(f.over));
     if (e && typeof f.direct === "boolean" && e.kind.startsWith("run_out")) { e.kind = f.direct ? "run_out_direct" : "run_out_indirect"; e.how = f.direct ? "Run out, direct" : "Run out, indirect"; e.fixed = true; }
   }
-  r.video = streamFor(r, s) || (r.sheet?.youtube || "").trim();
+  // the streams page lists only the latest 30, so a pairing made earlier is kept
+  const fromStreams = streamFor(r, s);
+  const fromMarks = Object.entries(marks).find(([k, v]) => k.startsWith(r.token + "|") && v.video)?.[1].video;
+  r.video = fromStreams || (fromMarks ? `https://www.youtube.com/watch?v=${fromMarks}` : "") || (r.videoPaired ? r.video : "") || (r.sheet?.youtube || "").trim();
+  if (fromStreams) r.videoPaired = true;
 }
 // abandoned before a ball was bowled: not a game played
 const abandoned = rows.filter((r) => /abandon/i.test(r.result || "") && !r.events.length && /:\s*0\/0\(0\)/.test(r.summary || ""));
 const played = rows.filter((r) => !abandoned.includes(r));
 const withGuards = played.filter((r) => r.status === "yes");
 const without = played.filter((r) => r.status === "no");
+
+// hand-edited link times in the existing report -> marks[key].manual
+{
+  const mdPath0 = join(a.out, "bailguard-milc-2026.md");
+  if (existsSync(mdPath0) && !a.noImport) {
+    const md = readFileSync(mdPath0, "utf8");
+    const tokenOfGame = {};
+    for (const m of md.matchAll(/^\| \[(\d+)\]\(#game-\d+\) \|.*?\/results\/([\w-]+)\)/gm)) tokenOfGame[m[1]] = m[2];
+    const secOf = (t) => { const m = /^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?$/.exec(t); return m && (m[1] || m[2] || m[3]) ? (+m[1] || 0) * 3600 + (+m[2] || 0) * 60 + (+m[3] || 0) : /^\d+$/.test(t) ? +t : NaN; };
+    let game = null, changed = 0;
+    for (const line of md.split("\n")) {
+      const g = /^<a id="game-(\d+)"><\/a>/.exec(line);
+      if (g) { game = tokenOfGame[g[1]]; continue; }
+      const row = /^\| (\S+) \| .*? \| (\d+\.\d) \| .*?\| ([^|]*)\[([\d:]+)\]\(https:\/\/www\.youtube\.com\/watch\?v=([\w-]{11})&t=([\w]+)\)/.exec(line);
+      if (!row || !game || /≈/.test(row[3])) continue;
+      // a plain link is only ever written for a hand-edited time, so it is one
+      const key = `${game}|${row[1]}|${row[2]}`, sec = secOf(row[6]);
+      if (isNaN(sec)) continue;
+      const mk = marks[key] = marks[key] || { video: row[5], tick: null };
+      if (mk.manual !== sec) { mk.manual = sec; changed++; }
+    }
+    if (changed) {
+      writeFileSync(join(a.out, "milc-video-marks.json"), JSON.stringify(marks, null, 1));
+      console.error(`Kept ${changed} hand-edited video time(s) from the report as manual marks`);
+    }
+  }
+}
 
 // stream start for every video that has dislodgements to link
 cache.__streams = cache.__streams || {};
@@ -482,9 +532,12 @@ for (const r of withGuards) {
   for (const e of r.events) {
     e.local = e.at ? localHM(e.at, tz) : e.time;
     const mk = marks[`${r.token}|${e.innings}|${e.over}.${e.ball}`];
-    const at = (sec) => `https://www.youtube.com/watch?v=${vid}&t=${sec}s`;
-    if (mk && mk.delivery != null) {
-      e.link = `${mk.approx ? "~ " : ""}[${hms(mk.delivery)}](${at(mk.delivery)})`;
+    const ytT = (sec) => `${Math.floor(sec / 3600)}h${Math.floor((sec % 3600) / 60)}m${sec % 60}s`;
+    const at = (sec, v) => `https://www.youtube.com/watch?v=${v || vid}&t=${ytT(sec)}`;
+    if (mk && (mk.tick != null || mk.manual != null)) {
+      // a hand-edited time wins; end-of-innings marks carry their own estimate; otherwise lead back from the tick
+      const sec = mk.manual != null ? mk.manual : mk.approx ? mk.delivery : Math.max(0, mk.tick - a.videoLead);
+      e.link = `${mk.manual != null ? "" : "≈ "}[${hms(sec)}](${at(sec, mk.video)})`;
       e.exact = true;
     } else {
       const off = e.at && !isNaN(start) ? Math.floor((Date.parse(e.at) - start) / 1000) - a.lead : NaN;
@@ -541,7 +594,7 @@ withGuards.forEach((r, i) => {
 
 L.push(`## Notes`, "");
 L.push(`- Over and ball are in standard notation (4.6 is the sixth ball of the fifth over). Time is the scheduled start. Ground local time is when the scorer entered the ball, within a minute of it being bowled.`);
-L.push(`- "In the video" opens the stream a few seconds before the ball is bowled; those times were read from the score graphic in the video. A time marked ~ is the last ball of an innings, placed from when the score graphic left the screen, within about 20 seconds. A time marked ≈ is estimated from the scorer's entry and is approximate, within about 90 seconds.`);
+L.push(`- "In the video" opens the stream a few seconds before the ball is bowled. A time marked ≈ was placed automatically (from the broadcast score graphic, or from the scorer's entry) and has not yet been checked against the video; an unmarked time has been.`);
 L.push(`- Direct and indirect run outs are as credited by the scorer: one fielder for a throw that hit the stumps, two for a relayed throw broken by a fielder or keeper. Caught, caught behind and LBW are not included because they do not disturb the stumps.`);
 if (abandoned.length) L.push(`- Abandoned without a ball bowled, not counted: ` + abandoned.map((r) => `${label(r)} (${shortDate(r.date)}, ${r.ground})`).join("; ") + ".");
 if (without.length) L.push(`- Played without bail guards, not counted above: ` + without.map((r) => `${label(r)} (${shortDate(r.date)}, ${r.ground}${r.why ? `: ${r.why}` : ""})`).join("; ") + ".");
@@ -577,6 +630,42 @@ L.push(`- Every scored game is counted as played with bail guards unless the MiL
     Y.push(`  - { date: ${q(r.date)}, match: ${q(label(r))}, ground: ${q(r.ground)}, bowled: ${t.bowled}, stumped: ${t.stumped}, run_out: ${t.run_out_direct + t.run_out_indirect}, hit_wicket: ${t.hit_wicket}, total: ${t.total} }`);
   }
   writeFileSync(join(a.out, "milc-summary.yaml"), Y.join("\n") + "\n", "utf8");
+}
+
+// highlights shortlist
+{
+  const sp = join(a.out, "milc-shortlist.json");
+  if (existsSync(sp)) {
+    let cfg = {}; try { cfg = JSON.parse(readFileSync(sp, "utf8")); } catch (e) { console.error(`milc-shortlist.json: ${e.message}`); }
+    if (Array.isArray(cfg)) cfg = { picks: cfg };
+    const same = (pk, r, e) => { const k = new Set(String(pk.teams || "").split(/\s+vs?\.?\s+/i).map(norm)); return r.date === ymd(pk.date) && k.has(norm(r.teamOne)) && k.has(norm(r.teamTwo)) && String(e.innings) === String(pk.innings) && `${e.over}.${e.ball}` === String(pk.over); };
+    const kinds = new Set(cfg.kinds || []);
+    const picks = [];
+    for (const r of withGuards) for (const e of r.events) {
+      if (!kinds.has(e.kind)) continue;
+      if ((cfg.exclude || []).some((x) => same(x, r, e))) continue;
+      picks.push({ date: r.date, teams: label(r), innings: e.innings, over: `${e.over}.${e.ball}`, note: "" });
+    }
+    for (const pk of cfg.picks || []) if (!picks.some((x) => x.date === ymd(pk.date) && x.innings == pk.innings && x.over == pk.over && norm(x.teams) === norm(pk.teams))) picks.push(pk);
+    const H = [];
+    H.push(`<!-- pdf: landscape -->`, "");
+    H.push(`# Bail Guard in Minor League Cricket 2026: highlights shortlist`, "");
+    const kindNames = { bowled: "bowled", stumped: "stumped", run_out_direct: "direct run outs", run_out_indirect: "indirect run outs", hit_wicket: "hit wicket" };
+    H.push(`Candidates for a highlights reel from the [full report](bailguard-milc-2026.md)${kinds.size ? `: every ${[...kinds].map((k) => kindNames[k] || k).join(", ")} dismissal` : ""}${(cfg.exclude || []).length ? `, less ${(cfg.exclude || []).length} dropped after viewing` : ""}. Same columns and the same video times; a time marked ≈ has not yet been checked against the video.`, "");
+    H.push(`| # | Game | Date | Innings | Batting | Over | Fall of wicket | Batter out | How | In the video | Note |`);
+    H.push(`|:--:|---|:--:|:--:|---|:--:|:--:|---|---|:--:|---|`);
+    let n = 0;
+    for (const pk of picks) {
+      const k = new Set(String(pk.teams || "").split(/\s+vs?\.?\s+/i).map(norm));
+      const r = withGuards.find((x) => x.date === ymd(pk.date) && k.has(norm(x.teamOne)) && k.has(norm(x.teamTwo)));
+      const e = r && r.events.find((x) => String(x.innings) === String(pk.innings) && `${x.over}.${x.ball}` === String(pk.over));
+      if (!e) { console.error(`shortlist: no dismissal ${pk.teams} ${pk.date} innings ${pk.innings} over ${pk.over}`); continue; }
+      const gi = withGuards.indexOf(r) + 1;
+      H.push(`| ${++n} | [${gi}](bailguard-milc-2026.md#game-${gi}) ${label(r)} | ${shortDate(r.date)} | ${e.innings} | ${e.batting} | ${e.over}.${e.ball} | ${e.score || ""} | ${e.batter} | ${e.how} | ${e.link} | ${pk.note || ""} |`);
+    }
+    writeFileSync(join(a.out, "bailguard-milc-2026-highlights.md"), H.join("\n") + "\n", "utf8");
+    console.error(`  shortlist: ${n} dismissal(s)`);
+  }
 }
 
 const mdPath = join(a.out, "bailguard-milc-2026.md");
