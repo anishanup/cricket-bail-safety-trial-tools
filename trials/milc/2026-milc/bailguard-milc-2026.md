@@ -2,15 +2,15 @@
 
 # Bail Guard in Minor League Cricket 2026
 
-Every dismissal that dislodged the bails in the MiLC 2026 games played with bail guards on the stumps, with the over and ball it happened on. Counted from MiLC's official ball-by-ball scoring on CricClubs, 17 September 2026 to 20 September 2026.
+Every dismissal that dislodged the bails in the MiLC 2026 games played with bail guards on the stumps, with the over and ball it happened on. Counted from MiLC's official ball-by-ball scoring on CricClubs, 17 September 2026 to 21 September 2026.
 
 **Snapshot as of 21 September 2026**
 
 | Games played | Games with bail guards | Bowled | Stumped | Run out, direct | Run out, indirect | Hit wicket | Total |
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-| 29 | **26** | 27 | 4 | 11 | 11 | 0 | **53** |
+| 32 | **29** | 29 | 4 | 11 | 14 | 0 | **58** |
 
-**53 times the bails came off. With a guard on the stumps, none of them flew.**
+**58 times the bails came off. With a guard on the stumps, none of them flew.**
 
 Each of these is a moment the bail guard was engaged and a batter was dismissed. It is a lower bound: run-out, stumping attempts, and any other ball that hit the stumps without a dismissal, also dislodge the bails but are not considered here.
 
@@ -44,6 +44,9 @@ Each of these is a moment the bail guard was engaged and a batter was dismissed.
 | [24](#game-24) | 20 Sep | 12:00 | San Ramon Grizzlies v East Bay Blazers | Davis | 3 | 0 | 3 | 1 | 0 | **7** | [card](https://cricclubs.com/MiLC/results/WGwqst5cGjcFGALmLofiGQ) | [link](https://www.youtube.com/watch?v=YOln5vvrzxU) |
 | [25](#game-25) | 20 Sep | 14:00 | Dallas Xforia Giants v Lone Star Athletics | Grand Prairie Cricket Stadium | 1 | 0 | 1 | 0 | 0 | **2** | [card](https://cricclubs.com/MiLC/results/sZJYnbQVzKpSGfflyCvMbQ) | [link](https://www.youtube.com/watch?v=-dDkbJLjlNE) |
 | [26](#game-26) | 20 Sep | 18:00 | MetroPlex Tracers v All Stars | Grand Prairie Cricket Stadium | 2 | 1 | 0 | 0 | 0 | **3** | [card](https://cricclubs.com/MiLC/results/ciD7Ph23J78vOFd3iiAw5w) | [link](https://www.youtube.com/watch?v=y7L8tkw4aQI) |
+| [27](#game-27) | 21 Sep | 10:00 | Ft. Lauderdale Lions v Morrisville Raptors | Church Street Park | 1 | 0 | 0 | 1 | 0 | **2** | [card](https://cricclubs.com/MiLC/results/FHrXkEV9kFXOuWSsY78MUg) | [link](https://www.youtube.com/watch?v=lFKqJOmpNo8) |
+| [28](#game-28) | 21 Sep | 14:00 | Orlando Galaxy v Atlanta Lightning | Church Street Park | 0 | 0 | 0 | 2 | 0 | **2** | [card](https://cricclubs.com/MiLC/results/1GY9lmH0CfAfvu-HJwecEA) | [link](https://www.youtube.com/watch?v=_hEN_U0Wq6w) |
+| [29](#game-29) | 21 Sep | 18:00 | Atlanta Fire v Baltimore Royals | Church Street Park | 1 | 0 | 0 | 0 | 0 | **1** | [card](https://cricclubs.com/MiLC/results/yNZKjbi1qiTIQm3HK258ZA) |  |
 
 ## Dislodgements by game
 
@@ -289,11 +292,37 @@ Each of these is a moment the bail guard was engaged and a batter was dismissed.
 | 1 | MetroPlex Tracers | 12.4 | 152/5 | A Tummala | Bowled | 20:08 | [1:15:25](https://www.youtube.com/watch?v=y7L8tkw4aQI&t=1h15m25s) |
 | 2 | All Stars | 2.3 | 7/1 | V Kattari | Bowled | 20:33 | [1:40:48](https://www.youtube.com/watch?v=y7L8tkw4aQI&t=1h40m48s) |
 
+<a id="game-27"></a>
+
+**27. Ft. Lauderdale Lions v Morrisville Raptors**, 21 Sep ([video](https://www.youtube.com/watch?v=lFKqJOmpNo8))
+
+| Innings | Batting | Over | Fall of wicket | Batter out | How | Ground local time | In the video |
+|:--:|---|:--:|:--:|---|---|:--:|:--:|
+| 2 | Morrisville Raptors | 12.2 | 90/5 | S Shwethan | Bowled | 12:51 | [2:58:09](https://www.youtube.com/watch?v=lFKqJOmpNo8&t=2h58m9s) |
+| 2 | Morrisville Raptors | 16.5 | 127/7 | E Sandhu | Run out, indirect | 13:11 | [3:16:53](https://www.youtube.com/watch?v=lFKqJOmpNo8&t=3h16m53s) |
+
+<a id="game-28"></a>
+
+**28. Orlando Galaxy v Atlanta Lightning**, 21 Sep ([video](https://www.youtube.com/watch?v=_hEN_U0Wq6w))
+
+| Innings | Batting | Over | Fall of wicket | Batter out | How | Ground local time | In the video |
+|:--:|---|:--:|:--:|---|---|:--:|:--:|
+| 1 | Orlando Galaxy | 18.1 | 112/7 | A Boddupally | Run out, indirect | 15:21 | [1:27:16](https://www.youtube.com/watch?v=_hEN_U0Wq6w&t=1h27m16s) |
+| 2 | Atlanta Lightning | 4.3 | 31/3 | S Badar | Run out, indirect | 16:05 | [2:10:48](https://www.youtube.com/watch?v=_hEN_U0Wq6w&t=2h10m48s) |
+
+<a id="game-29"></a>
+
+**29. Atlanta Fire v Baltimore Royals**, 21 Sep
+
+| Innings | Batting | Over | Fall of wicket | Batter out | How | Ground local time | In the video |
+|:--:|---|:--:|:--:|---|---|:--:|:--:|
+| 1 | Atlanta Fire | 4.2 | 32/3 | A Dave | Bowled | 19:23 |  |
+
 ## Notes
 
 - Over and ball are in standard notation (4.6 is the sixth ball of the fifth over). Time is the scheduled start. Ground local time is when the scorer entered the ball, within a minute of it being bowled.
 - "In the video" opens the stream a few seconds before the ball is bowled. A time marked ≈ was placed automatically (from the broadcast score graphic, or from the scorer's entry) and has not yet been checked against the video; an unmarked time has been.
 - Direct and indirect run outs are as credited by the scorer: one fielder for a throw that hit the stumps, two for a relayed throw broken by a fielder or keeper. Caught, caught behind and LBW are not included because they do not disturb the stumps.
-- Abandoned without a ball bowled, not counted: Manhattan Yorkers v New England Eagles (20 Sep, NY Ovals #1); NYC Titans v New Jersey Somerset Cavaliers (20 Sep, NY Ovals #3); The Philadelphians v New Jersey Stallions (20 Sep, NY Ovals #1).
+- No ball bowled (abandoned before the start, or an empty record on CricClubs), not counted: Manhattan Yorkers v New England Eagles (20 Sep, NY Ovals #1); NYC Titans v New Jersey Somerset Cavaliers (20 Sep, NY Ovals #3); The Philadelphians v New Jersey Stallions (20 Sep, NY Ovals #1); Orlando Galaxy v Atlanta Lightning (21 Sep, Church Street Park).
 - Played without bail guards, not counted above: Chicago Kingsmen v St. Louis Americans (18 Sep, ACAC Park #1: They got late fixing it); New Jersey Somerset Cavaliers v New Jersey Stallions (18 Sep, NY Ovals #1: They had Zing bails and didn't switch existing wooden bails that came with the bail guard set to the Zing bails); NYC Titans v New England Eagles (18 Sep, NY Ovals #1: Umpires didn't use it).
 - Every scored game is counted as played with bail guards unless the MiLC bail guard tracking sheet records that they were not. Video links are the MLC Network streams. Generated by `src/scripts/milc_scrape.mjs` in github.com/anishanup/cricket-bail-safety-trial-tools.
