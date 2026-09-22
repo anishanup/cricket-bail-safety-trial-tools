@@ -569,7 +569,8 @@ L.push(`**Snapshot as of ${longDate(today)}**`, "");
 L.push(`| Games played | Games with bail guards | Bowled | Stumped | Run out, direct | Run out, indirect | Hit wicket | Total |`);
 L.push(`|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|`);
 L.push(`| ${played.length} | **${withGuards.length}** | ${tot.bowled} | ${tot.stumped} | ${tot.run_out_direct} | ${tot.run_out_indirect} | ${tot.hit_wicket} | **${grand}** |`, "");
-L.push(`Each of these is a moment the bail guard was engaged and the dismissal was given as normal. It is a lower bound: run-out and stumping attempts, and any other ball that hit the stumps without a wicket, also dislodge the bails but are not scored.`, "");
+L.push(`**${grand} times the bails came off. With a guard on the stumps, none of them flew.**`, "");
+L.push(`Each of these is a moment the bail guard was engaged and a batter was dismissed. It is a lower bound: run-out, stumping attempts, and any other ball that hit the stumps without a dismissal, also dislodge the bails but are not considered here.`, "");
 
 L.push(`## Games`, "");
 L.push(`| # | Date | Time | Match | Ground | Bowled | Stumped | Run out, direct | Run out, indirect | Hit wicket | Total | Scorecard | Video |`);

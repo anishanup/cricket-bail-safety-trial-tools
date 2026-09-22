@@ -10,7 +10,9 @@ Every dismissal that dislodged the bails in the MiLC 2026 games played with bail
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
 | 29 | **26** | 27 | 4 | 11 | 11 | 0 | **53** |
 
-Each of these is a moment the bail guard was engaged and the dismissal was given as normal. It is a lower bound: run-out and stumping attempts, and any other ball that hit the stumps without a wicket, also dislodge the bails but are not scored.
+**53 times the bails came off. With a guard on the stumps, none of them flew.**
+
+Each of these is a moment the bail guard was engaged and a batter was dismissed. It is a lower bound: run-out, stumping attempts, and any other ball that hit the stumps without a dismissal, also dislodge the bails but are not considered here.
 
 ## Games
 
