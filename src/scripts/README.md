@@ -212,6 +212,10 @@ games are scored is normally the whole job.
 - `--grounds <subs>` comma-separated substrings matched against the venue
   (default `Grand Prairie Cricket Ground`).
 - `--out <dir>`      output folder.
+- `--from <date>`    only matches on or after this date. For a team that
+  carries its own bail guards (GPCC in the 2026 Primary League, league 223,
+  from 13 September), pass `--grounds ""` too and name the teams: the guards
+  travel with the team, not the ground, and the report says so.
 - `--list`           print the league ids and exit.
 - `--refetch`        ignore the cache and re-scrape everything.
 

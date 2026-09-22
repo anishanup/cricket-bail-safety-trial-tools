@@ -26,6 +26,9 @@
 //   --out <dir>       Output folder (required unless --list).
 //   --title <s>       Heading for the report (default derived from the teams
 //                     and grounds).
+//   --from <date>     Only matches on or after this date (YYYY-MM-DD). For a
+//                     team that carries its own bail guards, pass --grounds ""
+//                     too: the guards travel with the team, not the ground.
 //   --list            Print the league's tournaments/ids and exit.
 //   --port <n>        Chrome remote-debugging port (default 9224).
 //   --refetch         Ignore the on-disk cache and re-scrape everything.
@@ -63,7 +66,7 @@ const CHROMES = [
 const a = {
   league: 231, club: 343, port: 9224,
   teams: ["GPCC"], grounds: ["Grand Prairie Cricket Ground"],
-  out: null, title: null, list: false, refetch: false,
+  out: null, title: null, list: false, refetch: false, from: null,
 };
 const av = process.argv.slice(2);
 const csv = (s) => s.split(",").map((x) => x.trim()).filter(Boolean);
@@ -74,6 +77,7 @@ for (let i = 0; i < av.length; i++) {
   else if (av[i] === "--grounds") a.grounds = csv(av[++i]);
   else if (av[i] === "--out") a.out = av[++i];
   else if (av[i] === "--title") a.title = av[++i];
+  else if (av[i] === "--from") a.from = av[++i];
   else if (av[i] === "--port") a.port = parseInt(av[++i], 10);
   else if (av[i] === "--list") a.list = true;
   else if (av[i] === "--refetch") a.refetch = true;
@@ -291,6 +295,7 @@ if (stillBad.length) console.error(`Warning: no info for ${stillBad.length} matc
 const scoped = allIds
   .map((id) => ({ id, ...cache.info[id] }))
   .filter((r) => r.location && hit(r.location, a.grounds))
+  .filter((r) => !a.from || iso(r.date) >= a.from)
   .map((r) => ({ ...r, teams: (r.title || "").split(" vs ").map(norm) }))
   .filter((r) => r.teams.some((t) => hit(t, a.teams)))
   .sort((r, s) => new Date(r.date) - new Date(s.date) || r.id - s.id);
@@ -327,13 +332,15 @@ const byDivision = divisions.length ? divisions : [null];
 
 const md = [
   `# ${title}`, "",
-  `**Tournament:** ${divisions.length > 1 ? divisions.join(" and ") : tournament} (NTCA, league ${a.league})  `,
-  `**Venues:** ${grounds.join(", ")} — fitted with bail guards  `,
+  `**Tournament:** ${divisions.length > 1 ? divisions.slice(0, -1).join(", ") + " and " + divisions[divisions.length - 1] + " divisions" : tournament} (NTCA, league ${a.league})  `,
+  `**Venues:** ${grounds.join(", ")}${a.grounds.length ? " — fitted with bail guards" : ""}  `,
   `**Teams:** ${teamNames.join(", ")}  `,
   `**Dates:** ${pretty(rows[0].date)} to ${pretty(rows[rows.length-1].date)}  `,
   `**Source:** NTCA official scorecards (CricClubs, clubId ${a.club}, league ${a.league})`, "",
   "This counts the dismissals that physically dislodge the bails, which are the moments a bail guard device would be engaged. **Total** = Bowled + Stumped + Run out + Hit wicket.", "",
-  "Unlike the other reports in this repository, these games were played **on grounds that have bail guards installed**, so the counts here are device-engagement events rather than a hypothetical.", "",
+  a.grounds.length
+    ? "Unlike the other reports in this repository, these games were played **on grounds that have bail guards installed**, so the counts here are device-engagement events rather than a hypothetical."
+    : "These games were played **with bail guards on the stumps**, carried by the team to whichever ground it was playing at, so the counts here are device-engagement events rather than a hypothetical.", "",
   "## Summary", "",
   "| | Games | Bowled | Stumped | Run out | Hit wicket | Total |",
   "|---|:--:|:--:|:--:|:--:|:--:|:--:|",

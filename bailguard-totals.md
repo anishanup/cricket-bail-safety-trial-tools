@@ -5,18 +5,18 @@ From: 2026-01-18  To: 2026-09-21
 
 | Metric | Total |
 |---|--:|
-| Games | 906 |
-| Bowled | 3075 |
-| Stumped | 248 |
-| Run out | 1319 |
+| Games | 909 |
+| Bowled | 3086 |
+| Stumped | 252 |
+| Run out | 1322 |
 | Hit wicket | 23 |
-| **Bail-dislodging dismissals** | **4665** |
+| **Bail-dislodging dismissals** | **4683** |
 
 Dismissals that dislodge the bails, counted from official scorecards, plus a floor from device-trial video. Lower bound. Breakdown:
 
 - **3371** — adult league scorecards, Dallas Cricket League (667 games)
 - **388** — youth league scorecards, Dallas Youth Cricket League (72 games)
-- **59** — league scorecards on grounds fitted with bail guards, North Texas Cricket Association (18 games)
+- **77** — league scorecards on grounds fitted with bail guards, North Texas Cricket Association (21 games)
 - **778** — USA Cricket Dallas hub, junior pathway scorecards (116 games)
 - **58** — Minor League Cricket, semi-professional, games played with bail guards (29 games)
 - **11** — device field-trial video, a floor (4 games)
@@ -42,6 +42,7 @@ Youth league scorecards — Dallas Youth Cricket League / CricClubs (full dismis
 
 League scorecards on grounds fitted with bail guards — North Texas Cricket Association / CricClubs (full dismissal counts):
 - trials/20260627-ntca-legacy-t20-gpcc-grand-prairie
+- trials/20260913-ntca-primary-league-gpcc
 
 USA Cricket Dallas hub, junior pathway — CricClubs (full dismissal counts):
 - trials/dallas-hub/2026-fall-league/20260822-week
@@ -56,7 +57,7 @@ Minor League Cricket, semi-professional — CricClubs ball-by-ball (games with b
 
 | Place | Games | Dislodgements | Leagues |
 |---|--:|--:|---|
-| Dallas-Fort Worth, TX | 883 | 4619 | Dallas Cricket League, Dallas Youth Cricket League, North Texas Cricket Association, USA Cricket Dallas Hub, Grand Prairie Cricket Club, Minor League Cricket |
+| Dallas-Fort Worth, TX | 886 | 4637 | Dallas Cricket League, Dallas Youth Cricket League, North Texas Cricket Association, USA Cricket Dallas Hub, Grand Prairie Cricket Club, Minor League Cricket |
 | Raleigh, NC | 11 | 24 | Minor League Cricket |
 | St. Louis, MO | 5 | 5 | Minor League Cricket |
 | Albany, NY | 4 | 8 | Minor League Cricket |
