@@ -1,16 +1,16 @@
 # Bail Safety — Running Totals
 
-Generated on: 2026-09-22  
-From: 2026-01-18  To: 2026-09-21
+Generated on: 2026-09-23  
+From: 2026-01-18  To: 2026-09-22
 
 | Metric | Total |
 |---|--:|
-| Games | 909 |
-| Bowled | 3086 |
-| Stumped | 252 |
-| Run out | 1322 |
+| Games | 912 |
+| Bowled | 3093 |
+| Stumped | 253 |
+| Run out | 1325 |
 | Hit wicket | 23 |
-| **Bail-dislodging dismissals** | **4683** |
+| **Bail-dislodging dismissals** | **4694** |
 
 Dismissals that dislodge the bails, counted from official scorecards, plus a floor from device-trial video. Lower bound. Breakdown:
 
@@ -18,7 +18,7 @@ Dismissals that dislodge the bails, counted from official scorecards, plus a flo
 - **388** — youth league scorecards, Dallas Youth Cricket League (72 games)
 - **77** — league scorecards on grounds fitted with bail guards, North Texas Cricket Association (21 games)
 - **778** — USA Cricket Dallas hub, junior pathway scorecards (116 games)
-- **58** — Minor League Cricket, semi-professional, games played with bail guards (29 games)
+- **69** — Minor League Cricket, semi-professional, games played with bail guards (32 games)
 - **11** — device field-trial video, a floor (4 games)
 
 ## Folders considered
@@ -58,7 +58,7 @@ Minor League Cricket, semi-professional — CricClubs ball-by-ball (games with b
 | Place | Games | Dislodgements | Leagues |
 |---|--:|--:|---|
 | Dallas-Fort Worth, TX | 886 | 4637 | Dallas Cricket League, Dallas Youth Cricket League, North Texas Cricket Association, USA Cricket Dallas Hub, Grand Prairie Cricket Club, Minor League Cricket |
-| Raleigh, NC | 11 | 24 | Minor League Cricket |
+| Raleigh, NC | 14 | 35 | Minor League Cricket |
 | St. Louis, MO | 5 | 5 | Minor League Cricket |
 | Albany, NY | 4 | 8 | Minor League Cricket |
 | Sacramento, CA | 2 | 8 | Minor League Cricket |
