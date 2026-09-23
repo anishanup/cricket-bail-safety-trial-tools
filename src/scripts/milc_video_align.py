@@ -151,7 +151,10 @@ for token, r in cache.items():
     if not vid or not streams.get(vid): continue
     for e in r.get("events", []):
         key = f"{token}|{e['innings']}|{e['over']}.{e['ball']}"
-        if key in marks and marks[key].get("tick") is not None and not a.redo: continue
+        mk = marks.get(key)
+        # a hand-checked time is final; a mark without a tick is retried (the
+        # stream may only have finished processing since)
+        if mk and (mk.get("tick") is not None or "manual" in mk) and not a.redo: continue
         if not e.get("at") or not e.get("score"): continue
         todo.append((key, r, e, vid))
 

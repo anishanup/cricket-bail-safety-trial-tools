@@ -595,7 +595,12 @@ withGuards.forEach((r, i) => {
 
 L.push(`## Notes`, "");
 L.push(`- Over and ball are in standard notation (4.6 is the sixth ball of the fifth over). Time is the scheduled start. Ground local time is when the scorer entered the ball, within a minute of it being bowled.`);
-L.push(`- "In the video" opens the stream a few seconds before the ball is bowled. A time marked ≈ was placed automatically (from the broadcast score graphic, or from the scorer's entry) and has not yet been checked against the video; an unmarked time has been.`);
+{
+  const unchecked = withGuards.reduce((n, r) => n + r.events.filter((e) => e.link && !/^\[/.test(e.link)).length, 0);
+  L.push(`- "In the video" opens the stream a few seconds before the ball is bowled.` + (unchecked
+    ? ` A time marked ≈ was placed automatically (from the broadcast score graphic, or from the scorer's entry) and has not yet been checked against the video; an unmarked time has been.`
+    : ` Every time here has been checked against the video.`));
+}
 L.push(`- Direct and indirect run outs are as credited by the scorer: one fielder for a throw that hit the stumps, two for a relayed throw broken by a fielder or keeper. Caught, caught behind and LBW are not included because they do not disturb the stumps.`);
 if (abandoned.length) L.push(`- No ball bowled (abandoned before the start, or an empty record on CricClubs), not counted: ` + abandoned.map((r) => `${label(r)} (${shortDate(r.date)}, ${r.ground})`).join("; ") + ".");
 if (without.length) L.push(`- Played without bail guards, not counted above: ` + without.map((r) => `${label(r)} (${shortDate(r.date)}, ${r.ground}${r.why ? `: ${r.why}` : ""})`).join("; ") + ".");

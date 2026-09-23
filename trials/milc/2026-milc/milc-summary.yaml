@@ -4,15 +4,15 @@
 league: "MiLC"
 source: "cricclubs.com/MiLC (Minor League Cricket ball-by-ball scoring)"
 date_from: "2026-09-17"
-date_to: "2026-09-21"
-games: 29
-bowled: 29
-stumped: 4
-run_out: 25
+date_to: "2026-09-22"
+games: 32
+bowled: 36
+stumped: 5
+run_out: 28
 hit_wicket: 0
 grounds:
   - { ground: "ACAC Park #1", games: 5, dislodgements: 5 }
-  - { ground: "Church Street Park", games: 11, dislodgements: 24 }
+  - { ground: "Church Street Park", games: 14, dislodgements: 35 }
   - { ground: "Davis", games: 2, dislodgements: 8 }
   - { ground: "Grand Prairie Cricket Stadium", games: 6, dislodgements: 12 }
   - { ground: "NY Ovals #1", games: 2, dislodgements: 5 }
@@ -48,3 +48,6 @@ matches:
   - { date: "2026-09-21", match: "Ft. Lauderdale Lions v Morrisville Raptors", ground: "Church Street Park", bowled: 1, stumped: 0, run_out: 1, hit_wicket: 0, total: 2 }
   - { date: "2026-09-21", match: "Orlando Galaxy v Atlanta Lightning", ground: "Church Street Park", bowled: 0, stumped: 0, run_out: 2, hit_wicket: 0, total: 2 }
   - { date: "2026-09-21", match: "Atlanta Fire v Baltimore Royals", ground: "Church Street Park", bowled: 1, stumped: 0, run_out: 0, hit_wicket: 0, total: 1 }
+  - { date: "2026-09-22", match: "Morrisville Raptors v Orlando Galaxy", ground: "Church Street Park", bowled: 1, stumped: 0, run_out: 1, hit_wicket: 0, total: 2 }
+  - { date: "2026-09-22", match: "Baltimore Royals v Atlanta Lightning", ground: "Church Street Park", bowled: 3, stumped: 0, run_out: 1, hit_wicket: 0, total: 4 }
+  - { date: "2026-09-22", match: "Atlanta Fire v Ft. Lauderdale Lions", ground: "Church Street Park", bowled: 3, stumped: 1, run_out: 1, hit_wicket: 0, total: 5 }

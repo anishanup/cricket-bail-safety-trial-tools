@@ -2,15 +2,15 @@
 
 # Bail Guard in Minor League Cricket 2026
 
-Every dismissal that dislodged the bails in the MiLC 2026 games played with bail guards on the stumps, with the over and ball it happened on. Counted from MiLC's official ball-by-ball scoring on CricClubs, 17 September 2026 to 21 September 2026.
+Every dismissal that dislodged the bails in the MiLC 2026 games played with bail guards on the stumps, with the over and ball it happened on. Counted from MiLC's official ball-by-ball scoring on CricClubs, 17 September 2026 to 22 September 2026.
 
-**Snapshot as of 21 September 2026**
+**Snapshot as of 23 September 2026**
 
 | Games played | Games with bail guards | Bowled | Stumped | Run out, direct | Run out, indirect | Hit wicket | Total |
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-| 32 | **29** | 29 | 4 | 11 | 14 | 0 | **58** |
+| 35 | **32** | 36 | 5 | 12 | 16 | 0 | **69** |
 
-**58 times the bails came off. With a guard on the stumps, none of them flew.**
+**69 times the bails came off. With a guard on the stumps, none of them flew.**
 
 Each of these is a moment the bail guard was engaged and a batter was dismissed. It is a lower bound: run-out, stumping attempts, and any other ball that hit the stumps without a dismissal, also dislodge the bails but are not considered here.
 
@@ -47,6 +47,9 @@ Each of these is a moment the bail guard was engaged and a batter was dismissed.
 | [27](#game-27) | 21 Sep | 10:00 | Ft. Lauderdale Lions v Morrisville Raptors | Church Street Park | 1 | 0 | 0 | 1 | 0 | **2** | [card](https://cricclubs.com/MiLC/results/FHrXkEV9kFXOuWSsY78MUg) | [link](https://www.youtube.com/watch?v=lFKqJOmpNo8) |
 | [28](#game-28) | 21 Sep | 14:00 | Orlando Galaxy v Atlanta Lightning | Church Street Park | 0 | 0 | 0 | 2 | 0 | **2** | [card](https://cricclubs.com/MiLC/results/1GY9lmH0CfAfvu-HJwecEA) | [link](https://www.youtube.com/watch?v=_hEN_U0Wq6w) |
 | [29](#game-29) | 21 Sep | 18:00 | Atlanta Fire v Baltimore Royals | Church Street Park | 1 | 0 | 0 | 0 | 0 | **1** | [card](https://cricclubs.com/MiLC/results/yNZKjbi1qiTIQm3HK258ZA) |  |
+| [30](#game-30) | 22 Sep | 10:00 | Morrisville Raptors v Orlando Galaxy | Church Street Park | 1 | 0 | 0 | 1 | 0 | **2** | [card](https://cricclubs.com/MiLC/results/QrZloL0QaeXVEDb0PubxXQ) | [link](https://www.youtube.com/watch?v=efX8hZ6kB_A) |
+| [31](#game-31) | 22 Sep | 14:00 | Baltimore Royals v Atlanta Lightning | Church Street Park | 3 | 0 | 1 | 0 | 0 | **4** | [card](https://cricclubs.com/MiLC/results/KFnlj65KFzEjDkNtQSUGQA) | [link](https://www.youtube.com/watch?v=hHQFbTVjnPc) |
+| [32](#game-32) | 22 Sep | 18:00 | Atlanta Fire v Ft. Lauderdale Lions | Church Street Park | 3 | 1 | 0 | 1 | 0 | **5** | [card](https://cricclubs.com/MiLC/results/guDCrqwUBjbkLuS0Q__gqw) | [link](https://www.youtube.com/watch?v=i4AJYbZZ-Zo) |
 
 ## Dislodgements by game
 
@@ -101,7 +104,7 @@ Each of these is a moment the bail guard was engaged and a batter was dismissed.
 
 | Innings | Batting | Over | Fall of wicket | Batter out | How | Ground local time | In the video |
 |:--:|---|:--:|:--:|---|---|:--:|:--:|
-| 1 | All Stars | 13.1 | 70/4 | A Sudershanum | Run out, indirect | 15:02 | ≈ [1:10:33](https://www.youtube.com/watch?v=LIr7wCYotTc&t=1h10m33s) |
+| 1 | All Stars | 13.1 | 70/4 | A Sudershanum | Run out, indirect | 15:02 | [1:10:33](https://www.youtube.com/watch?v=LIr7wCYotTc&t=1h10m33s) |
 | 1 | All Stars | 17.2 | 101/6 | V Kattari | Bowled | 15:24 | [1:33:27](https://www.youtube.com/watch?v=LIr7wCYotTc&t=1h33m27s) |
 
 <a id="game-7"></a>
@@ -318,11 +321,43 @@ Each of these is a moment the bail guard was engaged and a batter was dismissed.
 |:--:|---|:--:|:--:|---|---|:--:|:--:|
 | 1 | Atlanta Fire | 4.2 | 32/3 | A Dave | Bowled | 19:23 |  |
 
+<a id="game-30"></a>
+
+**30. Morrisville Raptors v Orlando Galaxy**, 22 Sep ([video](https://www.youtube.com/watch?v=efX8hZ6kB_A))
+
+| Innings | Batting | Over | Fall of wicket | Batter out | How | Ground local time | In the video |
+|:--:|---|:--:|:--:|---|---|:--:|:--:|
+| 1 | Morrisville Raptors | 7.5 | 59/2 | N Mudaliar | Bowled | 10:30 | [0:35:22](https://www.youtube.com/watch?v=efX8hZ6kB_A&t=0h35m22s) |
+| 2 | Orlando Galaxy | 10.5 | 84/5 | S Syed | Run out, indirect | 12:32 | [2:37:29](https://www.youtube.com/watch?v=efX8hZ6kB_A&t=2h37m29s) |
+
+<a id="game-31"></a>
+
+**31. Baltimore Royals v Atlanta Lightning**, 22 Sep ([video](https://www.youtube.com/watch?v=hHQFbTVjnPc))
+
+| Innings | Batting | Over | Fall of wicket | Batter out | How | Ground local time | In the video |
+|:--:|---|:--:|:--:|---|---|:--:|:--:|
+| 1 | Baltimore Royals | 18.6 | 134/8 | R Kushwah | Bowled | 15:23 | [1:34:38](https://www.youtube.com/watch?v=hHQFbTVjnPc&t=1h34m38s) |
+| 2 | Atlanta Lightning | 0.1 | 1/1 | S Sankar | Run out, direct | 15:46 | [1:56:09](https://www.youtube.com/watch?v=hHQFbTVjnPc&t=1h56m9s) |
+| 2 | Atlanta Lightning | 1.6 | 11/2 | M Patel | Bowled | 15:55 | [2:07:13](https://www.youtube.com/watch?v=hHQFbTVjnPc&t=2h7m13s) |
+| 2 | Atlanta Lightning | 7.6 | 55/4 | S Tai | Bowled | 16:25 | [2:37:27](https://www.youtube.com/watch?v=hHQFbTVjnPc&t=2h37m27s) |
+
+<a id="game-32"></a>
+
+**32. Atlanta Fire v Ft. Lauderdale Lions**, 22 Sep ([video](https://www.youtube.com/watch?v=i4AJYbZZ-Zo))
+
+| Innings | Batting | Over | Fall of wicket | Batter out | How | Ground local time | In the video |
+|:--:|---|:--:|:--:|---|---|:--:|:--:|
+| 1 | Atlanta Fire | 12.5 | 118/4 | A Dave | Bowled | 18:56 | [1:05:05](https://www.youtube.com/watch?v=i4AJYbZZ-Zo&t=1h5m5s) |
+| 2 | Ft. Lauderdale Lions | 1.3 | 7/1 | A Ghotkar | Bowled | 19:45 | [1:53:34](https://www.youtube.com/watch?v=i4AJYbZZ-Zo&t=1h53m34s) |
+| 2 | Ft. Lauderdale Lions | 12.4 | 54/8 | C Kushare | Bowled | 20:32 | [2:41:05](https://www.youtube.com/watch?v=i4AJYbZZ-Zo&t=2h41m5s) |
+| 2 | Ft. Lauderdale Lions | 14.5 | 59/9 | A Khan | Run out, indirect | 20:44 | [2:50:45](https://www.youtube.com/watch?v=i4AJYbZZ-Zo&t=2h50m45s) |
+| 2 | Ft. Lauderdale Lions | 16.4 | 60/10 | S Vanjari | Stumped | 20:50 | [2:58:19](https://www.youtube.com/watch?v=i4AJYbZZ-Zo&t=2h58m19s) |
+
 ## Notes
 
 - Over and ball are in standard notation (4.6 is the sixth ball of the fifth over). Time is the scheduled start. Ground local time is when the scorer entered the ball, within a minute of it being bowled.
-- "In the video" opens the stream a few seconds before the ball is bowled. A time marked ≈ was placed automatically (from the broadcast score graphic, or from the scorer's entry) and has not yet been checked against the video; an unmarked time has been.
+- "In the video" opens the stream a few seconds before the ball is bowled. Every time here has been checked against the video.
 - Direct and indirect run outs are as credited by the scorer: one fielder for a throw that hit the stumps, two for a relayed throw broken by a fielder or keeper. Caught, caught behind and LBW are not included because they do not disturb the stumps.
-- No ball bowled (abandoned before the start, or an empty record on CricClubs), not counted: Manhattan Yorkers v New England Eagles (20 Sep, NY Ovals #1); NYC Titans v New Jersey Somerset Cavaliers (20 Sep, NY Ovals #3); The Philadelphians v New Jersey Stallions (20 Sep, NY Ovals #1); Orlando Galaxy v Atlanta Lightning (21 Sep, Church Street Park).
+- No ball bowled (abandoned before the start, or an empty record on CricClubs), not counted: Manhattan Yorkers v New England Eagles (20 Sep, NY Ovals #1); NYC Titans v New Jersey Somerset Cavaliers (20 Sep, NY Ovals #3); The Philadelphians v New Jersey Stallions (20 Sep, NY Ovals #1); Orlando Galaxy v Atlanta Lightning (21 Sep, Church Street Park); Atlanta Fire v Baltimore Royals (21 Sep, Church Street Park).
 - Played without bail guards, not counted above: Chicago Kingsmen v St. Louis Americans (18 Sep, ACAC Park #1: They got late fixing it); New Jersey Somerset Cavaliers v New Jersey Stallions (18 Sep, NY Ovals #1: They had Zing bails and didn't switch existing wooden bails that came with the bail guard set to the Zing bails); NYC Titans v New England Eagles (18 Sep, NY Ovals #1: Umpires didn't use it).
 - Every scored game is counted as played with bail guards unless the MiLC bail guard tracking sheet records that they were not. Video links are the MLC Network streams. Generated by `src/scripts/milc_scrape.mjs` in github.com/anishanup/cricket-bail-safety-trial-tools.
