@@ -5,5 +5,15 @@
   "run_out_direct"
  ],
  "exclude": [],
- "picks": []
+ "picks": [],
+ "notes": [
+  {
+   "date": "2026-09-19",
+   "teams": "The Philadelphians v New England Eagles",
+   "innings": 2,
+   "over": "10.6",
+   "rating": 1,
+   "note": "The video misses the dismissal itself on that ball."
+  }
+ ]
 }

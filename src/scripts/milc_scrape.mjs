@@ -70,8 +70,15 @@
  * <out>/milc-shortlist.json:
  *   { "kinds": ["bowled", "stumped", "run_out_direct"],   every dismissal of these kinds
  *     "exclude": [ { "date", "teams", "innings", "over" } ],   minus these
- *     "picks":   [ { "date", "teams", "innings", "over", "note" } ] }   plus these
- * (an array of picks alone also works).
+ *     "picks":   [ { "date", "teams", "innings", "over", "note" } ],   plus these
+ *     "notes":   [ { "date", "teams", "innings", "over", "rating": 1,
+ *                    "note": "why it rates low" } ] }   annotate a row
+ * (an array of picks alone also works). Rating is 1 to 5, worst to best, for
+ * sorting the reel; it and the Clip column (how much of the video the reel
+ * needs from the link time) are left for the editor to fill in.
+ *
+ * The file is written once and hand edited from then on (clip lengths, notes),
+ * so a later run leaves it alone; --highlights builds a fresh one.
  *
  * A game is re-read on every run until its scorecard is final (dismissal
  * codes appear on the card only once the game is complete); finished games
@@ -101,6 +108,7 @@ for (let i = 2; i < process.argv.length; i++) {
   else if (k === "--lead") a.lead = parseInt(process.argv[++i], 10);
   else if (k === "--video-lead") a.videoLead = parseInt(process.argv[++i], 10);
   else if (k === "--no-import") a.noImport = true;
+  else if (k === "--highlights") a.highlights = true;
   else if (k === "--to") a.to = process.argv[++i];
   else if (k === "--league") a.league = process.argv[++i];
   else if (k === "--series") a.series = process.argv[++i];
@@ -658,8 +666,8 @@ L.push(`- Every scored game is counted as played with bail guards unless the MiL
     H.push(`# Bail Guard in Minor League Cricket 2026: highlights shortlist`, "");
     const kindNames = { bowled: "bowled", stumped: "stumped", run_out_direct: "direct run outs", run_out_indirect: "indirect run outs", hit_wicket: "hit wicket" };
     H.push(`Candidates for a highlights reel from the [full report](bailguard-milc-2026.md)${kinds.size ? `: every ${[...kinds].map((k) => kindNames[k] || k).join(", ")} dismissal` : ""}${(cfg.exclude || []).length ? `, less ${(cfg.exclude || []).length} dropped after viewing` : ""}. Same columns and the same video times; a time marked ≈ has not yet been checked against the video.`, "");
-    H.push(`| # | Game | Date | Innings | Batting | Over | Fall of wicket | Batter out | How | In the video | Note |`);
-    H.push(`|:--:|---|:--:|:--:|---|:--:|:--:|---|---|:--:|---|`);
+    H.push(`| # | Game | Date | Innings | Batting | Over | Fall of wicket | Batter out | How | In the video | Clip | Rating | Note |`);
+    H.push(`|:--:|---|:--:|:--:|---|:--:|:--:|---|---|:--:|:--:|:--:|---|`);
     let n = 0;
     for (const pk of picks) {
       const k = new Set(String(pk.teams || "").split(/\s+vs?\.?\s+/i).map(norm));
@@ -667,10 +675,18 @@ L.push(`- Every scored game is counted as played with bail guards unless the MiL
       const e = r && r.events.find((x) => String(x.innings) === String(pk.innings) && `${x.over}.${x.ball}` === String(pk.over));
       if (!e) { console.error(`shortlist: no dismissal ${pk.teams} ${pk.date} innings ${pk.innings} over ${pk.over}`); continue; }
       const gi = withGuards.indexOf(r) + 1;
-      H.push(`| ${++n} | [${gi}](bailguard-milc-2026.md#game-${gi}) ${label(r)} | ${shortDate(r.date)} | ${e.innings} | ${e.batting} | ${e.over}.${e.ball} | ${e.score || ""} | ${e.batter} | ${e.how} | ${e.link} | ${pk.note || ""} |`);
+      const an = (cfg.notes || []).find((x) => same(x, r, e));
+      H.push(`| ${++n} | [${gi}](bailguard-milc-2026.md#game-${gi}) ${label(r)} | ${shortDate(r.date)} | ${e.innings} | ${e.batting} | ${e.over}.${e.ball} | ${e.score || ""} | ${e.batter} | ${e.how} | ${e.link} | ${an?.clip || ""} | ${an?.rating || ""} | ${an?.note || pk.note || ""} |`);
     }
-    writeFileSync(join(a.out, "bailguard-milc-2026-highlights.md"), H.join("\n") + "\n", "utf8");
-    console.error(`  shortlist: ${n} dismissal(s)`);
+    H.push("", `**${n} candidates.** Rating is 1 to 5, worst to best, for sorting the reel. Clip is how much of the video the reel needs from the link time: seconds, or an end time.`);
+    // Written once, then hand edited, so a later run leaves it alone.
+    const hp = join(a.out, "bailguard-milc-2026-highlights.md");
+    if (existsSync(hp) && !a.highlights) {
+      console.error(`  shortlist: ${hp} exists and is hand edited; left alone (--highlights to rebuild)`);
+    } else {
+      writeFileSync(hp, H.join("\n") + "\n", "utf8");
+      console.error(`  shortlist: ${n} candidate dismissal(s)`);
+    }
   }
 }
 

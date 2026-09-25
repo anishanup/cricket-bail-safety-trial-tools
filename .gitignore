@@ -4,6 +4,9 @@ trials/*/downloads/
 # Generated PDFs (pretty-printed from markdown, not versioned)
 *.pdf
 
+# ffmpeg's concat list: absolute paths from whoever built the reel
+trials/*/*/reel/clips.txt
+
 # Scrape caches (re-fetchable, not versioned)
 .ntca-cache.json
 .dallashub-cache.json
