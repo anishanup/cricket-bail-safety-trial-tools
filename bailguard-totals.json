@@ -1,16 +1,16 @@
 {
   "project": "Cricket Bail Safety Trial Tools",
   "description": "Running total of bail-dislodging dismissals (Bowled + Stumped + Run out + Hit wicket). Lower bound on how often a bail guard is engaged.",
-  "generated_on": "2026-09-23",
+  "generated_on": "2026-09-29",
   "data_from": "2026-01-18",
-  "data_to": "2026-09-22",
+  "data_to": "2026-09-28",
   "totals": {
-    "games": 912,
-    "bowled": 3093,
-    "stumped": 253,
-    "run_out": 1325,
-    "hit_wicket": 23,
-    "dislodgements": 4694
+    "games": 966,
+    "bowled": 3268,
+    "stumped": 277,
+    "run_out": 1412,
+    "hit_wicket": 26,
+    "dislodgements": 4983
   },
   "totals_by_source": {
     "adult_league_scorecards": {
@@ -38,20 +38,20 @@
       "dislodgements": 77
     },
     "usa_cricket_hub_scorecards": {
-      "games": 116,
-      "bowled": 460,
-      "stumped": 63,
-      "run_out": 249,
-      "hit_wicket": 6,
-      "dislodgements": 778
+      "games": 149,
+      "bowled": 588,
+      "stumped": 76,
+      "run_out": 319,
+      "hit_wicket": 9,
+      "dislodgements": 992
     },
     "semi_pro_league_scorecards": {
-      "games": 32,
-      "bowled": 36,
-      "stumped": 5,
-      "run_out": 28,
+      "games": 53,
+      "bowled": 83,
+      "stumped": 16,
+      "run_out": 45,
       "hit_wicket": 0,
-      "dislodgements": 69
+      "dislodgements": 144
     },
     "device_trials_video": {
       "games": 4,
@@ -68,8 +68,8 @@
       "state": "TX",
       "lat": 32.85,
       "lon": -97,
-      "games": 886,
-      "dislodgements": 4637,
+      "games": 921,
+      "dislodgements": 4856,
       "sources": [
         "Dallas Cricket League",
         "Dallas Youth Cricket League",
@@ -101,13 +101,14 @@
       "state": "MO",
       "lat": 38.81,
       "lon": -90.7,
-      "games": 5,
-      "dislodgements": 5,
+      "games": 9,
+      "dislodgements": 21,
       "sources": [
         "Minor League Cricket"
       ],
       "grounds": [
-        "ACAC Park #1"
+        "ACAC Park #1",
+        "ACAC Park #2"
       ]
     },
     {
@@ -115,8 +116,8 @@
       "state": "NY",
       "lat": 42.83,
       "lon": -73.94,
-      "games": 4,
-      "dislodgements": 8,
+      "games": 7,
+      "dislodgements": 15,
       "sources": [
         "Minor League Cricket"
       ],
@@ -126,12 +127,27 @@
       ]
     },
     {
+      "name": "Los Angeles, CA",
+      "state": "CA",
+      "lat": 34.17,
+      "lon": -118.48,
+      "games": 4,
+      "dislodgements": 19,
+      "sources": [
+        "Minor League Cricket"
+      ],
+      "grounds": [
+        "Los Angeles Cricket Ground",
+        "Woodley Park (Wright)"
+      ]
+    },
+    {
       "name": "Sacramento, CA",
       "state": "CA",
       "lat": 38.55,
       "lon": -121.74,
-      "games": 2,
-      "dislodgements": 8,
+      "games": 3,
+      "dislodgements": 12,
       "sources": [
         "Minor League Cricket"
       ],
@@ -144,13 +160,55 @@
       "state": "CA",
       "lat": 37.43,
       "lon": -121.9,
-      "games": 1,
-      "dislodgements": 1,
+      "games": 3,
+      "dislodgements": 9,
       "sources": [
         "Minor League Cricket"
       ],
       "grounds": [
         "Strikers Cricket Ground"
+      ]
+    },
+    {
+      "name": "San Diego, CA",
+      "state": "CA",
+      "lat": 32.92,
+      "lon": -117.11,
+      "games": 2,
+      "dislodgements": 5,
+      "sources": [
+        "Minor League Cricket"
+      ],
+      "grounds": [
+        "Canyonside Park"
+      ]
+    },
+    {
+      "name": "Houston, TX",
+      "state": "TX",
+      "lat": 29.56,
+      "lon": -95.29,
+      "games": 2,
+      "dislodgements": 7,
+      "sources": [
+        "Minor League Cricket"
+      ],
+      "grounds": [
+        "Kingsmen Stadium"
+      ]
+    },
+    {
+      "name": "Atlanta, GA",
+      "state": "GA",
+      "lat": 34.35,
+      "lon": -84.73,
+      "games": 1,
+      "dislodgements": 4,
+      "sources": [
+        "Minor League Cricket"
+      ],
+      "grounds": [
+        "Param Veers Cricket Field #1"
       ]
     }
   ],
@@ -159,7 +217,8 @@
     "NC",
     "MO",
     "NY",
-    "CA"
+    "CA",
+    "GA"
   ],
   "folders_considered": {
     "adult_league_scorecards": [
@@ -187,7 +246,8 @@
       "trials/dallas-hub/2026-fall-league/20260822-week",
       "trials/dallas-hub/2026-fall-league/20260828-week",
       "trials/dallas-hub/2026-fall-league/20260911-week",
-      "trials/dallas-hub/2026-fall-league/20260918-week"
+      "trials/dallas-hub/2026-fall-league/20260918-week",
+      "trials/dallas-hub/2026-fall-league/20260925-week"
     ],
     "semi_pro_league_scorecards": [
       "trials/milc/2026-milc"

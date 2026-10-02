@@ -1,24 +1,24 @@
 # Bail Safety — Running Totals
 
-Generated on: 2026-09-23  
-From: 2026-01-18  To: 2026-09-22
+Generated on: 2026-09-29  
+From: 2026-01-18  To: 2026-09-28
 
 | Metric | Total |
 |---|--:|
-| Games | 912 |
-| Bowled | 3093 |
-| Stumped | 253 |
-| Run out | 1325 |
-| Hit wicket | 23 |
-| **Bail-dislodging dismissals** | **4694** |
+| Games | 966 |
+| Bowled | 3268 |
+| Stumped | 277 |
+| Run out | 1412 |
+| Hit wicket | 26 |
+| **Bail-dislodging dismissals** | **4983** |
 
 Dismissals that dislodge the bails, counted from official scorecards, plus a floor from device-trial video. Lower bound. Breakdown:
 
 - **3371** — adult league scorecards, Dallas Cricket League (667 games)
 - **388** — youth league scorecards, Dallas Youth Cricket League (72 games)
 - **77** — league scorecards on grounds fitted with bail guards, North Texas Cricket Association (21 games)
-- **778** — USA Cricket Dallas hub, junior pathway scorecards (116 games)
-- **69** — Minor League Cricket, semi-professional, games played with bail guards (32 games)
+- **992** — USA Cricket Dallas hub, junior pathway scorecards (149 games)
+- **144** — Minor League Cricket, semi-professional, games played with bail guards (53 games)
 - **11** — device field-trial video, a floor (4 games)
 
 ## Folders considered
@@ -49,20 +49,25 @@ USA Cricket Dallas hub, junior pathway — CricClubs (full dismissal counts):
 - trials/dallas-hub/2026-fall-league/20260828-week
 - trials/dallas-hub/2026-fall-league/20260911-week
 - trials/dallas-hub/2026-fall-league/20260918-week
+- trials/dallas-hub/2026-fall-league/20260925-week
 
 Minor League Cricket, semi-professional — CricClubs ball-by-ball (games with bail guards only):
 - trials/milc/2026-milc
 
-## Where the guards have been on the stumps (5 states)
+## Where the guards have been on the stumps (6 states)
 
 | Place | Games | Dislodgements | Leagues |
 |---|--:|--:|---|
-| Dallas-Fort Worth, TX | 886 | 4637 | Dallas Cricket League, Dallas Youth Cricket League, North Texas Cricket Association, USA Cricket Dallas Hub, Grand Prairie Cricket Club, Minor League Cricket |
+| Dallas-Fort Worth, TX | 921 | 4856 | Dallas Cricket League, Dallas Youth Cricket League, North Texas Cricket Association, USA Cricket Dallas Hub, Grand Prairie Cricket Club, Minor League Cricket |
 | Raleigh, NC | 14 | 35 | Minor League Cricket |
-| St. Louis, MO | 5 | 5 | Minor League Cricket |
-| Albany, NY | 4 | 8 | Minor League Cricket |
-| Sacramento, CA | 2 | 8 | Minor League Cricket |
-| San Jose, CA | 1 | 1 | Minor League Cricket |
+| St. Louis, MO | 9 | 21 | Minor League Cricket |
+| Albany, NY | 7 | 15 | Minor League Cricket |
+| Los Angeles, CA | 4 | 19 | Minor League Cricket |
+| Sacramento, CA | 3 | 12 | Minor League Cricket |
+| San Jose, CA | 3 | 9 | Minor League Cricket |
+| San Diego, CA | 2 | 5 | Minor League Cricket |
+| Houston, TX | 2 | 7 | Minor League Cricket |
+| Atlanta, GA | 1 | 4 | Minor League Cricket |
 
 Device field trials (counted from highlights.csv video; a floor):
 - trials/20260118-gpcc-qualifier1-dallas
