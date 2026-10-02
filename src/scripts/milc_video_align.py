@@ -158,6 +158,30 @@ for token, r in cache.items():
         if not e.get("at") or not e.get("score"): continue
         todo.append((key, r, e, vid))
 
+done = set()
+
+
+def save():
+    """Write the marks, keeping anything another process added since we loaded.
+
+    milc_scrape.mjs writes this file too (it stores hand-edited times from the
+    report), so dumping our own copy would silently drop its work. Only the
+    keys this run produced are written; a hand-checked time always wins.
+    """
+    on_disk = {}
+    if os.path.exists(marks_path):
+        try:
+            on_disk = json.load(open(marks_path, encoding="utf-8"))
+        except (OSError, ValueError):
+            on_disk = {}
+    for k in done:
+        entry = dict(marks[k])
+        if "manual" in on_disk.get(k, {}):
+            entry["manual"] = on_disk[k]["manual"]
+        on_disk[k] = entry
+    json.dump(on_disk, open(marks_path, "w", encoding="utf-8"), indent=1)
+
+
 print(f"{len(todo)} dismissal(s) to align, {len(marks)} already marked", file=sys.stderr)
 for n, (key, r, e, vid) in enumerate(todo, 1):
     start = datetime.fromisoformat(streams[vid].replace("Z", "+00:00"))
@@ -184,7 +208,8 @@ for n, (key, r, e, vid) in enumerate(todo, 1):
         delivery = max(0, w0 + tick - a.lead)
         marks[key] = {"video": vid, "tick": w0 + tick, "delivery": delivery, "replay": (w0 + replay) if replay is not None else None}
         print(f"   tick {hms(w0 + tick)}, delivery ~{hms(delivery)}, replay {hms(w0 + replay) if replay is not None else '-'} ({time.time() - t0:.0f}s)", file=sys.stderr)
-    json.dump(marks, open(marks_path, "w", encoding="utf-8"), indent=1)
+    done.add(key)
+    save()
     if not a.keep:
         try: os.remove(path)
         except OSError: pass

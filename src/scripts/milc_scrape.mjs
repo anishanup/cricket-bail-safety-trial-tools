@@ -18,6 +18,8 @@
  * facts the scorecard cannot know, one object per game:
  *   { "date": "2026-09-20", "teams": "Manhattan Yorkers v New England Eagles",
  *     "note": "Bail guards fitted from the second innings.", "from_innings": 2 }
+ * A "balls" list annotates single dismissals, shown in the report's Notes
+ * column:  "balls": [ { "innings": 2, "over": "0.5", "note": "..." } ]
  *   { "date": ..., "teams": ..., "used": false, "note": "why" }
  * "from_innings" counts only dismissals from that innings on; "used": false
  * lists the game as played without bail guards. A "fix" list corrects single
@@ -315,14 +317,21 @@ let notes = [];
   const np = join(a.out, "milc-notes.json");
   if (existsSync(np)) { try { notes = JSON.parse(readFileSync(np, "utf8")); console.error(`Notes: ${notes.length} game(s) in milc-notes.json`); } catch (e) { console.error(`milc-notes.json: ${e.message}`); } }
 }
-const noteFor = (date, t1, t2) => {
+// The same two teams can play twice in one day, so date and teams alone do not
+// name a game. Where they do not, the start time does; "start" is HH:MM.
+const atStart = (hits, start, timeOf) => (hits.length > 1 && start
+  ? hits.find((h) => String(timeOf(h) || "").slice(0, 5) === String(start).slice(0, 5)) || hits[0]
+  : hits[0]);
+const noteFor = (date, t1, t2, start) => {
   const k = new Set([norm(t1), norm(t2)]);
-  return notes.find((n) => ymd(n.date) === date && String(n.teams || "").split(/\s+vs?\.?\s+/i).map(norm).every((t) => k.has(t)));
+  const hits = notes.filter((n) => ymd(n.date) === date && String(n.teams || "").split(/\s+vs?\.?\s+/i).map(norm).every((t) => k.has(t)));
+  return atStart(hits, start, (n) => n.start || n.time);
 };
-const sheetFor = (date, t1, t2) => {
+const sheetFor = (date, t1, t2, start) => {
   const k1 = norm(t1), k2 = norm(t2);
-  return sheetRows.find((r) => ymd(r["Date"]) === date && (
+  const hits = sheetRows.filter((r) => ymd(r["Date"]) === date && (
     (norm(r["Team One"]) === k1 && norm(r["Team two"]) === k2) || (norm(r["Team One"]) === k2 && norm(r["Team two"]) === k1)));
+  return atStart(hits, start, (r) => r["Time (IST)"]);
 };
 
 await ensureChrome();
@@ -335,12 +344,29 @@ if (a.streams) {
 }
 // pair a game with its stream: same two teams in the title, and if the title
 // carries "Match #N" it must equal the sheet's SNO for that game
-const streamFor = (r, sheetRow) => {
+// siblings: every game these same two teams played that day, earliest first.
+// For a double header the stream titles carry MLC's own match numbers, which
+// need not equal the sheet's SNO, so when the number does not match we pair the
+// games and the streams in the same order instead.
+const streamFor = (r, sheetRow, siblings = [r]) => {
   const k1 = norm(r.teamOne), k2 = norm(r.teamTwo);
   const cands = streams.filter((v) => !v.upcoming && norm(v.title).includes(k1) && norm(v.title).includes(k2));
   const sno = sheetRow ? parseInt(sheetRow["SNO"], 10) : NaN;
   const byNum = cands.find((v) => v.num != null && v.num === sno);
   if (byNum) return byNum.url;
+  if (siblings.length > 1 && cands.length === siblings.length && cands.every((v) => v.num != null)) {
+    const i = siblings.findIndex((x) => x.token === r.token);
+    const inOrder = [...cands].sort((x, y) => x.num - y.num);
+    if (i >= 0) return inOrder[i].url;
+  }
+  // A title sometimes carries the wrong name for one side (a ground name, say),
+  // so accept the match number when only one of the two teams is named. The
+  // number alone is not enough: MLC's numbering and the sheet's SNO can differ.
+  if (Number.isFinite(sno)) {
+    const half = streams.filter((v) => !v.upcoming && v.num === sno
+      && (norm(v.title).includes(k1) || norm(v.title).includes(k2)));
+    if (half.length === 1) return half[0].url;
+  }
   const unnumbered = cands.filter((v) => v.num == null);
   return cands.length === 1 ? cands[0].url : unnumbered.length === 1 ? unnumbered[0].url : "";
 };
@@ -474,10 +500,14 @@ if (a.vocab) {
 const seriesNames = new Set(seriesList.map((x) => x.name));
 const rows = Object.values(cache).filter((r) => r && typeof r === "object" && r.token && seriesNames.has(r.series) && (!a.to || r.date <= a.to))
   .sort((x, y) => (x.date + x.start).localeCompare(y.date + y.start));
+// the games the same two teams played on the same day, earliest first
+const sameDayTeams = (r) => rows.filter((x) => x.date === r.date
+  && new Set([norm(x.teamOne), norm(x.teamTwo)]).size === 2
+  && [norm(r.teamOne), norm(r.teamTwo)].every((t) => t === norm(x.teamOne) || t === norm(x.teamTwo)));
 for (const r of rows) {
-  const s = sheetFor(r.date, r.teamOne, r.teamTwo);
+  const s = sheetFor(r.date, r.teamOne, r.teamTwo, r.start);
   r.sheet = s ? { used: (s["Bailguard used?"] || "").trim(), note: s["Notes"] || "", youtube: s["Youtube link"] || "" } : null;
-  const n = noteFor(r.date, r.teamOne, r.teamTwo);
+  const n = noteFor(r.date, r.teamOne, r.teamTwo, r.start);
   r.note = n?.note || "";
   r.status = (n && n.used === false) || (r.sheet && /^n/i.test(r.sheet.used)) ? "no" : "yes";
   r.why = n?.note || (r.sheet?.note || "").split(/(?<=\.)\s/)[0].replace(/\.$/, "");
@@ -485,9 +515,16 @@ for (const r of rows) {
   for (const f of n?.fix || []) {
     const e = r.events.find((x) => String(x.innings) === String(f.innings) && `${x.over}.${x.ball}` === String(f.over));
     if (e && typeof f.direct === "boolean" && e.kind.startsWith("run_out")) { e.kind = f.direct ? "run_out_direct" : "run_out_indirect"; e.how = f.direct ? "Run out, direct" : "Run out, indirect"; e.fixed = true; }
+    if (e && f.note) e.note = f.note;
+  }
+  // per-ball notes for the report's Notes column
+  for (const b of n?.balls || []) {
+    const e = r.events.find((x) => String(x.innings) === String(b.innings) && `${x.over}.${x.ball}` === String(b.over));
+    if (e && b.note) e.note = b.note;
+    else if (!e) console.error(`note: no dismissal ${label(r)} ${r.date} innings ${b.innings} over ${b.over}`);
   }
   // the streams page lists only the latest 30, so a pairing made earlier is kept
-  const fromStreams = streamFor(r, s);
+  const fromStreams = streamFor(r, s, sameDayTeams(r));
   const fromMarks = Object.entries(marks).find(([k, v]) => k.startsWith(r.token + "|") && v.video)?.[1].video;
   r.video = fromStreams || (fromMarks ? `https://www.youtube.com/watch?v=${fromMarks}` : "") || (r.videoPaired ? r.video : "") || (r.sheet?.youtube || "").trim();
   if (fromStreams) r.videoPaired = true;
@@ -593,10 +630,10 @@ L.push(`## Dislodgements by game`, "");
 withGuards.forEach((r, i) => {
   L.push(`<a id="game-${i + 1}"></a>`, "");
   L.push(`**${i + 1}. ${label(r)}**, ${shortDate(r.date)}${r.video ? ` ([video](${r.video}))` : ""}${r.events.length ? "" : ". No bail-dislodging dismissal in this game."}${r.note ? ` ${r.note}` : ""}`, "");
-  L.push(`| Innings | Batting | Over | Fall of wicket | Batter out | How | Ground local time | In the video |`);
-  L.push(`|:--:|---|:--:|:--:|---|---|:--:|:--:|`);
-  for (const e of r.events) L.push(`| ${e.innings} | ${e.batting} | ${e.over}.${e.ball} | ${e.score || ""} | ${e.batter} | ${e.how} | ${e.local} | ${e.link} |`);
-  if (!r.events.length) L.push(`| - | - | - | - | - | - | - | - |`);
+  L.push(`| Innings | Batting | Over | Fall of wicket | Batter out | How | Ground local time | In the video | Notes |`);
+  L.push(`|:--:|---|:--:|:--:|---|---|:--:|:--:|---|`);
+  for (const e of r.events) L.push(`| ${e.innings} | ${e.batting} | ${e.over}.${e.ball} | ${e.score || ""} | ${e.batter} | ${e.how} | ${e.local} | ${e.link} | ${e.note || ""} |`);
+  if (!r.events.length) L.push(`| - | - | - | - | - | - | - | - | - |`);
   if (isFinal(r) && cardTot(r) !== r.events.length) L.push("", `Scorecard shows ${cardTot(r)}; the ball-by-ball feed and the card disagree.`);
   L.push("");
 });
@@ -658,7 +695,7 @@ L.push(`- Every scored game is counted as played with bail guards unless the MiL
     for (const r of withGuards) for (const e of r.events) {
       if (!kinds.has(e.kind)) continue;
       if ((cfg.exclude || []).some((x) => same(x, r, e))) continue;
-      picks.push({ date: r.date, teams: label(r), innings: e.innings, over: `${e.over}.${e.ball}`, note: "" });
+      picks.push({ date: r.date, teams: label(r), innings: e.innings, over: `${e.over}.${e.ball}`, note: "", game: r, event: e });
     }
     for (const pk of cfg.picks || []) if (!picks.some((x) => x.date === ymd(pk.date) && x.innings == pk.innings && x.over == pk.over && norm(x.teams) === norm(pk.teams))) picks.push(pk);
     const H = [];
@@ -671,8 +708,8 @@ L.push(`- Every scored game is counted as played with bail guards unless the MiL
     let n = 0;
     for (const pk of picks) {
       const k = new Set(String(pk.teams || "").split(/\s+vs?\.?\s+/i).map(norm));
-      const r = withGuards.find((x) => x.date === ymd(pk.date) && k.has(norm(x.teamOne)) && k.has(norm(x.teamTwo)));
-      const e = r && r.events.find((x) => String(x.innings) === String(pk.innings) && `${x.over}.${x.ball}` === String(pk.over));
+      const r = pk.game || withGuards.find((x) => x.date === ymd(pk.date) && k.has(norm(x.teamOne)) && k.has(norm(x.teamTwo)));
+      const e = pk.event || (r && r.events.find((x) => String(x.innings) === String(pk.innings) && `${x.over}.${x.ball}` === String(pk.over)));
       if (!e) { console.error(`shortlist: no dismissal ${pk.teams} ${pk.date} innings ${pk.innings} over ${pk.over}`); continue; }
       const gi = withGuards.indexOf(r) + 1;
       const an = (cfg.notes || []).find((x) => same(x, r, e));
