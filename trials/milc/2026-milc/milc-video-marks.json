@@ -622,156 +622,182 @@
   "video": "bZvPOX4IS2U",
   "tick": 1011,
   "delivery": 971,
-  "replay": null
+  "replay": null,
+  "manual": 996
  },
  "uRJCW7f104X9R1LSgAbJKQ|1|18.4": {
   "video": "bZvPOX4IS2U",
   "tick": 5732,
   "delivery": 5692,
-  "replay": 5708
+  "replay": 5708,
+  "manual": 5723
  },
  "uRJCW7f104X9R1LSgAbJKQ|1|19.2": {
   "video": "bZvPOX4IS2U",
   "tick": 5962,
   "delivery": 5922,
-  "replay": null
+  "replay": null,
+  "manual": 5951
  },
  "uRJCW7f104X9R1LSgAbJKQ|1|19.3": {
   "video": "bZvPOX4IS2U",
   "tick": 6020,
   "delivery": 5980,
-  "replay": 6018
+  "replay": 6018,
+  "manual": 6011
  },
  "WY4kbIpN_yEGA2PiwGWP0Q|1|4.6": {
   "video": "uN14_v2UCvI",
   "tick": 2168,
   "delivery": 2128,
-  "replay": 2162
+  "replay": 2162,
+  "manual": 2194
  },
  "WY4kbIpN_yEGA2PiwGWP0Q|1|10.1": {
   "video": "uN14_v2UCvI",
   "tick": 3562,
   "delivery": 3522,
-  "replay": null
+  "replay": null,
+  "manual": 3588
  },
  "WY4kbIpN_yEGA2PiwGWP0Q|1|13.3": {
   "video": "uN14_v2UCvI",
   "tick": 4378,
   "delivery": 4338,
-  "replay": null
+  "replay": null,
+  "manual": 4367
  },
  "OykpvgTyrkU-L11bYvH7EA|1|13.5": {
   "video": "BSVEB4cyMF4",
   "tick": 6996,
   "delivery": 6956,
-  "replay": null
+  "replay": null,
+  "manual": 6978
  },
  "OykpvgTyrkU-L11bYvH7EA|1|15.5": {
   "video": "BSVEB4cyMF4",
   "tick": 7635,
   "delivery": 7595,
-  "replay": 7605
+  "replay": 7605,
+  "manual": 7580
  },
  "TeLBt7ZUd7vWTRUClpi4yQ|1|19.6": {
   "video": "nnep51xEBCI",
   "tick": 6180,
   "delivery": 6140,
-  "replay": 6167
+  "replay": 6167,
+  "manual": 6127
  },
  "TeLBt7ZUd7vWTRUClpi4yQ|2|11.6": {
   "video": "nnep51xEBCI",
   "tick": 10391,
   "delivery": 10351,
-  "replay": null
+  "replay": null,
+  "manual": 10380
  },
  "57EXMlosMmf9zXfLdfng0g|1|2.1": {
   "video": "0Lym2LNrf3c",
   "tick": 990,
   "delivery": 950,
-  "replay": 975
+  "replay": 975,
+  "manual": 1005
  },
  "57EXMlosMmf9zXfLdfng0g|1|6.1": {
   "video": "0Lym2LNrf3c",
   "tick": 2292,
   "delivery": 2252,
-  "replay": 2266
+  "replay": 2266,
+  "manual": 2278
  },
  "57EXMlosMmf9zXfLdfng0g|1|10.6": {
   "video": "0Lym2LNrf3c",
   "tick": 3343,
   "delivery": 3303,
-  "replay": null
+  "replay": null,
+  "manual": 3423
  },
  "57EXMlosMmf9zXfLdfng0g|2|8.2": {
   "video": "0Lym2LNrf3c",
   "tick": 9307,
   "delivery": 9267,
-  "replay": 9273
+  "replay": 9273,
+  "manual": 9328
  },
  "57EXMlosMmf9zXfLdfng0g|2|12.1": {
   "video": "0Lym2LNrf3c",
   "tick": 10199,
   "delivery": 10159,
-  "replay": null
+  "replay": null,
+  "manual": 10185
  },
  "1amwS2aUS9f9yDoHzYzZwQ|1|13.6": {
   "video": "6RGkGYBoiUw",
   "tick": 4582,
   "delivery": 4542,
-  "replay": null
+  "replay": null,
+  "manual": 4566
  },
  "1amwS2aUS9f9yDoHzYzZwQ|1|18.6": {
   "video": "6RGkGYBoiUw",
   "tick": 6110,
   "delivery": 6070,
-  "replay": null
+  "replay": null,
+  "manual": 6038
  },
  "1amwS2aUS9f9yDoHzYzZwQ|1|19.6": {
   "video": "6RGkGYBoiUw",
   "tick": null,
-  "note": "score bug not read; link stays approximate"
+  "note": "score bug not read; link stays approximate",
+  "manual": 6345
  },
  "1amwS2aUS9f9yDoHzYzZwQ|2|13.5": {
   "video": "6RGkGYBoiUw",
   "tick": 11802,
   "delivery": 11762,
-  "replay": null
+  "replay": null,
+  "manual": 11789
  },
  "9bJ58euWb_7dhbSBE3aFYA|1|6.6": {
   "video": "j06bWrbpPYg",
   "tick": 2731,
   "delivery": 2691,
-  "replay": 2692
+  "replay": 2692,
+  "manual": 2624
  },
  "9bJ58euWb_7dhbSBE3aFYA|1|17.3": {
   "video": "j06bWrbpPYg",
   "tick": 6019,
   "delivery": 5979,
-  "replay": 6003
+  "replay": 6003,
+  "manual": 5983
  },
  "9bJ58euWb_7dhbSBE3aFYA|1|17.5": {
   "video": "j06bWrbpPYg",
   "tick": 6200,
   "delivery": 6160,
-  "replay": 6181
+  "replay": 6181,
+  "manual": 6155
  },
  "9bJ58euWb_7dhbSBE3aFYA|1|19.2": {
   "video": "j06bWrbpPYg",
   "tick": 6867,
   "delivery": 6827,
-  "replay": null
+  "replay": null,
+  "manual": 6856
  },
  "9bJ58euWb_7dhbSBE3aFYA|1|19.4": {
   "video": "j06bWrbpPYg",
   "tick": 7001,
   "delivery": 6961,
-  "replay": 6980
+  "replay": 6980,
+  "manual": 6988
  },
  "9bJ58euWb_7dhbSBE3aFYA|2|2.1": {
   "video": "j06bWrbpPYg",
   "tick": 8768,
   "delivery": 8728,
-  "replay": 8757
+  "replay": 8757,
+  "manual": 8757
  },
  "Orjpu-rwp1HsyuUFrp1vuw|1|9.3": {
   "video": "2dRGwUCBsHk",
@@ -824,31 +850,36 @@
   "video": "XGkLoVOwnUI",
   "tick": 5902,
   "delivery": 5862,
-  "replay": 5885
+  "replay": 5885,
+  "manual": 5878
  },
  "fwrjhiYTAONn7b1AlpzUNg|2|5.2": {
   "video": "XGkLoVOwnUI",
   "tick": 9403,
   "delivery": 9363,
-  "replay": null
+  "replay": null,
+  "manual": 9256
  },
  "fwrjhiYTAONn7b1AlpzUNg|2|6.5": {
   "video": "XGkLoVOwnUI",
   "tick": 9922,
   "delivery": 9882,
-  "replay": 9907
+  "replay": 9907,
+  "manual": 9897
  },
  "fwrjhiYTAONn7b1AlpzUNg|2|9.4": {
   "video": "XGkLoVOwnUI",
   "tick": 11023,
   "delivery": 10983,
-  "replay": null
+  "replay": null,
+  "manual": 10875
  },
  "BaNO0GD7W3mI34NTa3PQkA|1|16.4": {
   "video": "qbcPelYDPfY",
   "tick": 5822,
   "delivery": 5782,
-  "replay": 5821
+  "replay": 5821,
+  "manual": 5778
  },
  "AMjMrvumUMK_MRhNrgvODg|1|0.5": {
   "video": "OglMEt-dZM0",
@@ -894,42 +925,49 @@
   "video": "pTGgZvwzh4s",
   "tick": 9129,
   "delivery": 9089,
-  "replay": 9089
+  "replay": 9089,
+  "manual": 9046
  },
  "BaNO0GD7W3mI34NTa3PQkA|2|4.2": {
   "video": "qbcPelYDPfY",
   "tick": 9355,
   "delivery": 9315,
-  "replay": null
+  "replay": null,
+  "manual": 9341
  },
  "BaNO0GD7W3mI34NTa3PQkA|2|7.2": {
   "video": "qbcPelYDPfY",
   "tick": 10324,
   "delivery": 10284,
-  "replay": 10293
+  "replay": 10293,
+  "manual": 10251
  },
  "BaNO0GD7W3mI34NTa3PQkA|2|9.4": {
   "video": "qbcPelYDPfY",
   "tick": 11136,
   "delivery": 11096,
-  "replay": null
+  "replay": null,
+  "manual": 11091
  },
  "2Qlkp_ZF3FnsQ3d7XHitUQ|1|3.1": {
   "video": "PWeghzYCC6c",
   "tick": 1586,
   "delivery": 1546,
-  "replay": 1569
+  "replay": 1569,
+  "manual": 1548
  },
  "2Qlkp_ZF3FnsQ3d7XHitUQ|1|14.1": {
   "video": "PWeghzYCC6c",
   "tick": 4158,
   "delivery": 4118,
-  "replay": null
+  "replay": null,
+  "manual": 4137
  },
  "2Qlkp_ZF3FnsQ3d7XHitUQ|1|14.6": {
   "video": "PWeghzYCC6c",
   "tick": 4447,
   "delivery": 4407,
-  "replay": 4408
+  "replay": 4408,
+  "manual": 4430
  }
 }

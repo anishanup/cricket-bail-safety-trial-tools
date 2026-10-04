@@ -4,7 +4,7 @@
 
 Every dismissal that dislodged the bails in the MiLC 2026 games played with bail guards on the stumps, with the over and ball it happened on. Counted from MiLC's official ball-by-ball scoring on CricClubs, 17 September 2026 to 28 September 2026.
 
-**Snapshot as of 29 September 2026**
+**Snapshot as of 3 October 2026**
 
 | Games played | Games with bail guards | Bowled | Stumped | Run out, direct | Run out, indirect | Hit wicket | Total |
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
@@ -401,12 +401,12 @@ Each of these is a moment the bail guard was engaged and a batter was dismissed.
 
 | Innings | Batting | Over | Fall of wicket | Batter out | How | Ground local time | In the video | Notes |
 |:--:|---|:--:|:--:|---|---|:--:|:--:|---|
-| 1 | Seattle Thunderbolts | 6.6 | 45/1 | A Nannaware | Run out, indirect | 10:35 | ≈ [0:45:01](https://www.youtube.com/watch?v=j06bWrbpPYg&t=0h45m1s) |  |
-| 1 | Seattle Thunderbolts | 17.3 | 127/5 | K Wali | Bowled | 11:30 | ≈ [1:39:49](https://www.youtube.com/watch?v=j06bWrbpPYg&t=1h39m49s) |  |
-| 1 | Seattle Thunderbolts | 17.5 | 130/6 | K Gattepalli | Run out, direct | 11:33 | ≈ [1:42:50](https://www.youtube.com/watch?v=j06bWrbpPYg&t=1h42m50s) |  |
-| 1 | Seattle Thunderbolts | 19.2 | 141/8 | R Posanipally | Bowled | 11:45 | ≈ [1:53:57](https://www.youtube.com/watch?v=j06bWrbpPYg&t=1h53m57s) |  |
-| 1 | Seattle Thunderbolts | 19.4 | 141/9 | N Dass | Bowled | 11:47 | ≈ [1:56:11](https://www.youtube.com/watch?v=j06bWrbpPYg&t=1h56m11s) |  |
-| 2 | San Diego Surf Riders | 2.1 | 10/2 | S Banoori | Bowled | 12:16 | ≈ [2:25:38](https://www.youtube.com/watch?v=j06bWrbpPYg&t=2h25m38s) |  |
+| 1 | Seattle Thunderbolts | 6.6 | 45/1 | A Nannaware | Run out, indirect | 10:35 | [0:43:44](https://www.youtube.com/watch?v=j06bWrbpPYg&t=0h43m44s) |  |
+| 1 | Seattle Thunderbolts | 17.3 | 127/5 | K Wali | Bowled | 11:30 | [1:39:43](https://www.youtube.com/watch?v=j06bWrbpPYg&t=1h39m43s) |  |
+| 1 | Seattle Thunderbolts | 17.5 | 130/6 | K Gattepalli | Run out, direct | 11:33 | [1:42:35](https://www.youtube.com/watch?v=j06bWrbpPYg&t=1h42m35s) |  |
+| 1 | Seattle Thunderbolts | 19.2 | 141/8 | R Posanipally | Bowled | 11:45 | [1:54:16](https://www.youtube.com/watch?v=j06bWrbpPYg&t=1h54m16s) |  |
+| 1 | Seattle Thunderbolts | 19.4 | 141/9 | N Dass | Bowled | 11:47 | [1:56:28](https://www.youtube.com/watch?v=j06bWrbpPYg&t=1h56m28s) |  |
+| 2 | San Diego Surf Riders | 2.1 | 10/2 | S Banoori | Bowled | 12:16 | [2:25:57](https://www.youtube.com/watch?v=j06bWrbpPYg&t=2h25m57s) |  |
 
 <a id="game-36"></a>
 
@@ -414,10 +414,10 @@ Each of these is a moment the bail guard was engaged and a batter was dismissed.
 
 | Innings | Batting | Over | Fall of wicket | Batter out | How | Ground local time | In the video | Notes |
 |:--:|---|:--:|:--:|---|---|:--:|:--:|---|
-| 1 | East Bay Blazers | 13.6 | 116/6 | A Paradkar | Bowled | 12:09 | ≈ [1:15:52](https://www.youtube.com/watch?v=6RGkGYBoiUw&t=1h15m52s) |  |
-| 1 | East Bay Blazers | 18.6 | 139/9 | S Kurdekar | Run out, indirect | 12:36 | ≈ [1:41:20](https://www.youtube.com/watch?v=6RGkGYBoiUw&t=1h41m20s) |  |
-| 1 | East Bay Blazers | 19.6 | 143/10 | R Ketekar | Stumped | 12:41 | ≈ [1:46:35](https://www.youtube.com/watch?v=6RGkGYBoiUw&t=1h46m35s) |  |
-| 2 | Silicon Valley Strikers | 13.5 | 123/4 | S Jayasuriya | Bowled | 14:09 | ≈ [3:16:12](https://www.youtube.com/watch?v=6RGkGYBoiUw&t=3h16m12s) |  |
+| 1 | East Bay Blazers | 13.6 | 116/6 | A Paradkar | Bowled | 12:09 | [1:16:06](https://www.youtube.com/watch?v=6RGkGYBoiUw&t=1h16m6s) |  |
+| 1 | East Bay Blazers | 18.6 | 139/9 | S Kurdekar | Run out, indirect | 12:36 | [1:40:38](https://www.youtube.com/watch?v=6RGkGYBoiUw&t=1h40m38s) |  |
+| 1 | East Bay Blazers | 19.6 | 143/10 | R Ketekar | Stumped | 12:41 | [1:45:45](https://www.youtube.com/watch?v=6RGkGYBoiUw&t=1h45m45s) |  |
+| 2 | Silicon Valley Strikers | 13.5 | 123/4 | S Jayasuriya | Bowled | 14:09 | [3:16:29](https://www.youtube.com/watch?v=6RGkGYBoiUw&t=3h16m29s) |  |
 
 <a id="game-37"></a>
 
@@ -425,11 +425,11 @@ Each of these is a moment the bail guard was engaged and a batter was dismissed.
 
 | Innings | Batting | Over | Fall of wicket | Batter out | How | Ground local time | In the video | Notes |
 |:--:|---|:--:|:--:|---|---|:--:|:--:|---|
-| 1 | Seattle Thunderbolts | 2.1 | 9/1 | S Chitneni | Bowled | 14:40 | ≈ [0:16:00](https://www.youtube.com/watch?v=0Lym2LNrf3c&t=0h16m0s) |  |
-| 1 | Seattle Thunderbolts | 6.1 | 32/4 | K Wali | Run out, indirect | 15:01 | ≈ [0:37:42](https://www.youtube.com/watch?v=0Lym2LNrf3c&t=0h37m42s) |  |
-| 1 | Seattle Thunderbolts | 10.6 | 55/6 | S Kohli | Bowled | 15:19 | ≈ [0:55:13](https://www.youtube.com/watch?v=0Lym2LNrf3c&t=0h55m13s) |  |
-| 2 | San Diego Surf Riders | 8.2 | 47/2 | S Banoori | Bowled | 16:59 | ≈ [2:34:37](https://www.youtube.com/watch?v=0Lym2LNrf3c&t=2h34m37s) |  |
-| 2 | San Diego Surf Riders | 12.1 | 62/3 | T Adada | Bowled | 17:13 | ≈ [2:49:29](https://www.youtube.com/watch?v=0Lym2LNrf3c&t=2h49m29s) |  |
+| 1 | Seattle Thunderbolts | 2.1 | 9/1 | S Chitneni | Bowled | 14:40 | [0:16:45](https://www.youtube.com/watch?v=0Lym2LNrf3c&t=0h16m45s) |  |
+| 1 | Seattle Thunderbolts | 6.1 | 32/4 | K Wali | Run out, indirect | 15:01 | [0:37:58](https://www.youtube.com/watch?v=0Lym2LNrf3c&t=0h37m58s) |  |
+| 1 | Seattle Thunderbolts | 10.6 | 55/6 | S Kohli | Bowled | 15:19 | [0:57:03](https://www.youtube.com/watch?v=0Lym2LNrf3c&t=0h57m3s) |  |
+| 2 | San Diego Surf Riders | 8.2 | 47/2 | S Banoori | Bowled | 16:59 | [2:35:28](https://www.youtube.com/watch?v=0Lym2LNrf3c&t=2h35m28s) |  |
+| 2 | San Diego Surf Riders | 12.1 | 62/3 | T Adada | Bowled | 17:13 | [2:49:45](https://www.youtube.com/watch?v=0Lym2LNrf3c&t=2h49m45s) |  |
 
 <a id="game-38"></a>
 
@@ -437,8 +437,8 @@ Each of these is a moment the bail guard was engaged and a batter was dismissed.
 
 | Innings | Batting | Over | Fall of wicket | Batter out | How | Ground local time | In the video | Notes |
 |:--:|---|:--:|:--:|---|---|:--:|:--:|---|
-| 1 | All Stars | 19.6 | 141/8 | G Bolisetty | Run out, indirect | 19:36 | ≈ [1:42:30](https://www.youtube.com/watch?v=nnep51xEBCI&t=1h42m30s) |  |
-| 2 | Dallas Xforia Giants | 11.6 | 102/4 | S Singh | Bowled | 20:47 | ≈ [2:52:41](https://www.youtube.com/watch?v=nnep51xEBCI&t=2h52m41s) |  |
+| 1 | All Stars | 19.6 | 141/8 | G Bolisetty | Run out, indirect | 19:36 | [1:42:07](https://www.youtube.com/watch?v=nnep51xEBCI&t=1h42m7s) |  |
+| 2 | Dallas Xforia Giants | 11.6 | 102/4 | S Singh | Bowled | 20:47 | [2:53:00](https://www.youtube.com/watch?v=nnep51xEBCI&t=2h53m0s) |  |
 
 <a id="game-39"></a>
 
@@ -446,8 +446,8 @@ Each of these is a moment the bail guard was engaged and a batter was dismissed.
 
 | Innings | Batting | Over | Fall of wicket | Batter out | How | Ground local time | In the video | Notes |
 |:--:|---|:--:|:--:|---|---|:--:|:--:|---|
-| 1 | New Jersey Stallions | 13.5 | 93/7 | A Emmanuel | Stumped | 11:51 | ≈ [1:56:06](https://www.youtube.com/watch?v=BSVEB4cyMF4&t=1h56m6s) |  |
-| 1 | New Jersey Stallions | 15.5 | 98/10 | S Mylavarapu | Run out, indirect | 11:59 | ≈ [2:06:45](https://www.youtube.com/watch?v=BSVEB4cyMF4&t=2h6m45s) |  |
+| 1 | New Jersey Stallions | 13.5 | 93/7 | A Emmanuel | Stumped | 11:51 | [1:56:18](https://www.youtube.com/watch?v=BSVEB4cyMF4&t=1h56m18s) |  |
+| 1 | New Jersey Stallions | 15.5 | 98/10 | S Mylavarapu | Run out, indirect | 11:59 | [2:06:20](https://www.youtube.com/watch?v=BSVEB4cyMF4&t=2h6m20s) |  |
 
 <a id="game-40"></a>
 
@@ -465,10 +465,10 @@ Each of these is a moment the bail guard was engaged and a batter was dismissed.
 
 | Innings | Batting | Over | Fall of wicket | Batter out | How | Ground local time | In the video | Notes |
 |:--:|---|:--:|:--:|---|---|:--:|:--:|---|
-| 1 | East Bay Blazers | 2.4 | 17/2 | S Krishnamurthi | Bowled | 11:42 | ≈ [0:16:21](https://www.youtube.com/watch?v=bZvPOX4IS2U&t=0h16m21s) |  |
-| 1 | East Bay Blazers | 18.4 | 148/8 | F Khan Ahmadzai | Bowled | 13:00 | ≈ [1:35:02](https://www.youtube.com/watch?v=bZvPOX4IS2U&t=1h35m2s) |  |
-| 1 | East Bay Blazers | 19.2 | 150/9 | A Iyer | Bowled | 13:04 | ≈ [1:38:52](https://www.youtube.com/watch?v=bZvPOX4IS2U&t=1h38m52s) |  |
-| 1 | East Bay Blazers | 19.3 | 150/10 | R Ketekar | Bowled | 13:05 | ≈ [1:39:50](https://www.youtube.com/watch?v=bZvPOX4IS2U&t=1h39m50s) |  |
+| 1 | East Bay Blazers | 2.4 | 17/2 | S Krishnamurthi | Bowled | 11:42 | [0:16:36](https://www.youtube.com/watch?v=bZvPOX4IS2U&t=0h16m36s) |  |
+| 1 | East Bay Blazers | 18.4 | 148/8 | F Khan Ahmadzai | Bowled | 13:00 | [1:35:23](https://www.youtube.com/watch?v=bZvPOX4IS2U&t=1h35m23s) |  |
+| 1 | East Bay Blazers | 19.2 | 150/9 | A Iyer | Bowled | 13:04 | [1:39:11](https://www.youtube.com/watch?v=bZvPOX4IS2U&t=1h39m11s) |  |
+| 1 | East Bay Blazers | 19.3 | 150/10 | R Ketekar | Bowled | 13:05 | [1:40:11](https://www.youtube.com/watch?v=bZvPOX4IS2U&t=1h40m11s) |  |
 
 <a id="game-42"></a>
 
@@ -540,9 +540,9 @@ Each of these is a moment the bail guard was engaged and a batter was dismissed.
 
 | Innings | Batting | Over | Fall of wicket | Batter out | How | Ground local time | In the video | Notes |
 |:--:|---|:--:|:--:|---|---|:--:|:--:|---|
-| 1 | St. Louis Americans | 3.1 | 32/3 | N Anwar | Stumped | 10:50 | ≈ [0:24:35](https://www.youtube.com/watch?v=PWeghzYCC6c&t=0h24m35s) |  |
-| 1 | St. Louis Americans | 14.1 | 81/8 | B Kathula | Stumped | 11:33 | ≈ [1:07:35](https://www.youtube.com/watch?v=PWeghzYCC6c&t=1h7m35s) |  |
-| 1 | St. Louis Americans | 14.6 | 94/9 | A Lamba | Bowled | 11:37 | ≈ [1:11:35](https://www.youtube.com/watch?v=PWeghzYCC6c&t=1h11m35s) |  |
+| 1 | St. Louis Americans | 3.1 | 32/3 | N Anwar | Stumped | 10:50 | [0:25:48](https://www.youtube.com/watch?v=PWeghzYCC6c&t=0h25m48s) |  |
+| 1 | St. Louis Americans | 14.1 | 81/8 | B Kathula | Stumped | 11:33 | [1:08:57](https://www.youtube.com/watch?v=PWeghzYCC6c&t=1h8m57s) |  |
+| 1 | St. Louis Americans | 14.6 | 94/9 | A Lamba | Bowled | 11:37 | [1:13:50](https://www.youtube.com/watch?v=PWeghzYCC6c&t=1h13m50s) |  |
 
 <a id="game-49"></a>
 
@@ -572,10 +572,10 @@ Each of these is a moment the bail guard was engaged and a batter was dismissed.
 
 | Innings | Batting | Over | Fall of wicket | Batter out | How | Ground local time | In the video | Notes |
 |:--:|---|:--:|:--:|---|---|:--:|:--:|---|
-| 1 | Los Angeles Lashings | 16.4 | 99/5 | A Dodson | Stumped | 14:41 | ≈ [1:36:32](https://www.youtube.com/watch?v=qbcPelYDPfY&t=1h36m32s) |  |
-| 2 | Seattle Thunderbolts | 4.2 | 15/4 | M Lakshmikanth | Bowled | 15:41 | ≈ [2:34:38](https://www.youtube.com/watch?v=qbcPelYDPfY&t=2h34m38s) |  |
-| 2 | Seattle Thunderbolts | 7.2 | 26/5 | J Patel | Run out, indirect | 15:56 | ≈ [2:49:38](https://www.youtube.com/watch?v=qbcPelYDPfY&t=2h49m38s) |  |
-| 2 | Seattle Thunderbolts | 9.4 | 39/7 | K Wali | Run out, indirect | 16:10 | ≈ [3:03:38](https://www.youtube.com/watch?v=qbcPelYDPfY&t=3h3m38s) |  |
+| 1 | Los Angeles Lashings | 16.4 | 99/5 | A Dodson | Stumped | 14:41 | [1:36:18](https://www.youtube.com/watch?v=qbcPelYDPfY&t=1h36m18s) |  |
+| 2 | Seattle Thunderbolts | 4.2 | 15/4 | M Lakshmikanth | Bowled | 15:41 | [2:35:41](https://www.youtube.com/watch?v=qbcPelYDPfY&t=2h35m41s) |  |
+| 2 | Seattle Thunderbolts | 7.2 | 26/5 | J Patel | Run out, indirect | 15:56 | [2:50:51](https://www.youtube.com/watch?v=qbcPelYDPfY&t=2h50m51s) |  |
+| 2 | Seattle Thunderbolts | 9.4 | 39/7 | K Wali | Run out, indirect | 16:10 | [3:04:51](https://www.youtube.com/watch?v=qbcPelYDPfY&t=3h4m51s) |  |
 
 <a id="game-52"></a>
 
@@ -583,10 +583,10 @@ Each of these is a moment the bail guard was engaged and a batter was dismissed.
 
 | Innings | Batting | Over | Fall of wicket | Batter out | How | Ground local time | In the video | Notes |
 |:--:|---|:--:|:--:|---|---|:--:|:--:|---|
-| 1 | MetroPlex Tracers | 17.5 | 145/5 | S Modani | Bowled | 15:29 | ≈ [1:37:52](https://www.youtube.com/watch?v=XGkLoVOwnUI&t=1h37m52s) |  |
-| 2 | Lone Star Athletics | 5.2 | 85/2 | U Chand | Run out, indirect | 16:29 | ≈ [2:36:13](https://www.youtube.com/watch?v=XGkLoVOwnUI&t=2h36m13s) |  |
-| 2 | Lone Star Athletics | 6.5 | 110/3 | F Allen | Bowled | 16:36 | ≈ [2:44:52](https://www.youtube.com/watch?v=XGkLoVOwnUI&t=2h44m52s) |  |
-| 2 | Lone Star Athletics | 9.4 | 125/6 | A Nadkarni | Bowled | 16:56 | ≈ [3:03:13](https://www.youtube.com/watch?v=XGkLoVOwnUI&t=3h3m13s) |  |
+| 1 | MetroPlex Tracers | 17.5 | 145/5 | S Modani | Bowled | 15:29 | [1:37:58](https://www.youtube.com/watch?v=XGkLoVOwnUI&t=1h37m58s) |  |
+| 2 | Lone Star Athletics | 5.2 | 85/2 | U Chand | Run out, indirect | 16:29 | [2:34:16](https://www.youtube.com/watch?v=XGkLoVOwnUI&t=2h34m16s) |  |
+| 2 | Lone Star Athletics | 6.5 | 110/3 | F Allen | Bowled | 16:36 | [2:44:57](https://www.youtube.com/watch?v=XGkLoVOwnUI&t=2h44m57s) |  |
+| 2 | Lone Star Athletics | 9.4 | 125/6 | A Nadkarni | Bowled | 16:56 | [3:01:15](https://www.youtube.com/watch?v=XGkLoVOwnUI&t=3h1m15s) |  |
 
 <a id="game-53"></a>
 
