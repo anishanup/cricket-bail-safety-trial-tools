@@ -9,7 +9,7 @@ This counts the dismissals that physically dislodge the bails, which are the mom
 
 | | Bowled | Stumped | Run out | Hit wicket | Total |
 |---|:--:|:--:|:--:|:--:|:--:|
-| **All 33 games** | **128** | **13** | **70** | **3** | **214** |
+| **All 37 games** | **150** | **15** | **74** | **3** | **242** |
 
 On average about **6.5 bail-dislodging dismissals per game.**
 
@@ -80,7 +80,17 @@ On average about **6.5 bail-dislodging dismissals per game.**
 | CCA Spartans U15 vs Cricket Minds Warriors Blue U15 | 7 | 0 | 0 | 0 | 7 | The Pavillion-SCG | 2026-09-27 |
 | All Stars Raiders BLUE U15 vs DYCL Panthers U15 | 0 | 0 | 1 | 0 | 1 | Russell Creek G6 | 2026-09-27 |
 | WCA Falcons U15 vs TCA Gladiators U15 | 2 | 0 | 1 | 0 | 3 | Krum Cricket Ground 3 | 2026-09-27 |
-| **Subtotal (7 games)** | **22** | **3** | **8** | **0** | **33** | | |
+| All Stars Raiders RED U15 vs Cricket Minds Warriors Gold U15 | 5 | 1 | 0 | 0 | 6 | The Pavillion-SCG | 2026-09-27 |
+| **Subtotal (8 games)** | **27** | **4** | **8** | **0** | **39** | | |
+
+## 2026 Fall League U17
+
+| Match | Bowled | Stumped | Run out | Hit wicket | Total | Ground | Date |
+|---|:--:|:--:|:--:|:--:|:--:|---|:--:|
+| TIC-Supernova U17 vs RSC Rising Stars U17 | 2 | 0 | 0 | 0 | 2 | GSC G1(Trees) | 2026-09-26 |
+| CCA Mavericks U17 vs All Stars Invincibles U17 | 4 | 1 | 4 | 0 | 9 | GSC G2(Pond) | 2026-09-26 |
+| FCCA Spartans U17 vs SKA Panthers U17 | 11 | 0 | 0 | 0 | 11 | The Pavillion-SCG | 2026-09-26 |
+| **Subtotal (3 games)** | **17** | **1** | **4** | **0** | **22** | | |
 
 ## Notes
 
