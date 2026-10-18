@@ -9,6 +9,7 @@ The goal is transparent, reproducible documentation that supports independent te
 - [Defensive publication (Zenodo)](https://doi.org/10.5281/zenodo.17284396) — Technical disclosure with prior art
 - [Explainer video (YouTube)](https://youtu.be/PeISNg5_usY) — Visual overview of the mechanism
 - [Trial highlights playlist (YouTube)](https://www.youtube.com/playlist?list=PLcYYPWle7j_DAocfHTG9aT0MmcTBm5-Ny) — All field trial videos
+- [Zing compatibility test (YouTube)](https://youtu.be/USnq6s3Hpyo): Bail Guard with Club Zing (Series 1) electronic stumps and bails. Procedure and measurements are in [zing-compatibility/](zing-compatibility/)
 - [Presentation for leagues (Google Drive)](https://docs.google.com/presentation/d/136xSsMM0RMuuDFrCSybQAT8F4PuwABc4/edit?usp=drive_link&ouid=104491509742866483855&rtpof=true&sd=true) — Overview deck for cricket leagues
 - [Presentation PDF (Google Drive)](https://drive.google.com/file/d/1oVQVN1WY7dx6SvYWuCzHR1Z85Qlw31KU/view?usp=drive_link) — PDF version of the deck
 
@@ -68,6 +69,7 @@ For technical details on the highlight extraction tool, see [src/scripts/make_hi
 
 ```
 ├── trials/           — Trial folders (one per observation session)
+├── zing-compatibility/  Compatibility check with Club Zing (Series 1) bails
 ├── templates/        — Templates for trial files
 └── src/scripts/      — Video processing tools + documentation
 ```
