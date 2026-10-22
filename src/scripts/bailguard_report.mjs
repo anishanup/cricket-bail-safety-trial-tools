@@ -277,7 +277,10 @@ L.push("## Notes", "");
 L.push(`- The table lists every ${args.week} game that was played to a result **and** has ball-by-ball scoring entered, grouped by the league's official week number (**${args.week}**), across ${args.tournaments.length} tournament${args.tournaments.length > 1 ? "s" : ""}.`);
 if (args.from || args.to) {
   const win = args.from && args.to ? `between ${args.from} and ${args.to}` : args.from ? `on or after ${args.from}` : `on or before ${args.to}`;
-  L.push(`- Only ${args.week} games played ${win} are included. The league has used the ${args.week} label for more than one weekend; ${skippedByDate} ${args.week} game${skippedByDate === 1 ? "" : "s"} outside this window ${skippedByDate === 1 ? "is" : "are"} left out here because ${skippedByDate === 1 ? "it is" : "they are"} covered by an earlier report.`);
+  // say only what this run knows: it cannot tell whether another report counts the games it leaves out
+  L.push(`- Only ${args.week} games played ${win} are included.` + (skippedByDate
+    ? ` ${skippedByDate} ${args.week} game${skippedByDate === 1 ? " was" : "s were"} played outside these dates and ${skippedByDate === 1 ? "is" : "are"} not counted in this report.`
+    : ""));
 }
 if (excluded.length) {
   const lst = excluded.map((r) => `${r.name} (${(tinfo.get(r.tid).name || "").replace(/ 2026$/, "")}, ${r.date})`).join("; ");

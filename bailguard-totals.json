@@ -1,25 +1,25 @@
 {
   "project": "Cricket Bail Safety Trial Tools",
   "description": "Running total of bail-dislodging dismissals (Bowled + Stumped + Run out + Hit wicket). Lower bound on how often a bail guard is engaged.",
-  "generated_on": "2026-10-12",
+  "generated_on": "2026-10-22",
   "data_from": "2026-01-18",
-  "data_to": "2026-10-11",
+  "data_to": "2026-10-18",
   "totals": {
-    "games": 1035,
-    "bowled": 3545,
-    "stumped": 309,
-    "run_out": 1532,
-    "hit_wicket": 28,
-    "dislodgements": 5414
+    "games": 1108,
+    "bowled": 3860,
+    "stumped": 336,
+    "run_out": 1664,
+    "hit_wicket": 34,
+    "dislodgements": 5894
   },
   "totals_by_source": {
     "adult_league_scorecards": {
-      "games": 706,
-      "bowled": 2500,
-      "stumped": 149,
-      "run_out": 917,
-      "hit_wicket": 15,
-      "dislodgements": 3581
+      "games": 755,
+      "bowled": 2700,
+      "stumped": 163,
+      "run_out": 987,
+      "hit_wicket": 19,
+      "dislodgements": 3869
     },
     "youth_league_scorecards": {
       "games": 72,
@@ -38,12 +38,12 @@
       "dislodgements": 77
     },
     "usa_cricket_hub_scorecards": {
-      "games": 179,
-      "bowled": 722,
-      "stumped": 97,
-      "run_out": 383,
-      "hit_wicket": 11,
-      "dislodgements": 1213
+      "games": 203,
+      "bowled": 837,
+      "stumped": 110,
+      "run_out": 445,
+      "hit_wicket": 13,
+      "dislodgements": 1405
     },
     "semi_pro_league_scorecards": {
       "games": 53,
@@ -68,8 +68,8 @@
       "state": "TX",
       "lat": 32.85,
       "lon": -97,
-      "games": 990,
-      "dislodgements": 5287,
+      "games": 1063,
+      "dislodgements": 5767,
       "sources": [
         "Dallas Cricket League",
         "Dallas Youth Cricket League",
@@ -234,8 +234,9 @@
       "trials/20260620-dallas-cricket-league-fall-season/20260829-week/bailguard-impact-20260829-20260830.md",
       "trials/20260620-dallas-cricket-league-fall-season/20260912-week/bailguard-impact-20260908-20260913.md",
       "trials/20260620-dallas-cricket-league-fall-season/20260919-week/bailguard-impact-20260919-20260920.md",
-      "trials/20260919-dallas-cricket-league-spring-2027-season/20261003-week/bailguard-impact-20261003-20261004.md",
-      "trials/20260919-dallas-cricket-league-spring-2027-season/20261010-week/bailguard-impact-20261010-20261011.md"
+      "trials/20260919-dallas-cricket-league-spring-2027-season/20261003-week/bailguard-impact-20260929-20261004.md",
+      "trials/20260919-dallas-cricket-league-spring-2027-season/20261010-week/bailguard-impact-20261005-20261011.md",
+      "trials/20260919-dallas-cricket-league-spring-2027-season/20261017-week/bailguard-impact-20261012-20261018.md"
     ],
     "youth_league_scorecards": [
       "trials/dycl/2026-dycl-independence-cup"
@@ -250,7 +251,8 @@
       "trials/dallas-hub/2026-fall-league/20260911-week",
       "trials/dallas-hub/2026-fall-league/20260918-week",
       "trials/dallas-hub/2026-fall-league/20260925-week",
-      "trials/dallas-hub/2026-fall-league/20261009-week"
+      "trials/dallas-hub/2026-fall-league/20261009-week",
+      "trials/dallas-hub/2026-fall-league/20261017-week"
     ],
     "semi_pro_league_scorecards": [
       "trials/milc/2026-milc"

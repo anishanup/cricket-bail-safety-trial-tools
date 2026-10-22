@@ -5,10 +5,10 @@ league: "Dallashub"
 source: "cricclubs.com/Dallashub (USA Cricket Dallas hub scorecards)"
 date_from: "2026-10-09"
 date_to: "2026-10-11"
-games: 26
+games: 27
 bowled: 112
 stumped: 19
-run_out: 60
+run_out: 63
 hit_wicket: 2
 matches:
   - { date: "2026-10-09", series: "2026 Fall League U11 DIV B", match: "RCA Sparks U11B vs VCA Blue U11B", ground: " Sandy Lake CG", bowled: 4, stumped: 0, run_out: 2, hit_wicket: 0, total: 6 }
@@ -32,6 +32,7 @@ matches:
   - { date: "2026-10-11", series: "2026 Fall League U11 DIV A", match: "CricKingdom Falcons U11A vs TIC Little Masters U11A", ground: "Krum Cricket Ground 4", bowled: 6, stumped: 0, run_out: 4, hit_wicket: 1, total: 11 }
   - { date: "2026-10-11", series: "2026 Fall League U11 DIV B", match: "SAC Foals U11B vs SKA Tigers U11B", ground: "Stallions CG2", bowled: 6, stumped: 0, run_out: 2, hit_wicket: 0, total: 8 }
   - { date: "2026-10-11", series: "2026 Fall League U11 DIV B", match: "SKA Cheetahs U11B vs WCA Challenger U11B", ground: "Horseshoe", bowled: 8, stumped: 0, run_out: 3, hit_wicket: 0, total: 11 }
+  - { date: "2026-10-11", series: "2026 Fall League U11 DIV A", match: "CCA Rising Stars U11A vs All Stars Sparklers RED U11A", ground: "Krum Cricket Ground 5", bowled: 0, stumped: 0, run_out: 3, hit_wicket: 0, total: 3 }
   - { date: "2026-10-11", series: "2026 Fall League U15", match: "Cricket Minds Warriors Blue U15 vs DYCL Panthers U15", ground: "The Pavillion-SCG", bowled: 5, stumped: 0, run_out: 3, hit_wicket: 0, total: 8 }
   - { date: "2026-10-11", series: "2026 Fall League U15", match: "WCA Falcons U15 vs VCA Red U15", ground: "GSC G1(Trees)", bowled: 7, stumped: 0, run_out: 3, hit_wicket: 0, total: 10 }
   - { date: "2026-10-11", series: "2026 Fall League U15", match: "DYCL Cheetahs U15 vs FCCA Commanders U15", ground: "GSC G2(Pond)", bowled: 3, stumped: 1, run_out: 1, hit_wicket: 0, total: 5 }

@@ -9,9 +9,9 @@ This counts the dismissals that physically dislodge the bails, which are the mom
 
 | | Bowled | Stumped | Run out | Hit wicket | Total |
 |---|:--:|:--:|:--:|:--:|:--:|
-| **All 26 games** | **112** | **19** | **60** | **2** | **193** |
+| **All 27 games** | **112** | **19** | **63** | **2** | **196** |
 
-On average about **7.4 bail-dislodging dismissals per game.**
+On average about **7.3 bail-dislodging dismissals per game.**
 
 ## 2026 Fall League U11 DIV A
 
@@ -22,7 +22,8 @@ On average about **7.4 bail-dislodging dismissals per game.**
 | Cricket Minds Cubs U11A vs VCA Red U11A | 2 | 1 | 4 | 0 | 7 | Coppell Cricket Ground | 2026-10-11 |
 | BCCS Black Raptors U11A vs SKA Lions U11A | 8 | 0 | 5 | 0 | 13 | Krum Cricket Ground 6 | 2026-10-11 |
 | CricKingdom Falcons U11A vs TIC Little Masters U11A | 6 | 0 | 4 | 1 | 11 | Krum Cricket Ground 4 | 2026-10-11 |
-| **Subtotal (5 games)** | **22** | **4** | **19** | **1** | **46** | | |
+| CCA Rising Stars U11A vs All Stars Sparklers RED U11A | 0 | 0 | 3 | 0 | 3 | Krum Cricket Ground 5 | 2026-10-11 |
+| **Subtotal (6 games)** | **22** | **4** | **22** | **1** | **49** | | |
 
 ## 2026 Fall League U11 DIV B
 
